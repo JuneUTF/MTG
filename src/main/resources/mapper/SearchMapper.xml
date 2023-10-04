@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.juneutf.mtg.mapper.SearchMapper">
+
+	<select id="selectSearch" resultType="com.juneutf.mtg.model.JobModel">
+	 SELECT *
+    FROM plan
+    WHERE
+        date_plan >=TO_DATE(#{date_start}, 'YYYY-MM-DD')
+    <if test="date_end != null and date_end != ''">
+        AND date_plan <![CDATA[<=]]> TO_DATE(#{date_end}, 'YYYY-MM-DD')
+    </if>
+    <if test="purpose != null and purpose != ''">
+        AND purpose = #{purpose}
+    </if>
+    <if test="charge != null and charge != ''">
+        AND charge = #{charge}
+    </if>
+    <if test="status != null and status != ''">
+        AND status = #{status}
+    </if>
+    ORDER BY date_plan ASC;
+	</select>
+	
+</mapper>

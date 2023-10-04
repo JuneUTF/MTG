@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/bootstrap/css/bootstrap.min.css">
+    <script src="style/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="style/css/home.css">
+    <title>ログイン</title>
+</head>
+<body>
+	<div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 form-container">
+                <h2 class="text-center mb-4">ログイン</h2>
+                <form class="login-form" th:action="@{/login}" method="post">
+                	<div th:if="${param.error}">
+            			<p style="color: red; text-align: center;">ログイン情報が一致しません。</p>
+       				 </div>
+                    <div class="mb-3">
+                        <label for="username" class="form-label">ユーザー名またはメールアドレス：</label>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="ユーザー名またはメールアドレスを入力ください。"required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">パスワード：</label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="パスワードを入力ください。" required>
+                        <div id="password-error" class="text-danger  mt-1">　</div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block btn-outline-success" id="submit">ログイン</button>
+                </form>
+                    <a href="/password" class="btn btn-outline-danger mt-2">パスワード再設定</a>
+            </div>
+        </div>
+    </div>
+    <script src="style/js/home.js"></script>
+</body>
+</html>

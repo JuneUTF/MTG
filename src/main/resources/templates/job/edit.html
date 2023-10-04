@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style/bootstrap/css/bootstrap.min.css">
+    <script src="/style/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="/style/css/home.css">
+    <link rel="stylesheet" href="/style/css/menu.css">
+    <title>会議室予約編集</title>
+</head>
+<body> 
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #0e8695;">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold" href="#">会議室管理システム</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link btn btn-secondary" href="/kk/job">予約管理</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/kk/plan">新規予約</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/kk/operation">担当・目的</a>
+          </li>
+        </ul>
+        <div class="d-flex">
+          <a class="btn btn-outline-light" href="/logout">ログアウト</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+<nav class="tableShow">
+	<div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 form-container">
+                <form class="login-form" th:action="@{/kk/job}" method="post">
+                <h2 class="text-center mb-4">会議室予約編集ID:<input type="text" name="id" class ="none_css" required readonly th:value="${job[0].id}"></h2>
+                <p class="text-success text-center fs-5" th:text="${msg}"></p>
+                <p class="text-danger text-center fs-5" id="msg">　</p>
+                        <div class="mb-1">
+                            <label for="date_plan" class="form-label">日付：(<input type="text" class ="none_css" name="date_day" id="date_day" required readonly th:value="${job[0].date_day}">)</label>
+                            <input type="date" class="form-control" id="date_plan" name="date_plan" required th:value="${job[0].date_plan}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="time_start" class="form-label">開始：</label>
+                            <input type="time" class="form-control" id="time_start" name="time_start" required th:value="${job[0].time_start}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="time_end" class="form-label">終了</label>
+                            <input type="time" class="form-control" id="time_end" name="time_end" required th:value="${job[0].time_end}">
+                        </div>
+                        <div class="mb-1">
+                            <label for="purpose" class="form-label">目的：</label>
+                            <select class="form-select" id="purpose" name="purpose">
+                            <option th:value="${job[0].purpose}" th:text ="${job[0].purpose}"></option>
+                            </select>
+                        </div>
+                        <div class="mb-1">
+                            <label for="charge" class="form-label">担当：</label>
+                            <select class="form-select" id="charge" name="charge">
+                            <option th:value="${job[0].charge}" th:text ="${job[0].charge}"></option>
+                            
+                            </select>
+                        </div>
+                    <button type="submit" class="btn btn-primary btn-block btn-outline-success" id="submit">送信</button>
+                </form>
+                    <a href="/kk/job" class="btn btn-outline-danger mt-2">予約画面</a>
+            </div>
+        </div>
+    </div>
+    </nav>
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        // ジョブ情報を格納する変数
+        let ArrayJob = /*[[${job}]]*/;
+        /*]]>*/
+    </script>
+    <script src="/style/js/job/editJob.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>パスワード再設定の認証番号</title>
+</head>
+<body>
+    <h1>パスワード再設定の認証番号</h1>
+    <p>お世話になっております。</p>
+    <p>パスワードの再設定をリクエストいただき、認証番号をお知らせいたします。</p>
+    <p  style="color:red;">認証番号: <strong th:text="${token}"></strong></p>
+    <p>この認証番号を使用して、パスワードの再設定を続行してください。認証番号はセキュリティのため一度きりの使用となりますので、他の人と共有しないようにしてください。</p>
+    <p>認証番号の有効期限は5分間です。有効期限が切れた場合は、再度リクエストを行ってください。</p>
+    <p>ご質問やお困りの点がある場合は、お気軽にお問い合わせください。</p>
+    <p>どうぞよろしくお願いいたします。</p>
+    <hr>
+    <p style="color:#4F6367;">このメールは自動送信されています。お心当たりのない場合や、誤って受信された場合は、無視していただいても結構です。</p>
+</body>
+</html>

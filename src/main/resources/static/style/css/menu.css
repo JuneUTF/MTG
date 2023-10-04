@@ -1,0 +1,75 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  position: relative;
+  overflow: hidden;
+}
+.navbar.navbar-expand-lg.navbar-dark {
+    padding: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+.nav-link {
+  color: #fff !important;
+  padding:15px !important;
+  border-left: 1px solid #fff;
+}
+.nav-link:first-child{
+  border-right: 1px solid #fff;
+}
+.nav-link:hover{ 
+	color:#fff !important;
+	background-color:#198754 !important;
+}
+.dropdown-menu {
+  background-color: #0e8695;
+}
+.navbar.navbar-expand-lg.navbar-dark{
+	padding:0;
+}
+/* CSS 検索ボックス */
+#search .row {
+  height: 40px;
+  line-height: 40px;
+}
+#search input, #search select {
+	width:auto;
+    margin: 0 10px; 
+    padding: 0 10px;
+}
+span{
+	  margin: 0;
+  	padding: 0;
+  	line-height: 40px;
+}
+#showForm {
+	width:400px;
+  position: absolute;
+  top: 30%;
+  z-index: 1;
+  transform: translateX(50%);
+  animation: 300ms ease-in-out forwards ;
+  overflow: hidden;
+}
+@keyframes showForm{
+  0% {
+    right: 0;
+  }
+  100% {
+    right: 50%;
+}
+}
+@keyframes deleleForm{
+  0% {
+    right: 50%;
+  }
+  100% {
+    right: 200%;
+    }
+}
