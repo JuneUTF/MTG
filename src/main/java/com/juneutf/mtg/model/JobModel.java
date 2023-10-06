@@ -40,7 +40,20 @@ public class JobModel {
      */
     private String charge;
     /**
+     * 目的IDです。
+     */
+    private int purposeId;
+
+    /**
+     * 担当者IDです。
+     */
+    private int chargeId;
+    /**
      * プランの状況です。
      */
     private String status;
+    /**
+     * ID最大です。
+     */
+    private int MAX;
 }

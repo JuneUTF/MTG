@@ -18,8 +18,8 @@ import com.juneutf.mtg.config.service.PlanService;
 import com.juneutf.mtg.config.service.SetPasswordService;
 import com.juneutf.mtg.config.vender.CreateToken;
 import com.juneutf.mtg.config.vender.EmailService;
+import com.juneutf.mtg.model.JobModel;
 import com.juneutf.mtg.model.LoginModel;
-import com.juneutf.mtg.model.PlanModel;
 import com.juneutf.mtg.model.SetPasswordModel;
 
 import lombok.extern.slf4j.Slf4j;
@@ -51,7 +51,7 @@ public class HomeController {
 			return "redirect:/kk/job";
 		}
 		// 予約の取得
-		ArrayList<PlanModel> job = planService.selectPlan();
+		ArrayList<JobModel> job = planService.selectPlan();
 		// タイムリーフに予約内容の渡す
 		model.addAttribute("job", job);
 		return "index";

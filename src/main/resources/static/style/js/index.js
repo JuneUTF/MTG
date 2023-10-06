@@ -11,7 +11,7 @@ function connectWebSocket() {
     stompClient.connect({}, function (frame) {
         stompClient.subscribe('/job/notification', function (job) {
             var newJob = JSON.parse(job.body);
-            setJob(newJob); 
+            setJob(newJob);
         });
     });
 }
@@ -22,17 +22,17 @@ let jobtt = "";
  * 予約のチェック
  * @param {Array} 予約内容リスト 
  */
-function plan(obj){
+function plan(obj) {
     //配列の長さ==0・予約内容がない（画面に予約内容がないのメッセージを表示されます。）
-    if(obj.length == 0){
-         // ジョブテーブルにHTMLを設定
+    if (obj.length == 0) {
+        // ジョブテーブルにHTMLを設定
         job.innerHTML = jobtt;
         // 変数をリセット
-        jobtt = ""; 
-    // 予約内容がある。（setJobを呼び出して予約内容の配列を渡す。）
-    }else{
+        jobtt = "";
+        // 予約内容がある。（setJobを呼び出して予約内容の配列を渡す。）
+    } else {
         setJob(obj);
-        
+
     }
 }
 // ジョブ情報をHTMLテーブルに設定する関数
@@ -49,7 +49,7 @@ function setJob(obj) {
         ArrayJob[datePlan].push(item);
     });
     // 各日付ごとのジョブを時間順にソートし、新しい配列に追加
-   Object.values(ArrayJob).forEach(e => {
+    Object.values(ArrayJob).forEach(e => {
         e.sort(function (a, b) {
             const timeA = new Date('1970-01-01T' + a.time_start + 'Z').getTime();
             const timeB = new Date('1970-01-01T' + b.time_start + 'Z').getTime();
@@ -66,9 +66,9 @@ function setJob(obj) {
         e.forEach(e => {
             if (timeLine <= new Date(e.date_plan + 'T' + e.time_end + 'Z').getTime()) {
                 if (timeLine >= new Date(e.date_plan + 'T' + e.time_start + 'Z').getTime()) {
-                    jobtt += `<tr><td>${e.date_plan.substring(0,4)}年${e.date_plan.substring(5,7)}月${e.date_plan.substring(8,10)}日(${e.date_day}曜日)</td><td>${e.time_start}～${e.time_end} <span class='yoyaku'>利用中</span></td><td>${e.purpose}</td><td>${e.charge}</td></tr>`
+                    jobtt += `<tr><td>${e.date_plan.substring(0, 4)}年${e.date_plan.substring(5, 7)}月${e.date_plan.substring(8, 10)}日(${e.date_day}曜日)</td><td>${e.time_start}～${e.time_end} <span class='yoyaku'>利用中</span></td><td>${e.purpose}</td><td>${e.charge}</td></tr>`
                 } else {
-                    jobtt += `<tr><td>${e.date_plan.substring(0,4)}年${e.date_plan.substring(5,7)}月${e.date_plan.substring(8,10)}日(${e.date_day}曜日)</td><td>${e.time_start}～${e.time_end}</td><td>${e.purpose}</td><td>${e.charge}</td></tr>`
+                    jobtt += `<tr><td>${e.date_plan.substring(0, 4)}年${e.date_plan.substring(5, 7)}月${e.date_plan.substring(8, 10)}日(${e.date_day}曜日)</td><td>${e.time_start}～${e.time_end}</td><td>${e.purpose}</td><td>${e.charge}</td></tr>`
                 }
             }
         })

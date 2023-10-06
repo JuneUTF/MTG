@@ -10,12 +10,15 @@
 	VALUES
 	(#{date_day},TO_DATE(#{date_plan}, 'YYYY-MM-DD'),#{time_start},#{time_end},#{purpose},#{charge},'予約中')
 	</insert>
-	<select id="selectPlan" resultType="com.juneutf.mtg.model.PlanModel">
-	SELECT * FROM plan
-	WHERE date_plan >= current_date	AND status = '予約中'
-	ORDER BY date_plan ASC;
+	<select id="selectPlan" resultType="com.juneutf.mtg.model.JobModel">
+	SELECT plan.ID, plan.date_day, plan.date_plan, plan.time_start, plan.time_end, charge.charge AS charge,purpose.purpose AS purpose, plan.status
+	FROM plan
+	JOIN charge ON plan.charge = charge.ID
+	JOIN purpose ON plan.purpose = purpose.ID
+	WHERE plan.date_plan >= current_date	AND plan.status = '予約中'
+	ORDER BY plan.date_plan ASC;
 	</select>
-	<select id="selectMaxIdPlan" resultType="com.juneutf.mtg.model.PlanModel">
+	<select id="selectMaxIdPlan" resultType="com.juneutf.mtg.model.JobModel">
 	SELECT MAX(id) FROM plan
 	</select>
 	

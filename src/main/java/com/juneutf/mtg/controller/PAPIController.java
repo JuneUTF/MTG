@@ -9,11 +9,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import com.juneutf.mtg.config.service.APIService;
 import com.juneutf.mtg.config.service.PlanService;
-import com.juneutf.mtg.mapper.PlanMapper;
 import com.juneutf.mtg.model.APIChargeModel;
 import com.juneutf.mtg.model.APIMessengerModel;
 import com.juneutf.mtg.model.APIPurposeModel;
-import com.juneutf.mtg.model.PlanModel;
+import com.juneutf.mtg.model.JobModel;
 
 import lombok.extern.slf4j.Slf4j;
 /**
@@ -66,7 +65,7 @@ public class PAPIController {
 	@GetMapping("/job")
 	public ResponseEntity<?> getJob(APIMessengerModel apiModel){
 		try {
-			ArrayList<PlanModel> res = planService.selectPlan();
+			ArrayList<JobModel> res = planService.selectPlan();
 			return ResponseEntity.status(200).body(res);
 		} catch (Exception e) {
 			apiModel.setIsData("false");

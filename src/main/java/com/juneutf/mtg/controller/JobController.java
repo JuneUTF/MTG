@@ -93,7 +93,7 @@ public class JobController {
 		//予約内容が完成してIDの上で画面に遷移
 		if(jobUpdate==1) {
 			//Websocket行動
-			ArrayList<PlanModel> job = planService.selectPlan();
+			ArrayList<JobModel> job = planService.selectPlan();
 			messagingTemplate.convertAndSend("/job/notification", job);
 			return "redirect:/kk/job?id="+jobModel.getId();
 		}else {
@@ -110,7 +110,7 @@ public class JobController {
 		//予約内容が完成してIDの上で画面に遷移
 		if(jobUpdate==1) {
 			//Websocket行動
-			ArrayList<PlanModel> job = planService.selectPlan();
+			ArrayList<JobModel> job = planService.selectPlan();
 			messagingTemplate.convertAndSend("/job/notification", job);
 			return "redirect:/kk/job";
 		}else {
@@ -126,7 +126,7 @@ public class JobController {
 		//予約内容が完成してIDの上で画面に遷移
 		if(jobUpdate==1) {
 			//Websocket行動
-			ArrayList<PlanModel> job = planService.selectPlan();
+			ArrayList<JobModel> job = planService.selectPlan();
 			messagingTemplate.convertAndSend("/job/notification", job);
 			return "redirect:/kk/job";
 		}else {
@@ -138,6 +138,7 @@ public class JobController {
 	 * 予約内容の検索*/
 	@PostMapping("job/search")
 	public String postSearch(SearchModel searchModel,Model model) {
+		System.out.println(searchModel);
 		ArrayList<JobModel> job = searchService.selectSearch(searchModel);
 		System.out.println(job);
 		model.addAttribute("job", job);

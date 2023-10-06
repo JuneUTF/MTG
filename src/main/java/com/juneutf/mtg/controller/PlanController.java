@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.juneutf.mtg.config.service.PlanService;
+import com.juneutf.mtg.model.JobModel;
 import com.juneutf.mtg.model.PlanModel;
 
 import lombok.extern.slf4j.Slf4j;
@@ -28,14 +29,14 @@ public class PlanController {
 	@GetMapping()
 	public String getIndex(Model model) {
 		//Websocket行動
-		ArrayList<PlanModel> job = planService.selectPlan();
+		ArrayList<JobModel> job = planService.selectPlan();
 		model.addAttribute("job", job);
 		return "plan/plan";
 	}
 	@GetMapping("/plan")
 	public String getPlan(Model model) {
 		//Websocket行動
-		ArrayList<PlanModel> job = planService.selectPlan();
+		ArrayList<JobModel> job = planService.selectPlan();
 		model.addAttribute("job", job);
 		return "plan/plan";
 	}
@@ -53,7 +54,7 @@ public class PlanController {
 				return "error";
 			}
 			//Websocket行動
-			ArrayList<PlanModel> job = planService.selectPlan();
+			ArrayList<JobModel> job = planService.selectPlan();
 			messagingTemplate.convertAndSend("/job/notification", job);
 			int nowJob = planService.selectMaxIdPlan().get(0).getMAX();
 			return "redirect:/kk/job?id="+nowJob; 

@@ -12,10 +12,6 @@ public class PlanModel {
      */
     private int id;
     /**
-     * ID最大です。
-     */
-    private int MAX;
-    /**
      * プランの曜日です。
      */
     private String date_day;
@@ -37,12 +33,12 @@ public class PlanModel {
     /**
      * プランの目的です。
      */
-    private String purpose;
+    private int purpose;
 
     /**
      * プランの担当者です。
      */
-    private String charge;
+    private int charge;
     /**
      * プランの状況です。
      */

@@ -5,7 +5,14 @@
 <mapper namespace="com.juneutf.mtg.mapper.JobMapper">
 
 	<select id="selectJobById" resultType="com.juneutf.mtg.model.JobModel">
-		select * from plan where id=#{id}
+	SELECT plan.ID, plan.date_day, plan.date_plan, plan.time_start, plan.time_end,
+	charge.charge AS charge,purpose.purpose AS purpose, plan.status,
+	charge.id AS chargeId,purpose.id AS purposeId, plan.status
+	FROM plan
+	JOIN charge ON plan.charge = charge.ID
+	JOIN purpose ON plan.purpose = purpose.ID
+	WHERE plan.id=#{id}
+	ORDER BY plan.date_plan ASC;
 	</select>
 	<update id="updateJobById" parameterType="com.juneutf.mtg.model.JobModel" >
 	UPDATE plan SET
@@ -13,23 +20,27 @@
     , date_plan = TO_DATE(#{date_plan}, 'YYYY-MM-DD')
     , time_start = #{time_start}
     , time_end = #{time_end}
-    , purpose = #{purpose}
-    , charge = #{charge}
+    , purpose = #{purposeId}
+    , charge = #{chargeId}
+    , status = #{status}
 	WHERE
     id = #{id}
 	
 	</update>
 	
 	<update id="deleteJobById" parameterType="com.juneutf.mtg.model.JobModel">
-	UPDATE plan SET status = '削除' WHERE id = #{id}
+	UPDATE plan SET status = 'キャンセル' WHERE id = #{id}
 	</update>
 	<update id="sestoreJobById" parameterType="com.juneutf.mtg.model.JobModel">
 	UPDATE plan SET status = '予約中' WHERE id = #{id}
 	</update>
 	<select id="selectJob" resultType="com.juneutf.mtg.model.JobModel">
-	SELECT * FROM plan
-	WHERE date_plan >= current_date
-	ORDER BY date_plan ASC;
+	SELECT plan.ID, plan.date_day, plan.date_plan, plan.time_start, plan.time_end, charge.charge AS charge,purpose.purpose AS purpose, plan.status
+	FROM plan
+	JOIN charge ON plan.charge = charge.ID
+	JOIN purpose ON plan.purpose = purpose.ID
+	WHERE plan.date_plan >= current_date
+	ORDER BY plan.date_plan ASC;
 	</select>
 	
 </mapper>

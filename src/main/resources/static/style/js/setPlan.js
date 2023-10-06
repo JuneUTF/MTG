@@ -61,17 +61,17 @@ async function callPurpose() {
         const apiUrl = "/purpose";
         const response = await fetch(apiUrl);
         if (!response.ok) {
-          //APIを呼び出しできない場合 input box 表示されます。
+            //APIを呼び出しできない場合 input box 表示されます。
             purposeHTML = `<input type="text" class="form-control" id="purpose" name="purpose" placeholder="目的を入力ください。" required>`;
         }
         const data = await response.json();
         data.map((e) => {
-          //APIを呼び出し場合 選択ボックスを表示されます。
-            purposeHTML = purposeHTML + `<option value="${e.purpose}">${e.purpose}</option>`;
+            //APIを呼び出し場合 選択ボックスを表示されます。
+            purposeHTML = purposeHTML + `<option value="${e.id}">${e.purpose}</option>`;
         });
         purposeHTML = `<select class="form-select" id="purpose" name="purpose">${purposeHTML}</select>`;
     } catch (error) {
-      //APIを呼び出しできない場合 input box 表示されます。
+        //APIを呼び出しできない場合 input box 表示されます。
         purposeHTML = `<input type="text" class="form-control" id="purpose" name="purpose" placeholder="目的を入力ください。" required>`;
     }
 }
@@ -85,17 +85,17 @@ async function callCharge() {
         const apiUrl = "/charge";
         const response = await fetch(apiUrl);
         if (!response.ok) {
-           //APIを呼び出しできない場合 input box 表示されます。
+            //APIを呼び出しできない場合 input box 表示されます。
             chargeHTML = `<input type="text" class="form-control" id="charge" name="charge" placeholder="目的を入力ください。" required>`;
         }
         const data = await response.json();
         data.map((e) => {
-             //APIを呼び出し場合 選択ボックスを表示されます。
-            chargeHTML = chargeHTML + `<option value="${e.charge}">${e.charge}</option>`;
+            //APIを呼び出し場合 選択ボックスを表示されます。
+            chargeHTML = chargeHTML + `<option value="${e.id}">${e.charge}</option>`;
         });
         chargeHTML = `<select class="form-select" id="charge" name="charge">${chargeHTML}</select>`;
     } catch (error) {
-       //APIを呼び出しできない場合 input box 表示されます。
+        //APIを呼び出しできない場合 input box 表示されます。
         chargeHTML = `<input type="text" class="form-control" id="charge" name="charge" placeholder="目的を入力ください。" required>`;
     }
 }

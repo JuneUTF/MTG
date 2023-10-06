@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.juneutf.mtg.config.service.PlanService;
 import com.juneutf.mtg.mapper.PlanMapper;
+import com.juneutf.mtg.model.JobModel;
 import com.juneutf.mtg.model.PlanModel;
 
 /**
@@ -21,11 +22,11 @@ public class PlanImpl implements PlanService {
         return mapper.insertPlan(planModel);
     }
     @Override
-    public ArrayList<PlanModel> selectPlan() {
+    public ArrayList<JobModel> selectPlan() {
         return mapper.selectPlan();
     }
     @Override
-    public ArrayList<PlanModel> selectMaxIdPlan() {
+    public ArrayList<JobModel> selectMaxIdPlan() {
         return mapper.selectMaxIdPlan();
     }
 }

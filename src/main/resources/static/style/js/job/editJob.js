@@ -33,7 +33,7 @@ function compareDates() {
     // 選択された日付をDateオブジェクトに変換
     const d2 = new Date(date_plan.value);
     // 比較して結果を返す
-    return d1 <= d2;　
+    return d1 <= d2;
 }
 /**
  *  予約日付の検証結果. 正しい True 正しくない False;
@@ -61,18 +61,18 @@ async function callPurpose() {
         const apiUrl = "/purpose";
         const response = await fetch(apiUrl);
         if (!response.ok) {
-          //APIを呼び出しできない場合 input box 表示されます。
+            //APIを呼び出しできない場合 input box 表示されます。
         }
         const data = await response.json();
         data.map((e) => {
-          //APIを呼び出し場合 選択ボックスを表示されます。
-         	let option = document.createElement('option');
-			option.value = e.purpose; 
-			option.text = e.purpose;  
-			purpose.appendChild(option);
+            //APIを呼び出し場合 選択ボックスを表示されます。
+            let option = document.createElement('option');
+            option.value = e.id;
+            option.text = e.purpose;
+            purpose.appendChild(option);
         });
     } catch (error) {
-      //APIを呼び出しできない場合 input box 表示されます。
+        //APIを呼び出しできない場合 input box 表示されます。
     }
 }
 // 担当者入力フィールドを取得
@@ -83,18 +83,18 @@ async function callCharge() {
         const apiUrl = "/charge";
         const response = await fetch(apiUrl);
         if (!response.ok) {
-           //APIを呼び出しできない場合 input box 表示されます。
+            //APIを呼び出しできない場合 input box 表示されます。
         }
         const data = await response.json();
         data.map((e) => {
-             //APIを呼び出し場合 選択ボックスを表示されます。
+            //APIを呼び出し場合 選択ボックスを表示されます。
             let option = document.createElement('option');
-			option.value = e.charge; 
-			option.text = e.charge;  
-			charge.appendChild(option);
+            option.value = e.id;
+            option.text = e.charge;
+            charge.appendChild(option);
         });
     } catch (error) {
-       //APIを呼び出しできない場合 input box 表示されます。
+        //APIを呼び出しできない場合 input box 表示されます。
     }
 }
 // 目的情報と担当者を非同期で取得し、フィールドに設定
@@ -197,11 +197,11 @@ function checkTowDay() {
 /**
  * 送信ボタンを有効化の検証
  */
-function checkBtn(){
-	console.log(checkDayBoolean +""+ checkTimeTowDayBolean)
-    if(checkDayBoolean && checkTimeTowDayBolean){
+function checkBtn() {
+    console.log(checkDayBoolean + "" + checkTimeTowDayBolean)
+    if (checkDayBoolean && checkTimeTowDayBolean) {
         btn.disabled = false;
-    }else{
+    } else {
         btn.disabled = true;
     }
 }

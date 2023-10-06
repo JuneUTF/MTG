@@ -5,10 +5,10 @@
 <mapper namespace="com.juneutf.mtg.mapper.APIMapper">
 
 	<select id="selectAPICharge" resultType="com.juneutf.mtg.model.APIChargeModel">
-    SELECT id,charge FROM charge
+    SELECT id,charge FROM charge ORDER BY id ASC;
 	</select>
 	<select id="selectAPIPurpose" resultType="com.juneutf.mtg.model.APIPurposeModel">
-    SELECT id,purpose FROM purpose
+    SELECT id,purpose FROM purpose ORDER BY id ASC;
 	</select>
 
 </mapper>

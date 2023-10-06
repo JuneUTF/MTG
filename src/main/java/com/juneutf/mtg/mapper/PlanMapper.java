@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.juneutf.mtg.model.JobModel;
 import com.juneutf.mtg.model.PlanModel;
 
 /**
@@ -23,11 +24,11 @@ public interface PlanMapper {
      * @param date_plan 日付
      * @return PlanModelのリスト
      */
-    ArrayList<PlanModel> selectPlan();
+    ArrayList<JobModel> selectPlan();
 
     /**
      * 最大IDのプランを取得します(新しいID)。
      * @return PlanModelのリスト
      */
-    ArrayList<PlanModel> selectMaxIdPlan();
+    ArrayList<JobModel> selectMaxIdPlan();
 }

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.juneutf.mtg.mapper.OperationMapper">
+	<select id="selectCharge" resultType="com.juneutf.mtg.model.OperationModel">
+	SELECT id,charge AS nameID,status
+	FROM charge ORDER BY id ASC;
+	</select>
+	<select id="selectPurpose" resultType="com.juneutf.mtg.model.OperationModel">
+	SELECT id,purpose AS nameID,status
+	FROM purpose ORDER BY id ASC;
+	</select>
+	<update id="deleteByIdAndNameID" parameterType="com.juneutf.mtg.model.OperationModel">
+	UPDATE 
+	<if test="nameID =='purpose'">
+        purpose
+    </if>
+    <if test="nameID =='charge'">
+        charge
+    </if>
+	 SET status = '削除'  WHERE id = #{id};
+	</update>
+	<update id="restoreByIdAndNameID" parameterType="com.juneutf.mtg.model.OperationModel">
+	UPDATE
+	<if test="nameID =='purpose'">
+        purpose
+    </if>
+    <if test="nameID =='charge'">
+        charge
+    </if>
+	SET status = '使用中'  WHERE id = #{id};
+	</update>
+	
+	
+	<update id="editByIdAndNameID" parameterType="com.juneutf.mtg.model.OperationModel">
+	UPDATE 
+	<if test="nameID =='purpose'">
+        purpose SET purpose = #{status} WHERE id = #{id};
+    </if>
+    <if test="nameID =='charge'">
+        charge SET charge =#{status} WHERE id = #{id};
+    </if>
+	</update>
+	
+	<insert id="regByIdAndNameID" parameterType="com.juneutf.mtg.model.OperationModel" keyProperty="id">
+	INSERT  INTO 
+	<if test="nameID =='purpose'">
+        purpose (purpose,status) VALUES( #{status},'使用中');
+    </if>
+    <if test="nameID =='charge'">
+        charge (charge,status) VALUES(#{status},'使用中');
+    </if>
+	</insert>
+	
+</mapper>

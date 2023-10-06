@@ -48,11 +48,12 @@ function setJob(obj) {
     const dayNow = new Date().toISOString().substring(0, 10);
     const timeLine = new Date(dayNow + 'T' + timenow + 'Z').getTime();
     // ジョブ情報をHTMLテーブルに追加
+    console.log(newArrayJob)
     newArrayJob.forEach(element => {
         element.forEach(e => {
             if (e.status == '完了') {
                 jobtt += `<tr><td>${e.date_plan.substring(0, 4)}年${e.date_plan.substring(5, 7)}月${e.date_plan.substring(8, 10)}日　(${e.date_day}曜日)</td><td>${e.time_start}～${e.time_end} </td><td>${e.purpose}</td><td>${e.charge}</td><td>${e.status}</td><td>-</td></tr>`
-            } else if (timeLine >= new Date(e.date_plan + 'T' + e.time_start + 'Z').getTime() &&timeLine <= new Date(e.date_plan + 'T' + e.time_end + 'Z').getTime()) {
+            } else if (timeLine >= new Date(e.date_plan + 'T' + e.time_start + 'Z').getTime() && timeLine <= new Date(e.date_plan + 'T' + e.time_end + 'Z').getTime()) {
                 jobtt += `<tr><td>${e.date_plan.substring(0, 4)}年${e.date_plan.substring(5, 7)}月${e.date_plan.substring(8, 10)}日　(${e.date_day}曜日)</td><td>${e.time_start}～${e.time_end} </td><td>${e.purpose}</td><td>${e.charge}</td><td><span class='yoyaku'>利用中</span></td><td>-</td></tr>`
             } else if (element.length == 1 && newArrayJob.length == 1) {
                 jobtt += `<tr><td>${e.date_plan.substring(0, 4)}年${e.date_plan.substring(5, 7)}月${e.date_plan.substring(8, 10)}日　(${e.date_day}曜日)</td><td>${e.time_start}～${e.time_end}</td><td>${e.purpose}</td><td>${e.charge}</td><td>${e.status}</td><td><a class="btn btn-outline-warning" href="/kk/job/edit/?id=${e.id}">編集</a>・${e.status == '予約中' ? `<button  class="btn btn-outline-danger" onclick="deleteJob('${e.id}','${e.date_plan}','${e.time_start}')">削除</button>` : `<button  class="btn btn-outline-primary" onclick="restoreJob('${e.id}','${e.date_plan}','${e.time_start}')">復元</button>`}</td></tr>`
@@ -86,17 +87,17 @@ async function callPurpose() {
         const response = await fetch(apiUrl);
         if (!response.ok) {
             //APIを呼び出しできない場合 input box 表示されます。
-            purposeHTML = `<input type="text" id="purpose" name="purpose" placeholder="目的を入力ください。" required>`;
+            purposeHTML = `<input type="text" id="purposeId" name="purpose" placeholder="目的を入力ください。" required>`;
         }
         const data = await response.json();
         data.map((e) => {
             //APIを呼び出し場合 選択ボックスを表示されます。
-            purposeHTML = purposeHTML + `<option value="${e.purpose}">${e.purpose}</option>`;
+            purposeHTML = purposeHTML + `<option value="${e.id}">${e.purpose}</option>`;
         });
-        purposeHTML = `<select id="purpose" name="purpose"><option value="">全員</option>${purposeHTML}</select>`;
+        purposeHTML = `<select id="purpose" name="purposeId"><option value="0">全員</option>${purposeHTML}</select>`;
     } catch (error) {
         //APIを呼び出しできない場合 input box 表示されます。
-        purposeHTML = `<input type="text" id="purpose" name="purpose" placeholder="目的を入力ください。" required>`;
+        purposeHTML = `<input type="text" id="purpose" name="purposeId" placeholder="目的を入力ください。" required>`;
     }
 }
 let chargeHTML = '';
@@ -107,17 +108,17 @@ async function callCharge() {
         const response = await fetch(apiUrl);
         if (!response.ok) {
             //APIを呼び出しできない場合 input box 表示されます。
-            chargeHTML = `<input type="text" id="charge" name="charge" placeholder="目的を入力ください。" required>`;
+            chargeHTML = `<input type="text" id="charge" name="chargeId" placeholder="目的を入力ください。" required>`;
         }
         const data = await response.json();
         data.map((e) => {
             //APIを呼び出し場合 選択ボックスを表示されます。
-            chargeHTML = chargeHTML + `<option value="${e.charge}">${e.charge}</option>`;
+            chargeHTML = chargeHTML + `<option value="${e.id}">${e.charge}</option>`;
         });
-        chargeHTML = `<select id="charge" name="charge"><option value="">全部</option>${chargeHTML}</select>`;
+        chargeHTML = `<select id="charge" name="chargeId"><option value="0">全部</option>${chargeHTML}</select>`;
     } catch (error) {
         //APIを呼び出しできない場合 input box 表示されます。
-        chargeHTML = `<input type="text" id="charge" name="charge" placeholder="目的を入力ください。" required>`;
+        chargeHTML = `<input type="text" id="charge" name="chargeId" placeholder="目的を入力ください。" required>`;
     }
 }
 // 目的情報と担当者を非同期で取得し、フィールドに設定

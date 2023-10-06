@@ -4,22 +4,31 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.juneutf.mtg.mapper.SearchMapper">
 
-	<select id="selectSearch" resultType="com.juneutf.mtg.model.JobModel">
-	 SELECT *
-    FROM plan
+	<select id="selectSearch" resultType="com.juneutf.mtg.model.SearchModel">
+	SELECT plan.ID, plan.date_day, plan.date_plan, plan.time_start, plan.time_end,
+	charge.charge AS charge,purpose.purpose AS purpose, plan.status
+	FROM plan
+	JOIN charge ON plan.charge = charge.ID
+	JOIN purpose ON plan.purpose = purpose.ID
     WHERE
-        date_plan >=TO_DATE(#{date_start}, 'YYYY-MM-DD')
+        plan.date_plan >=TO_DATE(#{date_start}, 'YYYY-MM-DD')
     <if test="date_end != null and date_end != ''">
-        AND date_plan <![CDATA[<=]]> TO_DATE(#{date_end}, 'YYYY-MM-DD')
+        AND plan.date_plan <![CDATA[<=]]> TO_DATE(#{date_end}, 'YYYY-MM-DD')
+    </if>
+    <if test="purposeId !=0">
+        AND purpose.id = #{purposeId}
+    </if>
+    <if test="chargeId !=0">
+        AND charge.id = #{chargeId}
     </if>
     <if test="purpose != null and purpose != ''">
-        AND purpose = #{purpose}
+        AND plan.purpose = #{purpose}
     </if>
     <if test="charge != null and charge != ''">
-        AND charge = #{charge}
+        AND plan.charge = #{charge}
     </if>
     <if test="status != null and status != ''">
-        AND status = #{status}
+        AND plan.status = #{status}
     </if>
     ORDER BY date_plan ASC;
 	</select>

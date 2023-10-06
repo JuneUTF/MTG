@@ -57,14 +57,24 @@
                         </div>
                         <div class="mb-1">
                             <label for="purpose" class="form-label">目的：</label>
-                            <select class="form-select" id="purpose" name="purpose">
-                            <option th:value="${job[0].purpose}" th:text ="${job[0].purpose}"></option>
+                            <select class="form-select" id="purpose" name="purposeId">
+                            <option th:value="${job[0].purposeId}" th:text ="${job[0].purpose}"></option>
                             </select>
                         </div>
                         <div class="mb-1">
                             <label for="charge" class="form-label">担当：</label>
-                            <select class="form-select" id="charge" name="charge">
-                            <option th:value="${job[0].charge}" th:text ="${job[0].charge}"></option>
+                            <select class="form-select" id="chargeId" name="chargeId">
+                            <option th:value="${job[0].chargeId}" th:text ="${job[0].charge}"></option>
+                            
+                            </select>
+                        </div>
+                        <div class="mb-1">
+                            <label for="charge" class="form-label">状態：</label>
+                            <select class="form-select" id="status" name="status">
+                            <option th:value="${job[0].status}" th:text ="${job[0].status}"></option>
+                            <option value="完了" th:text ="完了"></option>
+                            <option value="キャンセル" th:text ="キャンセル"></option>
+                            <option value="予約中" th:text ="予約中"></option>
                             
                             </select>
                         </div>

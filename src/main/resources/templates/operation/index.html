@@ -95,11 +95,12 @@
                       <thead style="background-color: #0e8695;">
                         <tr class="text-center">
                           <th scope="col" class="col-1">番号</th>
-                          <th scope="col" class="col-5">目的</th>
-                          <th scope="col" class="col-7">追加</th>
+                          <th scope="col" class="col-3">内容</th>
+                          <th scope="col" class="col-3">状況</th>
+                          <th scope="col" class="col-5"><button type="button" class="btn btn-outline-light" onclick="registerOperation('purpose');">追加</button></th>
                         </tr>
                       </thead>
-                      <tbody id="purpose" class="text-center scroll">
+                      <tbody id="purposetable" class="text-center scroll">
                       </tbody>
                     </table>
                             </div>
@@ -108,11 +109,12 @@
                       <thead style="background-color: #0e8695;">
                         <tr class="text-center">
                           <th scope="col" class="col-1">番号</th>
-                          <th scope="col" class="col-5">担当者</th>
-                          <th scope="col" class="col-7">追加</th>
+                          <th scope="col" class="col-3">担当者</th>
+                          <th scope="col" class="col-3">状況</th>
+                          <th scope="col" class="col-5"><button type="button" class="btn btn-outline-light" onclick="registerOperation('charge');">追加</button></th>
                         </tr>
                       </thead>
-                      <tbody id="charge" class="text-center scroll">
+                      <tbody id="chargetable" class="text-center scroll">
                       
                       </tbody>
                     </table>
@@ -129,12 +131,15 @@
   </section>
   <script type="text/javascript" src="/style/soket/sockjs_1.4.0.js"></script>
   <script type="text/javascript" src="/style/soket/stomp_2.3.3.js"></script>
-  <script src="/style/js/vender/confrim.js"></script>
-  <script src="/style/js/joperation.js"></script>
   <script th:inline="javascript">
-    let myJob = /*[[${job}]]*/;
-    plan(myJob);
-  </script>
+        /*<![CDATA[*/
+        // ジョブ情報を格納する変数
+        let chargeData = /*[[${charge}]]*/;
+        let purposeData = /*[[${purpose}]]*/;
+        /*]]>*/
+    </script>
+  <script src="/style/js/operation.js"></script>
+  <script src="/style/js/vender/operation.js"></script>
 </body>
 
 </html>
