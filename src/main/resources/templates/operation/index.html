@@ -30,9 +30,6 @@
           <li class="nav-item">
             <a class="nav-link btn btn-secondary" href="/kk/operation">担当・目的</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link btn" href="/kk/pass">パスワード変更</a>
-          </li>
         </ul>
         <div class="d-flex">
           <a class="btn btn-outline-light" href="/logout">ログアウト</a>
@@ -66,18 +63,19 @@
                             </div> 
                             <div class=" col col-md-2 justify-content-center">
                               <div class="input-group">
-                                <span>担当者:</span><span id="purpose"></span>
+                                <span>内容:</span><span id="purpose"></span>
                               </div>
                             </div>
                             <div class=" col col-md-2 justify-content-center">
-                              <span>目的:</span><span id="charge"></span>
+                              <span>担当者:</span><span id="charge"></span>
                             </div><div class=" col col-md-2 justify-content-center">
                               <span>状況:</span>
                               <select id="status" name="status">
                               		<option value="">全部</option>
-                              		<option value="予約中">朱宮</option>
-                              		<option value="削除">朱宮</option>
-                              </select>
+                              		<option value="完了">完了</option>
+                              		<option value="予約中">予約中</option>
+                              		<option value="キャンセル">キャンセル</option>
+                              	</select>
                             </div>
                             <div class=" col col-md-1">
                               <div class="input-group-append">

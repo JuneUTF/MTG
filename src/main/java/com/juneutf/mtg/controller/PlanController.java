@@ -28,16 +28,10 @@ public class PlanController {
     private SimpMessagingTemplate messagingTemplate;
 	@GetMapping()
 	public String getIndex(Model model) {
-		//Websocket行動
-		ArrayList<JobModel> job = planService.selectPlan();
-		model.addAttribute("job", job);
 		return "plan/plan";
 	}
 	@GetMapping("/plan")
 	public String getPlan(Model model) {
-		//Websocket行動
-		ArrayList<JobModel> job = planService.selectPlan();
-		model.addAttribute("job", job);
 		return "plan/plan";
 	}
 	@PostMapping("/plan")

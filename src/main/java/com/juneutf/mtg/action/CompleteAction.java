@@ -12,7 +12,11 @@ import com.juneutf.mtg.config.service.PlanService;
 import com.juneutf.mtg.config.vender.CheckTime;
 import com.juneutf.mtg.model.JobModel;
 
+import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
+
 @Service
+@Slf4j
 public class CompleteAction {
     @Autowired
     private PlanService planService;
@@ -26,7 +30,7 @@ public class CompleteAction {
     /**
      * 定期的に呼び出され、アクションを実行し、WebSocketを介して通知を送信します。
      */
-    @Scheduled(fixedRate = 6 * 60 * 1000)
+    @Scheduled(fixedRate = 30 * 60 * 1000)
     public void logNumberOne() {
         // プランを選択します。
         ArrayList<JobModel> jobModel = planService.selectPlan();
@@ -34,10 +38,11 @@ public class CompleteAction {
             // 終了時間がまだ到達していない場合、アクションを更新します。
             if (!checkTime.checkTimeEnd(e.getDate_plan(), e.getTime_end())) {
                 actionService.actionUpdateById(e.getId());
-                // WebSocket行動
-                ArrayList<JobModel> job = planService.selectPlan();
-                messagingTemplate.convertAndSend("/job/notification", job);
+                log.info("予約内容終了： "+ e);
             }
         });
+        // WebSocket行動
+        ArrayList<JobModel> job = planService.selectPlan();
+        messagingTemplate.convertAndSend("/job/notification", job);
     }
 }

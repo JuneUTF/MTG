@@ -143,7 +143,6 @@ public class JobController {
 	public String postSearch(SearchModel searchModel,Model model) {
 		try {
 			ArrayList<JobModel> job = searchService.selectSearch(searchModel);
-			System.out.println(job);
 			model.addAttribute("job", job);
 			return "job/search";
 		} catch (Exception e) {
