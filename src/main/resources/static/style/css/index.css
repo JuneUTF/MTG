@@ -12,7 +12,6 @@ table td,
 table th {
   text-overflow: ellipsis;
   white-space: nowrap;
-  overflow: hidden;
   font-size:20px;
 }
 
@@ -26,7 +25,7 @@ thead th {
 
 .table-scroll {
   position: relative;
-  height: 650px;
+  height: 75vh;
   overflow-x: hidden;
   overflow-y: scroll;
   

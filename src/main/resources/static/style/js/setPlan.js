@@ -26,10 +26,10 @@ function setDay() {
     date_day.value = dayOfWeek;
 }
 /**
- * 過去の選択日付と現在の日付を比較する関数
+ * 過去の選択日付と現在の日付を比較する関数 // kiểm tra xem ngày đang chọn quá ở quá khứ không.
  * @returns {boolean} 過去の日付が現在の日付以下である場合はtrue、それ以外の場合はfalseを返します。
  */
-function compareDates() {
+function compareDates() { 
     // 現在の日付を取得してISOString形式に変換し、日付部分のみを抽出
     const d1 = new Date(new Date().toISOString().substring(0, 10));
     // 選択された日付をDateオブジェクトに変換
@@ -113,15 +113,16 @@ time_start.addEventListener('input', EventTimeStart);
 
 // 開始時刻が変更された際の処理
 function EventTimeStart() {
-    if (time_end.value != null) {
-        checkTimeTowDay();
-    }
+    checkTimeTowDay();
     if (checkTimeRegister(ArrayJob, time_start.value)) {
         msg.textContent = `${time_start.value}に予約がありました。`;
         btn.disabled = true;//送信ボタンを無効化
-    } else {
+    } else{
         msg.textContent = `　`;
-        btn.disabled = false;//送信ボタンを有効化
+    }
+    if (checkTimeRegister(ArrayJob, time_end.value) || checkTinmeTow()) {
+        msg.textContent = `${time_start.value}～${time_end.value}に予約がありました。`;
+        btn.disabled = true;//送信ボタンを無効化
     }
 }
 /**
@@ -135,7 +136,7 @@ function isTimeBetween(startTime, endTime, checkTime) {
     const start = new Date(date_plan.value + 'T' + startTime + 'Z').getTime();
     const end = new Date(date_plan.value + 'T' + endTime + 'Z').getTime();
     const check = new Date(date_plan.value + 'T' + checkTime + 'Z').getTime();
-    return start < check && check < end;
+    return start <= check && check <= end;
 }
 // ジョブ情報と時刻を検証して予約があるか確認する関数
 function checkTimeRegister(obj, checkTime) {
@@ -151,7 +152,9 @@ function checkTimeRegister(obj, checkTime) {
 const time_end = document.getElementById("time_end");
 // 終了時刻入力時に実行されるリスナーを設定
 time_end.addEventListener('input', checkTimeTowDay);
-// 終了時刻が変更された際の処理
+/**
+ * 終了時刻が変更された際の処理
+ */
 function checkTimeTowDay() {
     if (checkTowDay()) {
         msg.textContent = `開始時刻より終了時刻を選択してください。`;
@@ -159,7 +162,7 @@ function checkTimeTowDay() {
     } else if (checkTimeRegister(ArrayJob, time_end.value) || checkTinmeTow()) {
         msg.textContent = `${time_start.value}～${time_end.value}に予約がありました。`;
         btn.disabled = true;//送信ボタンを無効化
-    } else {
+    } else if(time_end.value!=""){
         msg.textContent = `　`;
         btn.disabled = false;//送信ボタンを有効化
     }
@@ -175,7 +178,7 @@ function isTimeBetweenTow(checkTimeStart, checkTimeEnd) {
     const end = new Date(date_plan.value + 'T' + time_end.value + 'Z').getTime();
     const checkStart = new Date(date_plan.value + 'T' + checkTimeStart + 'Z').getTime();
     const checkEnd = new Date(date_plan.value + 'T' + checkTimeEnd + 'Z').getTime();
-    return start < checkStart && end > checkEnd;
+    return start <= checkStart && end >= checkEnd;
 }
 // 開始時刻と終了時刻の範囲を検証する関数を実行し、結果を返す関数
 function checkTinmeTow() {
@@ -194,5 +197,5 @@ function checkTinmeTow() {
 function checkTowDay() {
     const start = new Date(date_plan.value + 'T' + time_start.value + 'Z').getTime();
     const end = new Date(date_plan.value + 'T' + time_end.value + 'Z').getTime();
-    return start > end;
+    return start >= end;
 }
