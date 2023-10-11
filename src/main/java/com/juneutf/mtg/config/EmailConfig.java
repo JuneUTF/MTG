@@ -8,7 +8,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 
-
 @Configuration
 public class EmailConfig {
 
@@ -24,6 +23,11 @@ public class EmailConfig {
     @Value("${spring.mail.password}")
     private String password;
 
+    /**
+     * JavaMailSender インスタンスを生成して設定します。
+     *
+     * @return JavaMailSender インスタンス
+     */
     @Bean
     public JavaMailSender javaMailSender() {
         JavaMailSenderImpl mailSender = new JavaMailSenderImpl();

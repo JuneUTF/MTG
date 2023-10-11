@@ -29,8 +29,8 @@ public class JobIml implements JobService{
 		return mapper.selectJob();
 	}
 	@Override
-	public int sestoreJobById(JobModel jobModel) {
-		return mapper.sestoreJobById(jobModel);
+	public int restoreJobById(JobModel jobModel) {
+		return mapper.restoreJobById(jobModel);
 	}
 	
 }

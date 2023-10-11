@@ -10,12 +10,22 @@ import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerCo
 @EnableWebSocketMessageBroker
 public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
+    /**
+     * メッセージブローカーの設定を構成します。
+     *
+     * @param config メッセージブローカーの設定
+     */
     @Override
     public void configureMessageBroker(MessageBrokerRegistry config) {
         config.enableSimpleBroker("/job");
         config.setApplicationDestinationPrefixes("/app");
     }
 
+    /**
+     * Stompエンドポイントを登録します。
+     *
+     * @param registry Stompエンドポイントの登録
+     */
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
         registry.addEndpoint("/ws").withSockJS();

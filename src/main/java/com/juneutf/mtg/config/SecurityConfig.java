@@ -24,7 +24,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter  {
 		}
 		
 		//ユーザー名とパスワードをチェックします。
-		/*~~(Migrate manually based on https://spring.io/blog/2022/02/21/spring-security-without-the-websecurityconfigureradapter)~~>*//*~~(Migrate manually based on https://spring.io/blog/2022/02/21/spring-security-without-the-websecurityconfigureradapter)~~>*/@Override
 		protected void configure(AuthenticationManagerBuilder auth) throws Exception { 
 		    auth.userDetailsService(userDetails()).passwordEncoder(passwordEncoder()); 
 		}

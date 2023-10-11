@@ -31,7 +31,7 @@
 	<update id="deleteJobById" parameterType="com.juneutf.mtg.model.JobModel">
 	UPDATE plan SET status = 'キャンセル' WHERE id = #{id}
 	</update>
-	<update id="sestoreJobById" parameterType="com.juneutf.mtg.model.JobModel">
+	<update id="restoreJobById" parameterType="com.juneutf.mtg.model.JobModel">
 	UPDATE plan SET status = '予約中' WHERE id = #{id}
 	</update>
 	<select id="selectJob" resultType="com.juneutf.mtg.model.JobModel">

@@ -1,0 +1,61 @@
+2023-10-11 10:57:20.086  INFO   - Starting MtgApplication using Java 11.0.17 on JuneUTF with PID 6788 (C:\JavaSpingBoot\K&K\MTG\target\classes started by juneu in C:\JavaSpingBoot\K&K\MTG)
+2023-10-11 10:57:20.086  INFO   - HV000001: Hibernate Validator 6.2.5.Final
+2023-10-11 10:57:20.086  INFO   - No active profile set, falling back to 1 default profile: "default"
+2023-10-11 10:57:20.170  INFO   - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-10-11 10:57:20.170  INFO   - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-10-11 10:57:21.140  DEBUG  - Searching for mappers annotated with @Mapper
+2023-10-11 10:57:21.140  DEBUG  - Using auto-configuration base package 'com.juneutf.mtg'
+2023-10-11 10:57:21.358  DEBUG  - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2023-10-11 10:57:21.366  DEBUG  - Identified candidate component class: file [C:\JavaSpingBoot\K&K\MTG\target\classes\com\juneutf\mtg\mapper\APIMapper.class]
+2023-10-11 10:57:21.366  DEBUG  - Identified candidate component class: file [C:\JavaSpingBoot\K&K\MTG\target\classes\com\juneutf\mtg\mapper\ActionMapper.class]
+2023-10-11 10:57:21.366  DEBUG  - Identified candidate component class: file [C:\JavaSpingBoot\K&K\MTG\target\classes\com\juneutf\mtg\mapper\JobMapper.class]
+2023-10-11 10:57:21.366  DEBUG  - Identified candidate component class: file [C:\JavaSpingBoot\K&K\MTG\target\classes\com\juneutf\mtg\mapper\LoginMapper.class]
+2023-10-11 10:57:21.366  DEBUG  - Identified candidate component class: file [C:\JavaSpingBoot\K&K\MTG\target\classes\com\juneutf\mtg\mapper\OperationMapper.class]
+2023-10-11 10:57:21.366  DEBUG  - Identified candidate component class: file [C:\JavaSpingBoot\K&K\MTG\target\classes\com\juneutf\mtg\mapper\PlanMapper.class]
+2023-10-11 10:57:21.366  DEBUG  - Identified candidate component class: file [C:\JavaSpingBoot\K&K\MTG\target\classes\com\juneutf\mtg\mapper\SearchMapper.class]
+2023-10-11 10:57:21.366  DEBUG  - Identified candidate component class: file [C:\JavaSpingBoot\K&K\MTG\target\classes\com\juneutf\mtg\mapper\SetPasswordMapper.class]
+2023-10-11 10:57:21.374  DEBUG  - Creating MapperFactoryBean with name 'APIMapper' and 'com.juneutf.mtg.mapper.APIMapper' mapperInterface
+2023-10-11 10:57:21.376  DEBUG  - Creating MapperFactoryBean with name 'actionMapper' and 'com.juneutf.mtg.mapper.ActionMapper' mapperInterface
+2023-10-11 10:57:21.376  DEBUG  - Creating MapperFactoryBean with name 'jobMapper' and 'com.juneutf.mtg.mapper.JobMapper' mapperInterface
+2023-10-11 10:57:21.376  DEBUG  - Creating MapperFactoryBean with name 'loginMapper' and 'com.juneutf.mtg.mapper.LoginMapper' mapperInterface
+2023-10-11 10:57:21.376  DEBUG  - Creating MapperFactoryBean with name 'operationMapper' and 'com.juneutf.mtg.mapper.OperationMapper' mapperInterface
+2023-10-11 10:57:21.376  DEBUG  - Creating MapperFactoryBean with name 'planMapper' and 'com.juneutf.mtg.mapper.PlanMapper' mapperInterface
+2023-10-11 10:57:21.376  DEBUG  - Creating MapperFactoryBean with name 'searchMapper' and 'com.juneutf.mtg.mapper.SearchMapper' mapperInterface
+2023-10-11 10:57:21.376  DEBUG  - Creating MapperFactoryBean with name 'setPasswordMapper' and 'com.juneutf.mtg.mapper.SetPasswordMapper' mapperInterface
+2023-10-11 10:57:22.457  INFO   - Tomcat initialized with port(s): 8080 (http)
+2023-10-11 10:57:22.465  INFO   - Initializing ProtocolHandler ["http-nio-8080"]
+2023-10-11 10:57:22.465  INFO   - Starting service [Tomcat]
+2023-10-11 10:57:22.465  INFO   - Starting Servlet engine: [Apache Tomcat/9.0.80]
+2023-10-11 10:57:22.602  INFO   - Initializing Spring embedded WebApplicationContext
+2023-10-11 10:57:22.602  INFO   - Root WebApplicationContext: initialization completed in 2432 ms
+2023-10-11 10:57:23.039  DEBUG  - Parsed mapper file: 'file [C:\JavaSpingBoot\K&K\MTG\target\classes\mapper\APIMapper.xml]'
+2023-10-11 10:57:23.061  DEBUG  - Parsed mapper file: 'file [C:\JavaSpingBoot\K&K\MTG\target\classes\mapper\ActionMapper.xml]'
+2023-10-11 10:57:23.093  DEBUG  - Parsed mapper file: 'file [C:\JavaSpingBoot\K&K\MTG\target\classes\mapper\JobMapper.xml]'
+2023-10-11 10:57:23.105  DEBUG  - Parsed mapper file: 'file [C:\JavaSpingBoot\K&K\MTG\target\classes\mapper\LoginMapper.xml]'
+2023-10-11 10:57:23.125  DEBUG  - Parsed mapper file: 'file [C:\JavaSpingBoot\K&K\MTG\target\classes\mapper\OperationMapper.xml]'
+2023-10-11 10:57:23.140  DEBUG  - Parsed mapper file: 'file [C:\JavaSpingBoot\K&K\MTG\target\classes\mapper\PlanMapper.xml]'
+2023-10-11 10:57:23.157  DEBUG  - Parsed mapper file: 'file [C:\JavaSpingBoot\K&K\MTG\target\classes\mapper\SearchMapper.xml]'
+2023-10-11 10:57:23.174  DEBUG  - Parsed mapper file: 'file [C:\JavaSpingBoot\K&K\MTG\target\classes\mapper\SetPasswordMapper.xml]'
+2023-10-11 10:57:23.646  INFO   - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3f644479, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1f501dc9, org.springframework.security.web.context.SecurityContextPersistenceFilter@42a0367d, org.springframework.security.web.header.HeaderWriterFilter@526b6a61, org.springframework.security.web.authentication.logout.LogoutFilter@357fcdcf, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@6f40d2e3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@77ff4c61, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@65cdfa66, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@70175eaf, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@11c73823, org.springframework.security.web.session.SessionManagementFilter@64ae3ae2, org.springframework.security.web.access.ExceptionTranslationFilter@1b646c7d, org.springframework.security.web.access.intercept.AuthorizationFilter@42616940]
+2023-10-11 10:57:23.882  INFO   - Adding welcome page template: index
+2023-10-11 10:57:24.008  DEBUG  - Not found configuration for registering mapper bean using @MapperScan, MapperFactoryBean and MapperScannerConfigurer.
+2023-10-11 10:57:24.122  INFO   - LiveReload server is running on port 35729
+2023-10-11 10:57:24.141  INFO   - Starting ProtocolHandler ["http-nio-8080"]
+2023-10-11 10:57:24.185  INFO   - Tomcat started on port(s): 8080 (http) with context path ''
+2023-10-11 10:57:24.185  INFO   - Starting...
+2023-10-11 10:57:24.185  INFO   - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@45059063]]
+2023-10-11 10:57:24.185  INFO   - Started.
+2023-10-11 10:57:24.202  INFO   - Started MtgApplication in 4.669 seconds (JVM running for 5.654)
+2023-10-11 10:57:24.208  DEBUG  - Creating a new SqlSession
+2023-10-11 10:57:24.212  DEBUG  - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1a87cb4b] was not registered for synchronization because synchronization is not active
+2023-10-11 10:57:24.228  INFO   - HikariPool-1 - Starting...
+2023-10-11 10:57:24.440  INFO   - HikariPool-1 - Start completed.
+2023-10-11 10:57:24.440  DEBUG  - JDBC Connection [HikariProxyConnection@355062163 wrapping org.postgresql.jdbc.PgConnection@3254787d] will not be managed by Spring
+2023-10-11 10:57:24.464  DEBUG  - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1a87cb4b]
+2023-10-11 10:57:25.458  INFO   - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-10-11 10:57:25.464  INFO   - Initializing Servlet 'dispatcherServlet'
+2023-10-11 10:57:25.465  INFO   - Completed initialization in 1 ms
+2023-10-11 10:57:25.506  DEBUG  - Creating a new SqlSession
+2023-10-11 10:57:25.506  DEBUG  - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@15447e42] was not registered for synchronization because synchronization is not active
+2023-10-11 10:57:25.515  DEBUG  - JDBC Connection [HikariProxyConnection@1816483982 wrapping org.postgresql.jdbc.PgConnection@3254787d] will not be managed by Spring
+2023-10-11 10:57:25.516  DEBUG  - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@15447e42]

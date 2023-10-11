@@ -14,7 +14,6 @@ import com.juneutf.mtg.config.service.JobService;
 import com.juneutf.mtg.config.service.PlanService;
 import com.juneutf.mtg.config.service.SearchService;
 import com.juneutf.mtg.model.JobModel;
-import com.juneutf.mtg.model.PlanModel;
 import com.juneutf.mtg.model.SearchModel;
 
 import lombok.extern.slf4j.Slf4j;
@@ -51,6 +50,7 @@ public class JobController {
 				return "job/job";
 				}else {
 					//予約内容がない場合はエラー画面を表示されます。
+					log.warn("IDとして予約内容が取得出来ない。");
 					return "error";
 				}
 			}
@@ -75,14 +75,14 @@ public class JobController {
 				model.addAttribute("job", job);
 				return "job/edit";
 				}else {
-					//予約内容がない場合はエラー画面を表示されます。
+					log.warn("編集予約内容機能はエラーが発生します。");
 					return "error";
 				}
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
+			log.warn("編集予約内容機能はエラーが発生します。");
+			return "error";
 		}
-		return "job/edit";
 	}
 	/**
 	 * 予約内容がアップデート*/
@@ -122,7 +122,7 @@ public class JobController {
 	@PostMapping("job/restore")
 	public String postRestoreID(JobModel jobModel,Model model) {
 		//データベース内に予約内容が変更の結果
-		int jobUpdate = jobService.sestoreJobById(jobModel);
+		int jobUpdate = jobService.restoreJobById(jobModel);
 		//予約内容が完成してIDの上で画面に遷移
 		if(jobUpdate==1) {
 			//Websocket行動
@@ -138,10 +138,14 @@ public class JobController {
 	 * 予約内容の検索*/
 	@PostMapping("job/search")
 	public String postSearch(SearchModel searchModel,Model model) {
-		System.out.println(searchModel);
-		ArrayList<JobModel> job = searchService.selectSearch(searchModel);
-		System.out.println(job);
-		model.addAttribute("job", job);
-		return "job/search";
+		try {
+			ArrayList<JobModel> job = searchService.selectSearch(searchModel);
+			System.out.println(job);
+			model.addAttribute("job", job);
+			return "job/search";
+		} catch (Exception e) {
+			log.warn("検索機能はエラーが発生します。");
+			return "error";
+		}
 	}
 }

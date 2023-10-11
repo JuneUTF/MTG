@@ -168,7 +168,7 @@
     <sharedElements xsi:type="basic:Part" xmi:id="_cliFIFtxEe6moPQzStGRsg" elementId="org.eclipse.ui.navigator.ProjectExplorer" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="&#x30d7;&#x30ed;&#x30b8;&#x30a7;&#x30af;&#x30c8;&#x30fb;&#x30a8;&#x30af;&#x30b9;&#x30d7;&#x30ed;&#x30fc;&#x30e9;&#x30fc;" iconURI="platform:/plugin/org.eclipse.ui.navigator.resources/icons/full/eview16/resource_persp.png" tooltip="" closeable="true">
       <persistedState key="originalCompatibilityViewClass" value="org.eclipse.ui.navigator.resources.ProjectExplorer"/>
       <persistedState key="originalCompatibilityViewBundle" value="org.eclipse.ui.navigator.resources"/>
-      <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view CommonNavigator.LINKING_ENABLED=&quot;0&quot; org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets=&quot;0&quot;>&#xD;&#xA;&lt;lastRecentlyUsedFilters/>&#xD;&#xA;&lt;/view>"/>
+      <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view CommonNavigator.LINKING_ENABLED=&quot;0&quot; currentWorkingSetName=&quot;Aggregate for window 1695625331336&quot; org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets=&quot;0&quot;>&#xD;&#xA;&lt;lastRecentlyUsedFilters/>&#xD;&#xA;&lt;/view>"/>
       <tags>View</tags>
       <tags>categoryTag:&#x4e00;&#x822c;</tags>
       <tags>active</tags>
@@ -270,7 +270,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_chzbsFtxEe6moPQzStGRsg" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_chzbxVtxEe6moPQzStGRsg" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="&#x5370;&#x5237;" enabled="false" command="_cIvc31txEe6moPQzStGRsg"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_CMsFIGfSEe6OlPulCbe2cQ" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="&#x5370;&#x5237;" command="_cIvc31txEe6moPQzStGRsg"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_chzbsVtxEe6moPQzStGRsg" elementId="group.edit" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -295,7 +295,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_chzbuFtxEe6moPQzStGRsg" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_chzb0ltxEe6moPQzStGRsg" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="&#x30a8;&#x30c7;&#x30a3;&#x30bf;&#x30fc;&#x306e;&#x30d4;&#x30f3;&#x7559;&#x3081;" enabled="false" type="Check" command="_cIvcgVtxEe6moPQzStGRsg"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_CMyLwGfSEe6OlPulCbe2cQ" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="&#x30a8;&#x30c7;&#x30a3;&#x30bf;&#x30fc;&#x306e;&#x30d4;&#x30f3;&#x7559;&#x3081;" enabled="false" type="Check" command="_cIvcgVtxEe6moPQzStGRsg"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_chzbuVtxEe6moPQzStGRsg" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -332,6 +332,7 @@
     <trimBars xmi:id="_cINP91txEe6moPQzStGRsg" elementId="org.eclipse.ui.trim.vertical1" contributorURI="platform:/plugin/org.eclipse.ui.workbench" side="Left"/>
     <trimBars xmi:id="_cINP-FtxEe6moPQzStGRsg" elementId="org.eclipse.ui.trim.vertical2" contributorURI="platform:/plugin/org.eclipse.ui.workbench" side="Right"/>
   </children>
+  <handlers xmi:id="_Bhl5sGfSEe6OlPulCbe2cQ" elementId="org.eclipse.e4.tools.spy.handler" contributorURI="platform:/plugin/org.eclipse.e4.tools.spy" contributionURI="bundleclass://org.eclipse.e4.tools.spy/org.eclipse.e4.tools.spy.SpyHandler" command="_BhlSoGfSEe6OlPulCbe2cQ"/>
   <bindingTables xmi:id="_cINP-VtxEe6moPQzStGRsg" contributorURI="platform:/plugin/org.eclipse.ui.workbench" bindingContext="_cINP-ltxEe6moPQzStGRsg">
     <bindings xmi:id="_cJXGnFtxEe6moPQzStGRsg" keySequence="CTRL+1" command="_cIuNlVtxEe6moPQzStGRsg"/>
     <bindings xmi:id="_cJXGvVtxEe6moPQzStGRsg" keySequence="ALT+CTRL+F" command="_cIvcKVtxEe6moPQzStGRsg"/>
@@ -668,6 +669,7 @@
     <bindings xmi:id="_cJdNxFtxEe6moPQzStGRsg" keySequence="ALT+SHIFT+D T" command="_cIqjO1txEe6moPQzStGRsg"/>
     <bindings xmi:id="_cJdNxVtxEe6moPQzStGRsg" keySequence="ALT+SHIFT+D J" command="_cIvceFtxEe6moPQzStGRsg"/>
     <bindings xmi:id="_cJdNxltxEe6moPQzStGRsg" keySequence="ALT+SHIFT+D Q" command="_cIuOZVtxEe6moPQzStGRsg"/>
+    <bindings xmi:id="_Bbq34GfSEe6OlPulCbe2cQ" keySequence="F10" command="_cIvbjltxEe6moPQzStGRsg"/>
   </bindingTables>
   <bindingTables xmi:id="_cJXGjltxEe6moPQzStGRsg" elementId="org.eclipse.jdt.ui.javaEditorScope" bindingContext="_cIyey1txEe6moPQzStGRsg">
     <bindings xmi:id="_cJXGj1txEe6moPQzStGRsg" keySequence="CTRL+SHIFT+P" command="_cIvcXVtxEe6moPQzStGRsg"/>
@@ -947,6 +949,16 @@
   <bindingTables xmi:id="_clb-01txEe6moPQzStGRsg" bindingContext="_clb-0ltxEe6moPQzStGRsg"/>
   <bindingTables xmi:id="_clb-1VtxEe6moPQzStGRsg" bindingContext="_clb-1FtxEe6moPQzStGRsg"/>
   <bindingTables xmi:id="_clg3AVtxEe6moPQzStGRsg" bindingContext="_clg3AFtxEe6moPQzStGRsg"/>
+  <bindingTables xmi:id="_BhpkEGfSEe6OlPulCbe2cQ" elementId="org.eclipse.e4.tools.spy.bindings" bindingContext="_cINP-ltxEe6moPQzStGRsg">
+    <bindings xmi:id="_BhpkEWfSEe6OlPulCbe2cQ" elementId="org.eclipse.e4.tools.spy.command.binding" contributorURI="platform:/plugin/org.eclipse.e4.tools.spy" keySequence="M2+M3+F5" command="_BhlSoGfSEe6OlPulCbe2cQ">
+      <tags>deleted</tags>
+      <parameters xmi:id="_BhpkEmfSEe6OlPulCbe2cQ" name="org.eclipse.e4.tools.spy.command.partID" value="org.eclipse.e4.tools.css.spy.CssSpyPart"/>
+    </bindings>
+    <bindings xmi:id="_BhqLIGfSEe6OlPulCbe2cQ" elementId="org.eclipse.e4.tools.spy.command.binding" contributorURI="platform:/plugin/org.eclipse.e4.tools.spy" keySequence="M2+M3+F6" command="_BhlSoGfSEe6OlPulCbe2cQ">
+      <tags>deleted</tags>
+      <parameters xmi:id="_BhqLIWfSEe6OlPulCbe2cQ" name="org.eclipse.e4.tools.spy.command.partID" value="org.eclipse.e4.tools.css.spy.CSSScratchPadPart"/>
+    </bindings>
+  </bindingTables>
   <rootContext xmi:id="_cINP-ltxEe6moPQzStGRsg" elementId="org.eclipse.ui.contexts.dialogAndWindow" contributorURI="platform:/plugin/org.eclipse.ui.workbench" name="&#x30c0;&#x30a4;&#x30a2;&#x30ed;&#x30b0;&#x307e;&#x305f;&#x306f;&#x30a6;&#x30a3;&#x30f3;&#x30c9;&#x30a6;" description="&#x30c0;&#x30a4;&#x30a2;&#x30ed;&#x30b0;&#x304b;&#x30a6;&#x30a3;&#x30f3;&#x30c9;&#x30a6;&#x304c;&#x958b;&#x3044;&#x3066;&#x3044;&#x307e;&#x3059;">
     <children xmi:id="_cINP-1txEe6moPQzStGRsg" elementId="org.eclipse.ui.contexts.window" contributorURI="platform:/plugin/org.eclipse.ui.workbench" name="&#x30a6;&#x30a3;&#x30f3;&#x30c9;&#x30a6;" description="&#x30a6;&#x30a3;&#x30f3;&#x30c9;&#x30a6;&#x304c;&#x958b;&#x3044;&#x3066;&#x307e;&#x3059;">
       <children xmi:id="_cINP_FtxEe6moPQzStGRsg" elementId="org.eclipse.e4.ui.contexts.views" contributorURI="platform:/plugin/org.eclipse.ui.workbench" name="%bindingcontext.name.bindingView"/>
@@ -1628,6 +1640,16 @@
     <persistedState key="originalCompatibilityViewBundle" value="org.eclipse.linuxtools.docker.ui"/>
     <tags>View</tags>
     <tags>categoryTag:Docker</tags>
+  </descriptors>
+  <descriptors xmi:id="_BhpkE2fSEe6OlPulCbe2cQ" elementId="org.eclipse.e4.tools.css.spy.CssSpyPart" contributorURI="platform:/plugin/org.eclipse.e4.tools.css.spy" label="CSS &#x30b9;&#x30d1;&#x30a4;" iconURI="platform:/plugin/org.eclipse.e4.tools.css.spy/icons/cssspy.gif" category="org.eclipse.e4.secondaryDataStack" closeable="true" contributionURI="bundleclass://org.eclipse.e4.tools.css.spy/org.eclipse.e4.tools.css.spy.CssSpyPart">
+    <tags>View</tags>
+    <tags>Spy</tags>
+    <tags>categoryTag:General</tags>
+  </descriptors>
+  <descriptors xmi:id="_BhqyMGfSEe6OlPulCbe2cQ" elementId="org.eclipse.e4.tools.css.spy.CSSScratchPadPart" contributorURI="platform:/plugin/org.eclipse.e4.tools.css.spy" label="CSS &#x30b9;&#x30af;&#x30e9;&#x30c3;&#x30c1;&#x30fb;&#x30d1;&#x30c3;&#x30c9;" iconURI="platform:/plugin/org.eclipse.e4.tools.css.spy/icons/css_scratchpad.gif" category="org.eclipse.e4.secondaryDataStack" closeable="true" contributionURI="bundleclass://org.eclipse.e4.tools.css.spy/org.eclipse.e4.tools.css.spy.CSSScratchPadPart">
+    <tags>View</tags>
+    <tags>Spy</tags>
+    <tags>categoryTag:General</tags>
   </descriptors>
   <trimContributions xmi:id="_2r10UF9tEeO-yojH_y4TJA" elementId="org.eclipse.ui.ide.application.trimcontribution.QuickAccess" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" toBeRendered="false" parentId="org.eclipse.ui.main.toolbar" positionInParent="last">
     <children xsi:type="menu:ToolControl" xmi:id="_76uUAF9tEeO-yojH_y4TJA" elementId="Spacer Glue" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.renderers.swt/org.eclipse.e4.ui.workbench.renderers.swt.LayoutModifierToolControl">
@@ -2935,6 +2957,10 @@
   <commands xmi:id="_cgUOJVtxEe6moPQzStGRsg" elementId="AUTOGEN:::findBugsEclipsePlugin.viewContribution1/findBugsEclipsePlugin.actionCollapse" commandName="&#x3059;&#x3079;&#x3066;&#x7e2e;&#x5c0f;&#x8868;&#x793a;" description="&#x3059;&#x3079;&#x3066;&#x7e2e;&#x5c0f;&#x8868;&#x793a;" category="_cIqjB1txEe6moPQzStGRsg"/>
   <commands xmi:id="_cgUOJltxEe6moPQzStGRsg" elementId="AUTOGEN:::findBugsEclipsePlugin.viewContribution1/findBugsEclipsePlugin.actionExpand" commandName="&#x3059;&#x3079;&#x3066;&#x5c55;&#x958b;" description="&#x3059;&#x3079;&#x3066;&#x5c55;&#x958b;" category="_cIqjB1txEe6moPQzStGRsg"/>
   <commands xmi:id="_cgUOJ1txEe6moPQzStGRsg" elementId="AUTOGEN:::findBugsEclipsePlugin.viewContribution1/findBugsEclipsePlugin.filterBugs" commandName="&#x30d5;&#x30a3;&#x30eb;&#x30bf;&#x30fc;&#x306e;&#x69cb;&#x6210;..." description="Id &#x3067;&#x30d0;&#x30b0;&#x3092;&#x30d5;&#x30a3;&#x30eb;&#x30bf;&#x30fc;..." category="_cIqjB1txEe6moPQzStGRsg"/>
+  <commands xmi:id="_Ba1xcWfSEe6OlPulCbe2cQ" elementId="org.eclipse.epp.package.common.contribute" commandName="&#x30b3;&#x30f3;&#x30c8;&#x30ea;&#x30d3;&#x30e5;&#x30fc;&#x30c8;" description="Eclipse IDE &#x306e;&#x958b;&#x767a;&#x3068;&#x6210;&#x529f;&#x306b;&#x30b3;&#x30f3;&#x30c8;&#x30ea;&#x30d3;&#x30e5;&#x30fc;&#x30c8;&#x3057;&#x307e;&#x3059;!" category="_cIqjB1txEe6moPQzStGRsg"/>
+  <commands xmi:id="_BhlSoGfSEe6OlPulCbe2cQ" elementId="org.eclipse.e4.tools.spy.command" contributorURI="platform:/plugin/org.eclipse.e4.tools.spy" commandName="Open a spy" description="Open a spy in the E4 spy window">
+    <parameters xmi:id="_BhlSoWfSEe6OlPulCbe2cQ" elementId="org.eclipse.e4.tools.spy.command.partID" contributorURI="platform:/plugin/org.eclipse.e4.tools.spy" name="viewPart"/>
+  </commands>
   <addons xmi:id="_cINP_ltxEe6moPQzStGRsg" elementId="org.eclipse.e4.core.commands.service" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_cINP_1txEe6moPQzStGRsg" elementId="org.eclipse.e4.ui.contexts.service" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_cINQAFtxEe6moPQzStGRsg" elementId="org.eclipse.e4.ui.bindings.service" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
@@ -2946,7 +2972,7 @@
   <addons xmi:id="_cINQBltxEe6moPQzStGRsg" elementId="MinMax Addon" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.MinMaxAddon"/>
   <addons xmi:id="_cINQB1txEe6moPQzStGRsg" elementId="org.eclipse.ui.workbench.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.HandlerProcessingAddon"/>
   <addons xmi:id="_cIXoAFtxEe6moPQzStGRsg" elementId="SplitterAddon" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.splitteraddon.SplitterAddon"/>
-  <addons xmi:id="_IYS0IKimEeS11vbz3f9ezw" elementId="org.eclipse.ui.ide.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.ide" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
+  <addons xmi:id="_BhSXsGfSEe6OlPulCbe2cQ" elementId="org.eclipse.ui.ide.addon.0" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
   <addons xmi:id="_dz0JgGOlEeSMMaPQU2nlzw" elementId="org.eclipse.ui.ide.application.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" contributionURI="bundleclass://org.eclipse.ui.ide.application/org.eclipse.ui.internal.ide.application.addons.ModelCleanupAddon"/>
   <categories xmi:id="_cIqi8FtxEe6moPQzStGRsg" elementId="org.springframework.tooling.ls.eclipse.gotosymbol.commands.category" name="STS4"/>
   <categories xmi:id="_cIqi8VtxEe6moPQzStGRsg" elementId="org.eclipse.ui.category.edit" name="&#x7de8;&#x96c6;"/>

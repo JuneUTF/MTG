@@ -10,6 +10,6 @@ public interface JobMapper {
 	ArrayList<JobModel> selectJobById (int id);
 	int updateJobById(JobModel jobModel);
 	int deleteJobById(JobModel jobModel);
-	int sestoreJobById(JobModel jobModel);
+	int restoreJobById(JobModel jobModel);
 	ArrayList<JobModel> selectJob();
 }
