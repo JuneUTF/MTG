@@ -57,6 +57,7 @@ public class PlanController {
 			ArrayList<JobModel> job = planService.selectPlan();
 			messagingTemplate.convertAndSend("/job/notification", job);
 			int nowJob = planService.selectMaxIdPlan().get(0).getMAX();
+			log.info("予約内容の新規登録情報："+planModel);
 			return "redirect:/kk/job?id="+nowJob; 
 		} catch (Exception e) {
 			log.warn("新規登録予約はエラーが発生しました。");

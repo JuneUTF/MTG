@@ -90,6 +90,7 @@ public class JobController {
 	public String postEditID(JobModel jobModel,Model model) {
 		//データベース内に予約内容が変更の結果
 		int jobUpdate = jobService.updateJobById(jobModel);
+		log.info("予約内容の編集情報："+jobModel);
 		//予約内容が完成してIDの上で画面に遷移
 		if(jobUpdate==1) {
 			//Websocket行動
@@ -107,6 +108,7 @@ public class JobController {
 	public String postDeleteID(JobModel jobModel,Model model) {
 		//データベース内に予約内容が変更の結果
 		int jobUpdate = jobService.deleteJobById(jobModel);
+		log.info("予約内容の削除情報："+jobModel);
 		//予約内容が完成してIDの上で画面に遷移
 		if(jobUpdate==1) {
 			//Websocket行動
@@ -123,6 +125,7 @@ public class JobController {
 	public String postRestoreID(JobModel jobModel,Model model) {
 		//データベース内に予約内容が変更の結果
 		int jobUpdate = jobService.restoreJobById(jobModel);
+		log.info("予約内容の復元情報："+jobModel);
 		//予約内容が完成してIDの上で画面に遷移
 		if(jobUpdate==1) {
 			//Websocket行動

@@ -52,6 +52,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter  {
                             .usernameParameter("username")
                             .passwordParameter("password"))
                     .rememberMe(rememberMe  -> rememberMe
+                    		.alwaysRemember(true)
+                    		.tokenValiditySeconds(30 * 24 * 60 * 60)
                             .tokenValiditySeconds(86400)
                             .key("juneutf"))
 						//ログアウトURL設定

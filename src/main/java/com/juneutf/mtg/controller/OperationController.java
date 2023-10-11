@@ -33,30 +33,33 @@ public class OperationController {
 	@PostMapping("/operation/delete")
 	public String postOperationDelete(OperationModel operationModel) {
 		try {
-			int updatecheck = operationService.deleteByIdAndNameID(operationModel);
+			operationService.deleteByIdAndNameID(operationModel);
+			log.info("削除情報："+ operationModel.getNameID() +"テーブルの"+operationModel.getId());
 			return "redirect:/kk/operation";
 		} catch (Exception e) {
-			log.warn("PostMapping operation/deleteに"+operationModel.getStatus()+"/"+operationModel.getId()+"エラー発生します。");
+			log.warn("削除情報失敗："+ operationModel.getNameID() +"テーブルの"+operationModel.getId());
 			return "error";
 		}
 	}
 	@PostMapping("/operation/restore")
 	public String postOperationRestore(OperationModel operationModel) {
 		try {
-			int updatecheck = operationService.restoreByIdAndNameID(operationModel);
+			operationService.restoreByIdAndNameID(operationModel);
+			log.info("復元情報："+ operationModel.getNameID() +"テーブルの"+operationModel.getId());
 			return "redirect:/kk/operation";
 		} catch (Exception e) {
-			log.warn("PostMapping operation/restoreに"+operationModel.getStatus()+"/"+operationModel.getId()+"エラー発生します。");
+			log.warn("復元情報失敗："+ operationModel.getNameID() +"テーブルの"+operationModel.getId());
 			return "error";
 		}
 	}
 	@PostMapping("/operation/edit")
 	public String postOperationEdit(OperationModel operationModel) {
 		try {
-			int updatecheck = operationService.editByIdAndNameID(operationModel);
+			operationService.editByIdAndNameID(operationModel);
+			log.info("編集情報："+ operationModel.getNameID() +"テーブルの"+operationModel.getId());
 			return "redirect:/kk/operation";
 		} catch (Exception e) {
-			log.warn("PostMapping operation/editに"+operationModel.getStatus()+"/"+operationModel.getId()+"エラー発生します。");
+			log.warn("編集情報："+ operationModel.getNameID() +"テーブルの"+operationModel.getId());
 			return "error";
 		}
 	}
@@ -64,10 +67,11 @@ public class OperationController {
 	public String postOperationReg(OperationModel operationModel) {
 		System.out.println(operationModel);
 		try {
-			int updatecheck = operationService.regByIdAndNameID(operationModel);
+			operationService.regByIdAndNameID(operationModel);
+			log.info("新規登録情報："+ operationModel.getNameID() +"テーブルの"+operationModel.getId());
 			return "redirect:/kk/operation";
 		} catch (Exception e) {
-			log.warn("PostMapping operation/regに"+operationModel.getStatus()+"/"+operationModel.getId()+"エラー発生します。");
+			log.warn("新規登録情報失敗："+ operationModel.getNameID() +"テーブルの"+operationModel.getId());
 			return "error";
 		}
 	}
