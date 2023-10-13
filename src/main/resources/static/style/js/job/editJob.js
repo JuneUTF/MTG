@@ -49,16 +49,12 @@ async function callCharge() {
 })();
 // 送信ボタンを取得
 const btn = document.getElementById("submit");
-// 送信ボタンを初期状態で無効にする
-btn.disabled = true;
 // メッセージ表示エリアを取得
 const msg = document.getElementById("msg");
 // 予約日付入力フィールドを取得
 const date_plan = document.getElementById("date_plan");
 // 予約日付入力時に実行されるリスナーを設定
 date_plan.addEventListener('input', checkDay);
-// 予約日付の初期値を現在の日付に設定
-date_plan.value = new Date().toISOString().substring(0, 10);
 // 曜日表示フィールドを取得
 const date_day = document.getElementById("date_day");
 /**
