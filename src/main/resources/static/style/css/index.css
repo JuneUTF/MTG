@@ -68,3 +68,7 @@ thead {
   	-o-animation: my 700ms infinite; 
   	animation: my 700ms infinite;
 }
+form{
+	display: inline;
+	padding-left: 10px;
+}

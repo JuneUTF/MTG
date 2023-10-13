@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -14,6 +15,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.juneutf.mtg.config.service.ActionService;
 import com.juneutf.mtg.config.service.PlanService;
 import com.juneutf.mtg.config.service.SetPasswordService;
 import com.juneutf.mtg.config.vender.CreateToken;
@@ -37,6 +39,10 @@ public class HomeController {
 	private PasswordEncoder passwordEncoder;
 	@Autowired
 	private PlanService planService;
+	@Autowired
+    private ActionService actionService;
+	@Autowired
+    private SimpMessagingTemplate messagingTemplate;
 
 	/**
 	 * ホームページへのアクセスを処理します。
@@ -190,5 +196,17 @@ public class HomeController {
 		} catch (Exception e) {
 			return "error";
 		}
+	}
+	@PostMapping("/kanryo")
+	public String setKanryo(int id,Model model) {
+		try {
+			actionService.actionUpdateById(id);
+			//Websocket行動
+			ArrayList<JobModel> job = planService.selectPlan();
+			messagingTemplate.convertAndSend("/job/notification", job);
+		} catch (Exception e) {
+			log.warn("編完了機能はエラーが発生します。");
+		}
+		return "redirect:/";
 	}
 }

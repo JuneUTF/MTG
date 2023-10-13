@@ -1,37 +1,11 @@
-2023-10-13 10:05:15.501  INFO   - HV000001: Hibernate Validator 6.2.5.Final
-2023-10-13 10:05:15.505  INFO   - Starting MtgApplication using Java 17.0.8.1 on JuneUTF with PID 12512 (C:\JavaSpingBoot\K&K\MTG\target\classes started by juneu in C:\JavaSpingBoot\K&K\MTG)
-2023-10-13 10:05:15.509  INFO   - No active profile set, falling back to 1 default profile: "default"
-2023-10-13 10:05:15.597  INFO   - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2023-10-13 10:05:15.597  INFO   - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2023-10-13 10:05:17.799  INFO   - Tomcat initialized with port(s): 8080 (http)
-2023-10-13 10:05:17.812  INFO   - Initializing ProtocolHandler ["http-nio-8080"]
-2023-10-13 10:05:17.817  INFO   - Starting service [Tomcat]
-2023-10-13 10:05:17.817  INFO   - Starting Servlet engine: [Apache Tomcat/9.0.80]
-2023-10-13 10:05:17.926  INFO   - Initializing Spring embedded WebApplicationContext
-2023-10-13 10:05:17.927  INFO   - Root WebApplicationContext: initialization completed in 2329 ms
-2023-10-13 10:05:18.994  INFO   - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4e31a31e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@44356827, org.springframework.security.web.context.SecurityContextPersistenceFilter@1f9aec65, org.springframework.security.web.header.HeaderWriterFilter@701389db, org.springframework.security.web.authentication.logout.LogoutFilter@19d1d768, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@798c0e3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3ceefafc, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3c5e5c00, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@3c874747, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4d1450db, org.springframework.security.web.session.SessionManagementFilter@17f5a3b7, org.springframework.security.web.access.ExceptionTranslationFilter@4c6a5b5, org.springframework.security.web.access.intercept.AuthorizationFilter@666df25b]
-2023-10-13 10:05:19.293  INFO   - Adding welcome page template: index
-2023-10-13 10:05:19.609  INFO   - LiveReload server is running on port 35729
-2023-10-13 10:05:19.641  INFO   - Starting ProtocolHandler ["http-nio-8080"]
-2023-10-13 10:05:19.683  INFO   - Tomcat started on port(s): 8080 (http) with context path ''
-2023-10-13 10:05:19.685  INFO   - Starting...
-2023-10-13 10:05:19.687  INFO   - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@551bd58f]]
-2023-10-13 10:05:19.688  INFO   - Started.
-2023-10-13 10:05:19.705  INFO   - Started MtgApplication in 4.713 seconds (JVM running for 6.572)
-2023-10-13 10:05:19.728  INFO   - HikariPool-1 - Starting...
-2023-10-13 10:05:19.933  INFO   - HikariPool-1 - Start completed.
-2023-10-13 10:05:27.607  INFO   - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-10-13 10:05:27.607  INFO   - Initializing Servlet 'dispatcherServlet'
-2023-10-13 10:05:27.609  INFO   - Completed initialization in 2 ms
-2023-10-13 10:06:19.117  INFO   - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 3 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(3)-CONNECTED(3)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 24, active threads = 0, queued tasks = 0, completed tasks = 27], outboundChannel[pool size = 6, active threads = 0, queued tasks = 0, completed tasks = 6], sockJsScheduler[pool size = 12, active threads = 1, queued tasks = 2, completed tasks = 12]
-2023-10-13 10:06:30.999  INFO   - Restarting due to 3 class path changes (0 additions, 0 deletions, 3 modifications)
-2023-10-13 10:06:31.007  INFO   - Stopping...
-2023-10-13 10:06:31.007  INFO   - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@551bd58f]]
-2023-10-13 10:06:31.008  INFO   - Stopped.
-2023-10-13 10:06:31.028  INFO   - Pausing ProtocolHandler ["http-nio-8080"]
-2023-10-13 10:06:31.028  INFO   - Stopping service [Tomcat]
-2023-10-13 10:06:31.029  INFO   - Destroying Spring FrameworkServlet 'dispatcherServlet'
-2023-10-13 10:06:31.037  WARN   - The web application [ROOT] appears to have started a thread named [MessageBroker-4] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+2023-10-13 14:07:12.352  INFO   - Application shutdown requested.
+2023-10-13 14:07:12.353  INFO   - Stopping...
+2023-10-13 14:07:12.353  INFO   - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@721c5d4]]
+2023-10-13 14:07:12.353  INFO   - Stopped.
+2023-10-13 14:07:12.362  INFO   - Pausing ProtocolHandler ["http-nio-8080"]
+2023-10-13 14:07:12.362  INFO   - Stopping service [Tomcat]
+2023-10-13 14:07:12.362  INFO   - Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-10-13 14:07:12.365  WARN   - The web application [ROOT] appears to have started a thread named [MessageBroker-5] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
  java.base@17.0.8.1/jdk.internal.misc.Unsafe.park(Native Method)
  java.base@17.0.8.1/java.util.concurrent.locks.LockSupport.park(LockSupport.java:341)
  java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block(AbstractQueuedSynchronizer.java:506)
@@ -44,35 +18,7 @@
  java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
  java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
  java.base@17.0.8.1/java.lang.Thread.run(Thread.java:833)
-2023-10-13 10:06:31.039  WARN   - The web application [ROOT] appears to have started a thread named [MessageBroker-6] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
- java.base@17.0.8.1/jdk.internal.misc.Unsafe.park(Native Method)
- java.base@17.0.8.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
- java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
- java.base@17.0.8.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
- java.base@17.0.8.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
- java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
- java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
- java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
- java.base@17.0.8.1/java.lang.Thread.run(Thread.java:833)
-2023-10-13 10:06:31.040  WARN   - The web application [ROOT] appears to have started a thread named [clientInboundChannel-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
- java.base@17.0.8.1/jdk.internal.misc.Unsafe.park(Native Method)
- java.base@17.0.8.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
- java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
- java.base@17.0.8.1/java.util.concurrent.LinkedBlockingQueue.poll(LinkedBlockingQueue.java:460)
- java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1061)
- java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
- java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
- java.base@17.0.8.1/java.lang.Thread.run(Thread.java:833)
-2023-10-13 10:06:31.041  WARN   - The web application [ROOT] appears to have started a thread named [clientInboundChannel-2] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
- java.base@17.0.8.1/jdk.internal.misc.Unsafe.park(Native Method)
- java.base@17.0.8.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
- java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
- java.base@17.0.8.1/java.util.concurrent.LinkedBlockingQueue.poll(LinkedBlockingQueue.java:460)
- java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1061)
- java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
- java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
- java.base@17.0.8.1/java.lang.Thread.run(Thread.java:833)
-2023-10-13 10:06:31.042  WARN   - The web application [ROOT] appears to have started a thread named [MessageBroker-7] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+2023-10-13 14:07:12.366  WARN   - The web application [ROOT] appears to have started a thread named [MessageBroker-7] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
  java.base@17.0.8.1/jdk.internal.misc.Unsafe.park(Native Method)
  java.base@17.0.8.1/java.util.concurrent.locks.LockSupport.park(LockSupport.java:341)
  java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block(AbstractQueuedSynchronizer.java:506)
@@ -85,52 +31,7 @@
  java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
  java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
  java.base@17.0.8.1/java.lang.Thread.run(Thread.java:833)
-2023-10-13 10:06:31.043  WARN   - The web application [ROOT] appears to have started a thread named [clientInboundChannel-4] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
- java.base@17.0.8.1/jdk.internal.misc.Unsafe.park(Native Method)
- java.base@17.0.8.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
- java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
- java.base@17.0.8.1/java.util.concurrent.LinkedBlockingQueue.poll(LinkedBlockingQueue.java:460)
- java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1061)
- java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
- java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
- java.base@17.0.8.1/java.lang.Thread.run(Thread.java:833)
-2023-10-13 10:06:31.044  WARN   - The web application [ROOT] appears to have started a thread named [clientInboundChannel-5] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
- java.base@17.0.8.1/jdk.internal.misc.Unsafe.park(Native Method)
- java.base@17.0.8.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
- java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
- java.base@17.0.8.1/java.util.concurrent.LinkedBlockingQueue.poll(LinkedBlockingQueue.java:460)
- java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1061)
- java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
- java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
- java.base@17.0.8.1/java.lang.Thread.run(Thread.java:833)
-2023-10-13 10:06:31.046  WARN   - The web application [ROOT] appears to have started a thread named [clientInboundChannel-6] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
- java.base@17.0.8.1/jdk.internal.misc.Unsafe.park(Native Method)
- java.base@17.0.8.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
- java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
- java.base@17.0.8.1/java.util.concurrent.LinkedBlockingQueue.poll(LinkedBlockingQueue.java:460)
- java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1061)
- java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
- java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
- java.base@17.0.8.1/java.lang.Thread.run(Thread.java:833)
-2023-10-13 10:06:31.047  WARN   - The web application [ROOT] appears to have started a thread named [clientInboundChannel-7] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
- java.base@17.0.8.1/jdk.internal.misc.Unsafe.park(Native Method)
- java.base@17.0.8.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
- java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
- java.base@17.0.8.1/java.util.concurrent.LinkedBlockingQueue.poll(LinkedBlockingQueue.java:460)
- java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1061)
- java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
- java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
- java.base@17.0.8.1/java.lang.Thread.run(Thread.java:833)
-2023-10-13 10:06:31.048  WARN   - The web application [ROOT] appears to have started a thread named [clientInboundChannel-9] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
- java.base@17.0.8.1/jdk.internal.misc.Unsafe.park(Native Method)
- java.base@17.0.8.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
- java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
- java.base@17.0.8.1/java.util.concurrent.LinkedBlockingQueue.poll(LinkedBlockingQueue.java:460)
- java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1061)
- java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
- java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
- java.base@17.0.8.1/java.lang.Thread.run(Thread.java:833)
-2023-10-13 10:06:31.050  WARN   - The web application [ROOT] appears to have started a thread named [MessageBroker-10] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+2023-10-13 14:07:12.366  WARN   - The web application [ROOT] appears to have started a thread named [MessageBroker-8] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
  java.base@17.0.8.1/jdk.internal.misc.Unsafe.park(Native Method)
  java.base@17.0.8.1/java.util.concurrent.locks.LockSupport.park(LockSupport.java:341)
  java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block(AbstractQueuedSynchronizer.java:506)
@@ -143,43 +44,7 @@
  java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
  java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
  java.base@17.0.8.1/java.lang.Thread.run(Thread.java:833)
-2023-10-13 10:06:31.051  WARN   - The web application [ROOT] appears to have started a thread named [clientInboundChannel-10] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
- java.base@17.0.8.1/jdk.internal.misc.Unsafe.park(Native Method)
- java.base@17.0.8.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
- java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
- java.base@17.0.8.1/java.util.concurrent.LinkedBlockingQueue.poll(LinkedBlockingQueue.java:460)
- java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1061)
- java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
- java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
- java.base@17.0.8.1/java.lang.Thread.run(Thread.java:833)
-2023-10-13 10:06:31.052  WARN   - The web application [ROOT] appears to have started a thread named [clientInboundChannel-11] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
- java.base@17.0.8.1/jdk.internal.misc.Unsafe.park(Native Method)
- java.base@17.0.8.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
- java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
- java.base@17.0.8.1/java.util.concurrent.LinkedBlockingQueue.poll(LinkedBlockingQueue.java:460)
- java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1061)
- java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
- java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
- java.base@17.0.8.1/java.lang.Thread.run(Thread.java:833)
-2023-10-13 10:06:31.053  WARN   - The web application [ROOT] appears to have started a thread named [clientInboundChannel-12] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
- java.base@17.0.8.1/jdk.internal.misc.Unsafe.park(Native Method)
- java.base@17.0.8.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
- java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
- java.base@17.0.8.1/java.util.concurrent.LinkedBlockingQueue.poll(LinkedBlockingQueue.java:460)
- java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1061)
- java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
- java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
- java.base@17.0.8.1/java.lang.Thread.run(Thread.java:833)
-2023-10-13 10:06:31.054  WARN   - The web application [ROOT] appears to have started a thread named [clientOutboundChannel-3] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
- java.base@17.0.8.1/jdk.internal.misc.Unsafe.park(Native Method)
- java.base@17.0.8.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
- java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
- java.base@17.0.8.1/java.util.concurrent.LinkedBlockingQueue.poll(LinkedBlockingQueue.java:460)
- java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1061)
- java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
- java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
- java.base@17.0.8.1/java.lang.Thread.run(Thread.java:833)
-2023-10-13 10:06:31.055  WARN   - The web application [ROOT] appears to have started a thread named [MessageBroker-11] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+2023-10-13 14:07:12.366  WARN   - The web application [ROOT] appears to have started a thread named [MessageBroker-12] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
  java.base@17.0.8.1/jdk.internal.misc.Unsafe.park(Native Method)
  java.base@17.0.8.1/java.util.concurrent.locks.LockSupport.park(LockSupport.java:341)
  java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block(AbstractQueuedSynchronizer.java:506)
@@ -192,7 +57,7 @@
  java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
  java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
  java.base@17.0.8.1/java.lang.Thread.run(Thread.java:833)
-2023-10-13 10:06:31.057  WARN   - The web application [ROOT] appears to have started a thread named [clientInboundChannel-13] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+2023-10-13 14:07:12.367  WARN   - The web application [ROOT] appears to have started a thread named [clientInboundChannel-41] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
  java.base@17.0.8.1/jdk.internal.misc.Unsafe.park(Native Method)
  java.base@17.0.8.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
  java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
@@ -201,7 +66,7 @@
  java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
  java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
  java.base@17.0.8.1/java.lang.Thread.run(Thread.java:833)
-2023-10-13 10:06:31.058  WARN   - The web application [ROOT] appears to have started a thread named [clientInboundChannel-14] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+2023-10-13 14:07:12.367  WARN   - The web application [ROOT] appears to have started a thread named [clientInboundChannel-42] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
  java.base@17.0.8.1/jdk.internal.misc.Unsafe.park(Native Method)
  java.base@17.0.8.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
  java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
@@ -210,7 +75,7 @@
  java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
  java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
  java.base@17.0.8.1/java.lang.Thread.run(Thread.java:833)
-2023-10-13 10:06:31.059  WARN   - The web application [ROOT] appears to have started a thread named [clientInboundChannel-15] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+2023-10-13 14:07:12.367  WARN   - The web application [ROOT] appears to have started a thread named [clientInboundChannel-43] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
  java.base@17.0.8.1/jdk.internal.misc.Unsafe.park(Native Method)
  java.base@17.0.8.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
  java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
@@ -219,7 +84,7 @@
  java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
  java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
  java.base@17.0.8.1/java.lang.Thread.run(Thread.java:833)
-2023-10-13 10:06:31.060  WARN   - The web application [ROOT] appears to have started a thread named [clientInboundChannel-16] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+2023-10-13 14:07:12.367  WARN   - The web application [ROOT] appears to have started a thread named [clientOutboundChannel-19] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
  java.base@17.0.8.1/jdk.internal.misc.Unsafe.park(Native Method)
  java.base@17.0.8.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
  java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
@@ -228,7 +93,7 @@
  java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
  java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
  java.base@17.0.8.1/java.lang.Thread.run(Thread.java:833)
-2023-10-13 10:06:31.061  WARN   - The web application [ROOT] appears to have started a thread named [clientInboundChannel-17] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+2023-10-13 14:07:12.369  WARN   - The web application [ROOT] appears to have started a thread named [clientOutboundChannel-20] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
  java.base@17.0.8.1/jdk.internal.misc.Unsafe.park(Native Method)
  java.base@17.0.8.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
  java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
@@ -237,7 +102,7 @@
  java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
  java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
  java.base@17.0.8.1/java.lang.Thread.run(Thread.java:833)
-2023-10-13 10:06:31.063  WARN   - The web application [ROOT] appears to have started a thread named [clientInboundChannel-18] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+2023-10-13 14:07:12.369  WARN   - The web application [ROOT] appears to have started a thread named [clientOutboundChannel-21] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
  java.base@17.0.8.1/jdk.internal.misc.Unsafe.park(Native Method)
  java.base@17.0.8.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
  java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
@@ -246,7 +111,7 @@
  java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
  java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
  java.base@17.0.8.1/java.lang.Thread.run(Thread.java:833)
-2023-10-13 10:06:31.064  WARN   - The web application [ROOT] appears to have started a thread named [clientOutboundChannel-4] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+2023-10-13 14:07:12.369  WARN   - The web application [ROOT] appears to have started a thread named [clientInboundChannel-44] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
  java.base@17.0.8.1/jdk.internal.misc.Unsafe.park(Native Method)
  java.base@17.0.8.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
  java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
@@ -255,7 +120,7 @@
  java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
  java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
  java.base@17.0.8.1/java.lang.Thread.run(Thread.java:833)
-2023-10-13 10:06:31.065  WARN   - The web application [ROOT] appears to have started a thread named [clientInboundChannel-19] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+2023-10-13 14:07:12.369  WARN   - The web application [ROOT] appears to have started a thread named [clientInboundChannel-45] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
  java.base@17.0.8.1/jdk.internal.misc.Unsafe.park(Native Method)
  java.base@17.0.8.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
  java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
@@ -264,7 +129,7 @@
  java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
  java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
  java.base@17.0.8.1/java.lang.Thread.run(Thread.java:833)
-2023-10-13 10:06:31.066  WARN   - The web application [ROOT] appears to have started a thread named [clientInboundChannel-20] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+2023-10-13 14:07:12.370  WARN   - The web application [ROOT] appears to have started a thread named [clientInboundChannel-46] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
  java.base@17.0.8.1/jdk.internal.misc.Unsafe.park(Native Method)
  java.base@17.0.8.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
  java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
@@ -273,7 +138,7 @@
  java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
  java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
  java.base@17.0.8.1/java.lang.Thread.run(Thread.java:833)
-2023-10-13 10:06:31.068  WARN   - The web application [ROOT] appears to have started a thread named [clientInboundChannel-21] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+2023-10-13 14:07:12.370  WARN   - The web application [ROOT] appears to have started a thread named [clientOutboundChannel-22] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
  java.base@17.0.8.1/jdk.internal.misc.Unsafe.park(Native Method)
  java.base@17.0.8.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
  java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
@@ -282,7 +147,7 @@
  java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
  java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
  java.base@17.0.8.1/java.lang.Thread.run(Thread.java:833)
-2023-10-13 10:06:31.069  WARN   - The web application [ROOT] appears to have started a thread named [clientOutboundChannel-5] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+2023-10-13 14:07:12.370  WARN   - The web application [ROOT] appears to have started a thread named [clientInboundChannel-47] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
  java.base@17.0.8.1/jdk.internal.misc.Unsafe.park(Native Method)
  java.base@17.0.8.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
  java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
@@ -291,7 +156,7 @@
  java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
  java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
  java.base@17.0.8.1/java.lang.Thread.run(Thread.java:833)
-2023-10-13 10:06:31.070  WARN   - The web application [ROOT] appears to have started a thread named [clientInboundChannel-22] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+2023-10-13 14:07:12.371  WARN   - The web application [ROOT] appears to have started a thread named [clientInboundChannel-48] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
  java.base@17.0.8.1/jdk.internal.misc.Unsafe.park(Native Method)
  java.base@17.0.8.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
  java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
@@ -300,7 +165,7 @@
  java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
  java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
  java.base@17.0.8.1/java.lang.Thread.run(Thread.java:833)
-2023-10-13 10:06:31.072  WARN   - The web application [ROOT] appears to have started a thread named [clientInboundChannel-23] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+2023-10-13 14:07:12.372  WARN   - The web application [ROOT] appears to have started a thread named [clientInboundChannel-49] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
  java.base@17.0.8.1/jdk.internal.misc.Unsafe.park(Native Method)
  java.base@17.0.8.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
  java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
@@ -309,7 +174,7 @@
  java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
  java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
  java.base@17.0.8.1/java.lang.Thread.run(Thread.java:833)
-2023-10-13 10:06:31.073  WARN   - The web application [ROOT] appears to have started a thread named [clientInboundChannel-24] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+2023-10-13 14:07:12.372  WARN   - The web application [ROOT] appears to have started a thread named [clientInboundChannel-50] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
  java.base@17.0.8.1/jdk.internal.misc.Unsafe.park(Native Method)
  java.base@17.0.8.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
  java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
@@ -318,7 +183,7 @@
  java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
  java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
  java.base@17.0.8.1/java.lang.Thread.run(Thread.java:833)
-2023-10-13 10:06:31.074  WARN   - The web application [ROOT] appears to have started a thread named [clientOutboundChannel-6] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+2023-10-13 14:07:12.372  WARN   - The web application [ROOT] appears to have started a thread named [clientInboundChannel-51] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
  java.base@17.0.8.1/jdk.internal.misc.Unsafe.park(Native Method)
  java.base@17.0.8.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
  java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
@@ -327,7 +192,7 @@
  java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
  java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
  java.base@17.0.8.1/java.lang.Thread.run(Thread.java:833)
-2023-10-13 10:06:31.075  WARN   - The web application [ROOT] appears to have started a thread named [clientOutboundChannel-7] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+2023-10-13 14:07:12.372  WARN   - The web application [ROOT] appears to have started a thread named [clientInboundChannel-52] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
  java.base@17.0.8.1/jdk.internal.misc.Unsafe.park(Native Method)
  java.base@17.0.8.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
  java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
@@ -336,135 +201,7 @@
  java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
  java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
  java.base@17.0.8.1/java.lang.Thread.run(Thread.java:833)
-2023-10-13 10:06:31.077  INFO   - Stopping ProtocolHandler ["http-nio-8080"]
-2023-10-13 10:06:31.081  INFO   - Destroying ProtocolHandler ["http-nio-8080"]
-2023-10-13 10:06:31.096  INFO   - HikariPool-1 - Shutdown initiated...
-2023-10-13 10:06:31.102  INFO   - HikariPool-1 - Shutdown completed.
-2023-10-13 10:06:31.240  INFO   - Starting MtgApplication using Java 17.0.8.1 on JuneUTF with PID 12512 (C:\JavaSpingBoot\K&K\MTG\target\classes started by juneu in C:\JavaSpingBoot\K&K\MTG)
-2023-10-13 10:06:31.240  INFO   - No active profile set, falling back to 1 default profile: "default"
-2023-10-13 10:06:31.749  INFO   - Tomcat initialized with port(s): 8080 (http)
-2023-10-13 10:06:31.750  INFO   - Initializing ProtocolHandler ["http-nio-8080"]
-2023-10-13 10:06:31.754  INFO   - Starting service [Tomcat]
-2023-10-13 10:06:31.755  INFO   - Starting Servlet engine: [Apache Tomcat/9.0.80]
-2023-10-13 10:06:31.787  INFO   - Initializing Spring embedded WebApplicationContext
-2023-10-13 10:06:31.788  INFO   - Root WebApplicationContext: initialization completed in 543 ms
-2023-10-13 10:06:32.106  INFO   - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@308f0064, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2cdbf4f7, org.springframework.security.web.context.SecurityContextPersistenceFilter@4080da97, org.springframework.security.web.header.HeaderWriterFilter@33d408c3, org.springframework.security.web.authentication.logout.LogoutFilter@6cd47105, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@6b5625e1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@41d7b3e0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@52d63909, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@24452dd7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7678b5a0, org.springframework.security.web.session.SessionManagementFilter@40a719e2, org.springframework.security.web.access.ExceptionTranslationFilter@44e8a7c0, org.springframework.security.web.access.intercept.AuthorizationFilter@731dfab8]
-2023-10-13 10:06:32.204  INFO   - Adding welcome page template: index
-2023-10-13 10:06:32.286  INFO   - LiveReload server is running on port 35729
-2023-10-13 10:06:32.300  INFO   - Starting ProtocolHandler ["http-nio-8080"]
-2023-10-13 10:06:32.310  INFO   - Tomcat started on port(s): 8080 (http) with context path ''
-2023-10-13 10:06:32.311  INFO   - Starting...
-2023-10-13 10:06:32.311  INFO   - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@3bb2766d]]
-2023-10-13 10:06:32.311  INFO   - Started.
-2023-10-13 10:06:32.320  INFO   - HikariPool-2 - Starting...
-2023-10-13 10:06:32.320  INFO   - Started MtgApplication in 1.138 seconds (JVM running for 79.185)
-2023-10-13 10:06:32.324  INFO   - Condition evaluation unchanged
-2023-10-13 10:06:32.375  INFO   - HikariPool-2 - Start completed.
-2023-10-13 10:06:33.449  INFO   - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-10-13 10:06:33.449  INFO   - Initializing Servlet 'dispatcherServlet'
-2023-10-13 10:06:33.453  INFO   - Completed initialization in 4 ms
-2023-10-13 10:07:09.029  INFO   - 予約内容の編集情報：JobModel(id=70, date_day=土, date_plan=2023-10-21, time_start=09:30, time_end=12:00, purpose=null, charge=null, purposeId=5, chargeId=6, status=予約中, MAX=0)
-2023-10-13 10:07:15.044  INFO   - 予約内容の編集情報：JobModel(id=66, date_day=火, date_plan=2023-10-17, time_start=11:00, time_end=11:30, purpose=null, charge=null, purposeId=2, chargeId=3, status=キャンセル, MAX=0)
-2023-10-13 10:07:21.286  INFO   - 予約内容の編集情報：JobModel(id=72, date_day=火, date_plan=2023-10-17, time_start=14:00, time_end=15:00, purpose=null, charge=null, purposeId=1, chargeId=6, status=予約中, MAX=0)
-2023-10-13 10:07:27.677  INFO   - 予約内容の編集情報：JobModel(id=69, date_day=火, date_plan=2023-10-17, time_start=11:00, time_end=11:30, purpose=null, charge=null, purposeId=3, chargeId=3, status=予約中, MAX=0)
-2023-10-13 10:07:32.132  INFO   - WebSocketSession[1 current WS(1)-HttpStream(0)-HttpPoll(0), 8 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(8)-CONNECTED(8)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 24, active threads = 0, queued tasks = 0, completed tasks = 69], outboundChannel[pool size = 15, active threads = 0, queued tasks = 0, completed tasks = 15], sockJsScheduler[pool size = 12, active threads = 1, queued tasks = 3, completed tasks = 6]
-2023-10-13 10:07:34.134  INFO   - 予約内容の編集情報：JobModel(id=71, date_day=水, date_plan=2023-10-18, time_start=11:00, time_end=12:00, purpose=null, charge=null, purposeId=3, chargeId=6, status=予約中, MAX=0)
-2023-10-13 10:07:42.918  INFO   - 予約内容の編集情報：JobModel(id=68, date_day=木, date_plan=2023-10-19, time_start=10:00, time_end=11:00, purpose=null, charge=null, purposeId=1, chargeId=6, status=予約中, MAX=0)
-2023-10-13 10:07:49.609  INFO   - 予約内容の編集情報：JobModel(id=73, date_day=木, date_plan=2023-10-19, time_start=13:00, time_end=14:00, purpose=null, charge=null, purposeId=1, chargeId=1, status=キャンセル, MAX=0)
-2023-10-13 10:07:58.225  INFO   - 予約内容の編集情報：JobModel(id=70, date_day=土, date_plan=2023-10-21, time_start=09:30, time_end=12:00, purpose=null, charge=null, purposeId=5, chargeId=6, status=予約中, MAX=0)
-2023-10-13 10:10:08.303  INFO   - Application shutdown requested.
-2023-10-13 10:10:08.306  INFO   - Stopping...
-2023-10-13 10:10:08.306  INFO   - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@3bb2766d]]
-2023-10-13 10:10:08.306  INFO   - Stopped.
-2023-10-13 10:10:08.322  INFO   - Pausing ProtocolHandler ["http-nio-8080"]
-2023-10-13 10:10:08.323  INFO   - Stopping service [Tomcat]
-2023-10-13 10:10:08.323  INFO   - Destroying Spring FrameworkServlet 'dispatcherServlet'
-2023-10-13 10:10:08.326  WARN   - The web application [ROOT] appears to have started a thread named [MessageBroker-4] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
- java.base@17.0.8.1/jdk.internal.misc.Unsafe.park(Native Method)
- java.base@17.0.8.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
- java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
- java.base@17.0.8.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
- java.base@17.0.8.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
- java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
- java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
- java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
- java.base@17.0.8.1/java.lang.Thread.run(Thread.java:833)
-2023-10-13 10:10:08.327  WARN   - The web application [ROOT] appears to have started a thread named [MessageBroker-6] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
- java.base@17.0.8.1/jdk.internal.misc.Unsafe.park(Native Method)
- java.base@17.0.8.1/java.util.concurrent.locks.LockSupport.park(LockSupport.java:341)
- java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block(AbstractQueuedSynchronizer.java:506)
- java.base@17.0.8.1/java.util.concurrent.ForkJoinPool.unmanagedBlock(ForkJoinPool.java:3465)
- java.base@17.0.8.1/java.util.concurrent.ForkJoinPool.managedBlock(ForkJoinPool.java:3436)
- java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1623)
- java.base@17.0.8.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1177)
- java.base@17.0.8.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
- java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
- java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
- java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
- java.base@17.0.8.1/java.lang.Thread.run(Thread.java:833)
-2023-10-13 10:10:08.328  WARN   - The web application [ROOT] appears to have started a thread named [MessageBroker-7] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
- java.base@17.0.8.1/jdk.internal.misc.Unsafe.park(Native Method)
- java.base@17.0.8.1/java.util.concurrent.locks.LockSupport.park(LockSupport.java:341)
- java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block(AbstractQueuedSynchronizer.java:506)
- java.base@17.0.8.1/java.util.concurrent.ForkJoinPool.unmanagedBlock(ForkJoinPool.java:3465)
- java.base@17.0.8.1/java.util.concurrent.ForkJoinPool.managedBlock(ForkJoinPool.java:3436)
- java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1623)
- java.base@17.0.8.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1177)
- java.base@17.0.8.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
- java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
- java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
- java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
- java.base@17.0.8.1/java.lang.Thread.run(Thread.java:833)
-2023-10-13 10:10:08.329  WARN   - The web application [ROOT] appears to have started a thread named [MessageBroker-8] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
- java.base@17.0.8.1/jdk.internal.misc.Unsafe.park(Native Method)
- java.base@17.0.8.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
- java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
- java.base@17.0.8.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
- java.base@17.0.8.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
- java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
- java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
- java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
- java.base@17.0.8.1/java.lang.Thread.run(Thread.java:833)
-2023-10-13 10:10:08.330  WARN   - The web application [ROOT] appears to have started a thread named [MessageBroker-9] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
- java.base@17.0.8.1/jdk.internal.misc.Unsafe.park(Native Method)
- java.base@17.0.8.1/java.util.concurrent.locks.LockSupport.park(LockSupport.java:341)
- java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block(AbstractQueuedSynchronizer.java:506)
- java.base@17.0.8.1/java.util.concurrent.ForkJoinPool.unmanagedBlock(ForkJoinPool.java:3465)
- java.base@17.0.8.1/java.util.concurrent.ForkJoinPool.managedBlock(ForkJoinPool.java:3436)
- java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1623)
- java.base@17.0.8.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1177)
- java.base@17.0.8.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
- java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
- java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
- java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
- java.base@17.0.8.1/java.lang.Thread.run(Thread.java:833)
-2023-10-13 10:10:08.330  WARN   - The web application [ROOT] appears to have started a thread named [MessageBroker-11] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
- java.base@17.0.8.1/jdk.internal.misc.Unsafe.park(Native Method)
- java.base@17.0.8.1/java.util.concurrent.locks.LockSupport.park(LockSupport.java:341)
- java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block(AbstractQueuedSynchronizer.java:506)
- java.base@17.0.8.1/java.util.concurrent.ForkJoinPool.unmanagedBlock(ForkJoinPool.java:3465)
- java.base@17.0.8.1/java.util.concurrent.ForkJoinPool.managedBlock(ForkJoinPool.java:3436)
- java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1623)
- java.base@17.0.8.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1177)
- java.base@17.0.8.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
- java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
- java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
- java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
- java.base@17.0.8.1/java.lang.Thread.run(Thread.java:833)
-2023-10-13 10:10:08.332  WARN   - The web application [ROOT] appears to have started a thread named [MessageBroker-12] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
- java.base@17.0.8.1/jdk.internal.misc.Unsafe.park(Native Method)
- java.base@17.0.8.1/java.util.concurrent.locks.LockSupport.park(LockSupport.java:341)
- java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block(AbstractQueuedSynchronizer.java:506)
- java.base@17.0.8.1/java.util.concurrent.ForkJoinPool.unmanagedBlock(ForkJoinPool.java:3465)
- java.base@17.0.8.1/java.util.concurrent.ForkJoinPool.managedBlock(ForkJoinPool.java:3436)
- java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1623)
- java.base@17.0.8.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1177)
- java.base@17.0.8.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
- java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
- java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
- java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
- java.base@17.0.8.1/java.lang.Thread.run(Thread.java:833)
-2023-10-13 10:10:08.332  WARN   - The web application [ROOT] appears to have started a thread named [clientInboundChannel-25] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+2023-10-13 14:07:12.373  WARN   - The web application [ROOT] appears to have started a thread named [clientOutboundChannel-23] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
  java.base@17.0.8.1/jdk.internal.misc.Unsafe.park(Native Method)
  java.base@17.0.8.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
  java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
@@ -473,7 +210,7 @@
  java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
  java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
  java.base@17.0.8.1/java.lang.Thread.run(Thread.java:833)
-2023-10-13 10:10:08.333  WARN   - The web application [ROOT] appears to have started a thread named [clientInboundChannel-26] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+2023-10-13 14:07:12.373  WARN   - The web application [ROOT] appears to have started a thread named [clientInboundChannel-53] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
  java.base@17.0.8.1/jdk.internal.misc.Unsafe.park(Native Method)
  java.base@17.0.8.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
  java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
@@ -482,7 +219,7 @@
  java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
  java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
  java.base@17.0.8.1/java.lang.Thread.run(Thread.java:833)
-2023-10-13 10:10:08.333  WARN   - The web application [ROOT] appears to have started a thread named [clientInboundChannel-27] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+2023-10-13 14:07:12.373  WARN   - The web application [ROOT] appears to have started a thread named [clientInboundChannel-54] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
  java.base@17.0.8.1/jdk.internal.misc.Unsafe.park(Native Method)
  java.base@17.0.8.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
  java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
@@ -491,7 +228,7 @@
  java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
  java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
  java.base@17.0.8.1/java.lang.Thread.run(Thread.java:833)
-2023-10-13 10:10:08.334  WARN   - The web application [ROOT] appears to have started a thread named [clientInboundChannel-46] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+2023-10-13 14:07:12.373  WARN   - The web application [ROOT] appears to have started a thread named [clientInboundChannel-55] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
  java.base@17.0.8.1/jdk.internal.misc.Unsafe.park(Native Method)
  java.base@17.0.8.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
  java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
@@ -500,7 +237,7 @@
  java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
  java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
  java.base@17.0.8.1/java.lang.Thread.run(Thread.java:833)
-2023-10-13 10:10:08.334  WARN   - The web application [ROOT] appears to have started a thread named [clientInboundChannel-47] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+2023-10-13 14:07:12.373  WARN   - The web application [ROOT] appears to have started a thread named [clientOutboundChannel-24] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
  java.base@17.0.8.1/jdk.internal.misc.Unsafe.park(Native Method)
  java.base@17.0.8.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
  java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
@@ -509,7 +246,7 @@
  java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
  java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
  java.base@17.0.8.1/java.lang.Thread.run(Thread.java:833)
-2023-10-13 10:10:08.336  WARN   - The web application [ROOT] appears to have started a thread named [clientInboundChannel-48] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+2023-10-13 14:07:12.374  WARN   - The web application [ROOT] appears to have started a thread named [clientInboundChannel-56] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
  java.base@17.0.8.1/jdk.internal.misc.Unsafe.park(Native Method)
  java.base@17.0.8.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
  java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
@@ -518,7 +255,7 @@
  java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
  java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
  java.base@17.0.8.1/java.lang.Thread.run(Thread.java:833)
-2023-10-13 10:10:08.336  WARN   - The web application [ROOT] appears to have started a thread named [clientOutboundChannel-30] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+2023-10-13 14:07:12.374  WARN   - The web application [ROOT] appears to have started a thread named [clientInboundChannel-57] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
  java.base@17.0.8.1/jdk.internal.misc.Unsafe.park(Native Method)
  java.base@17.0.8.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
  java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
@@ -527,7 +264,16 @@
  java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
  java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
  java.base@17.0.8.1/java.lang.Thread.run(Thread.java:833)
-2023-10-13 10:10:08.336  INFO   - Stopping ProtocolHandler ["http-nio-8080"]
-2023-10-13 10:10:08.338  INFO   - Destroying ProtocolHandler ["http-nio-8080"]
-2023-10-13 10:10:08.344  INFO   - HikariPool-2 - Shutdown initiated...
-2023-10-13 10:10:08.347  INFO   - HikariPool-2 - Shutdown completed.
+2023-10-13 14:07:12.374  WARN   - The web application [ROOT] appears to have started a thread named [clientInboundChannel-58] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.8.1/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.8.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.8.1/java.util.concurrent.LinkedBlockingQueue.poll(LinkedBlockingQueue.java:460)
+ java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1061)
+ java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.8.1/java.lang.Thread.run(Thread.java:833)
+2023-10-13 14:07:12.374  INFO   - Stopping ProtocolHandler ["http-nio-8080"]
+2023-10-13 14:07:12.376  INFO   - Destroying ProtocolHandler ["http-nio-8080"]
+2023-10-13 14:07:12.378  INFO   - HikariPool-5 - Shutdown initiated...
+2023-10-13 14:07:12.379  INFO   - HikariPool-5 - Shutdown completed.
