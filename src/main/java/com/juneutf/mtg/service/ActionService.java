@@ -1,4 +1,4 @@
-package com.juneutf.mtg.config.service;
+package com.juneutf.mtg.service;
 
 /**
  * ActionService インターフェースは、アクションに関するサービスメソッドを提供します。

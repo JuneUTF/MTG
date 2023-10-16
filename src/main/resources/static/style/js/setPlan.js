@@ -29,7 +29,7 @@ function setDay() {
  * 過去の選択日付と現在の日付を比較する関数 // kiểm tra xem ngày đang chọn quá ở quá khứ không.
  * @returns {boolean} 過去の日付が現在の日付以下である場合はtrue、それ以外の場合はfalseを返します。
  */
-function compareDates() { 
+function compareDates() {
     // 現在の日付を取得してISOString形式に変換し、日付部分のみを抽出
     const d1 = new Date(new Date().toISOString().substring(0, 10));
     // 選択された日付をDateオブジェクトに変換
@@ -87,17 +87,17 @@ async function callCharge() {
         const response = await fetch(apiUrl);
         if (!response.ok) {
             //APIを呼び出しできない場合 input box 表示されます。
-            chargeHTML = `<input type="text" class="form-control" id="charge" name="charge" placeholder="内容を入力ください。" required>`;
+            chargeHTML = `<input type="text" class="form-control" id="charge" name="chargeId" placeholder="内容を入力ください。" required>`;
         }
         const data = await response.json();
         data.map((e) => {
             //APIを呼び出し場合 選択ボックスを表示されます。
             chargeHTML = chargeHTML + `<option value="${e.id}">${e.charge}</option>`;
         });
-        chargeHTML = `<select class="form-select" id="charge" name="charge">${chargeHTML}</select>`;
+        chargeHTML = `<select class="form-select" id="charge" name="chargeId">${chargeHTML}</select>`;
     } catch (error) {
         //APIを呼び出しできない場合 input box 表示されます。
-        chargeHTML = `<input type="text" class="form-control" id="charge" name="charge" placeholder="内容を入力ください。" required>`;
+        chargeHTML = `<input type="text" class="form-control" id="charge" name="chargeId" placeholder="内容を入力ください。" required>`;
     }
 }
 // 内容情報と担当者を非同期で取得し、フィールドに設定
@@ -112,7 +112,7 @@ const time_start = document.getElementById("time_start");
 // 開始時刻入力時に実行されるリスナーを設定
 time_start.addEventListener('input', checkInput);
 
-function checkInput(){
+function checkInput() {
     callAPI();
     checkTimeActive(time_start.value);
     if (checkTimeRegister(ArrayJob, time_start.value)) {
@@ -121,17 +121,17 @@ function checkInput(){
     } else if (checkTimeRegister(ArrayJob, time_end.value) || checkTinmeTow()) {
         msg.textContent = `${time_start.value}～${time_end.value}に予約がありました。`;
         btn.disabled = true;//送信ボタンを無効化
-    } else  if (checkTowDay()) {
+    } else if (checkTowDay()) {
         msg.textContent = `開始時刻より終了時刻を選択してください。`;
         btn.disabled = true;//送信ボタンを無効化
     } else if (checkTimeRegister(ArrayJob, time_end.value) || checkTinmeTow()) {
         msg.textContent = `${time_start.value}～${time_end.value}に予約がありました。`;
         btn.disabled = true;//送信ボタンを無効化
-    } else if(time_end.value!=""){
+    } else if (time_end.value != "") {
         msg.textContent = `　`;
         btn.disabled = false;//送信ボタンを有効化
         checkTimeActive(time_end.value);
-    }else{
+    } else {
         msg.textContent = `終了時間を入力してください。`;
         btn.disabled = true;//送信ボタンを有効化
     }
@@ -202,25 +202,25 @@ function checkTowDay() {
     return start >= end;
 }
 //call api job
-function callAPI(){
+function callAPI() {
     const apiUrl = "/job";
-fetch(apiUrl)
-  .then(response => {
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
-    }
-    return response.json();
-})
-.then(data => {
-    ArrayJob= data;
-})
+    fetch(apiUrl)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+            return response.json();
+        })
+        .then(data => {
+            ArrayJob = data;
+        })
 }
-function checkTimeActive(str){
+function checkTimeActive(str) {
     const start = new Date(date_plan.value + 'T' + '09:00' + 'Z').getTime();
     let check = new Date(date_plan.value + 'T' + str + 'Z').getTime();
     const end = new Date(date_plan.value + 'T' + '21:00' + 'Z').getTime();
-   if(start>check || check>end){
-    msg.textContent="営業時間：09:00～21:00 です。";
-    btn.disabled = true;//送信ボタンを有効化
-   }
+    if (start > check || check > end) {
+        msg.textContent = "営業時間：09:00～21:00 です。";
+        btn.disabled = true;//送信ボタンを有効化
+    }
 }

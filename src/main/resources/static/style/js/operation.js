@@ -28,17 +28,17 @@ async function callPurpose() {
         const response = await fetch(apiUrl);
         if (!response.ok) {
             //APIを呼び出しできない場合 input box 表示されます。
-            purposeHTML = `<input type="text" id="purpose" name="purpose" placeholder="内容を入力ください。" required>`;
+            purposeHTML = `<input type="text" id="purpose" name="purposeId" placeholder="内容を入力ください。" required>`;
         }
         purposeArray = await response.json();
         purposeArray.map((e) => {
             //APIを呼び出し場合 選択ボックスを表示されます。
             purposeHTML = purposeHTML + `<option value="${e.id}">${e.purpose}</option>`;
         });
-        purposeHTML = `<select id="purpose" name="purpose"><option value="">全員</option>${purposeHTML}</select>`;
+        purposeHTML = `<select id="purpose" name="purposeId"><option value="0">全員</option>${purposeHTML}</select>`;
     } catch (error) {
         //APIを呼び出しできない場合 input box 表示されます。
-        purposeHTML = `<input type="text" id="purpose" name="purpose" placeholder="内容を入力ください。" required>`;
+        purposeHTML = `<input type="text" id="purpose" name="purposeId" placeholder="内容を入力ください。" required>`;
     }
 }
 let chargeHTML = '';
@@ -50,17 +50,17 @@ async function callCharge() {
         const response = await fetch(apiUrl);
         if (!response.ok) {
             //APIを呼び出しできない場合 input box 表示されます。
-            chargeHTML = `<input type="text" id="charge" name="charge" placeholder="内容を入力ください。" required>`;
+            chargeHTML = `<input type="text" id="charge" name="chargeId" placeholder="内容を入力ください。" required>`;
         }
         chargeArray = await response.json();
         chargeArray.map((e) => {
             //APIを呼び出し場合 選択ボックスを表示されます。
             chargeHTML = chargeHTML + `<option value="${e.id}">${e.charge}</option>`;
         });
-        chargeHTML = `<select id="charge" name="charge"><option value="">全部</option>${chargeHTML}</select>`;
+        chargeHTML = `<select id="charge" name="chargeId"><option value="0">全部</option>${chargeHTML}</select>`;
     } catch (error) {
         //APIを呼び出しできない場合 input box 表示されます。
-        chargeHTML = `<input type="text" id="charge" name="charge" placeholder="内容を入力ください。" required>`; purpose
+        chargeHTML = `<input type="text" id="charge" name="chargeId" placeholder="内容を入力ください。" required>`; purpose
     }
 }
 // 内容情報と担当者を非同期で取得し、フィールドに設定
@@ -73,10 +73,10 @@ async function callCharge() {
 })();
 
 purposeData.map((e) => {
-    purposeTableHTML += `<tr><td>${e.id}</td><td>${e.nameID}</td><td>${e.status}</td><td><button type="button" class="btn btn-outline-secondary" onclick="editOperation('${e.id}','${e.nameID}','${e.status}','purpose');">編集</button>・${e.status !== "使用中" ? `<button type="button" class="btn btn-outline-primary" onclick="restoreOperation('${e.id}','${e.nameID}','purpose');">復元</button>` : `<button type="button" class="btn btn-outline-warning" onclick="deleteOperation('${e.id}','${e.nameID}','purpose');">削除</button>`}</td></tr>`;
+    purposeTableHTML += `<tr><td>${e.id}</td><td>${e.tableName}</td><td>${e.status}</td><td><button type="button" class="btn btn-outline-secondary" onclick="editOperation('${e.id}','${e.tableName}','${e.status}','purpose');">編集</button>・${e.status !== "使用中" ? `<button type="button" class="btn btn-outline-primary" onclick="restoreOperation('${e.id}','${e.tableName}','purpose');">復元</button>` : `<button type="button" class="btn btn-outline-warning" onclick="deleteOperation('${e.id}','${e.tableName}','purpose');">削除</button>`}</td></tr>`;
 });
 chargeData.map((e) => {
-    chargeTableHTML += `<tr><td>${e.id}</td><td>${e.nameID}</td><td>${e.status}</td><td><button type="button" class="btn btn-outline-secondary" onclick="editOperation('${e.id}','${e.nameID}','${e.status}','charge');">編集</button>・${e.status !== "使用中" ? `<button type="button" class="btn btn-outline-primary" onclick="restoreOperation('${e.id}','${e.nameID}','charge');">復元</button>` : `<button type="button" class="btn btn-outline-warning" onclick="deleteOperation('${e.id}','${e.nameID}','charge');">削除</button>`}</td></tr>`;
+    chargeTableHTML += `<tr><td>${e.id}</td><td>${e.tableName}</td><td>${e.status}</td><td><button type="button" class="btn btn-outline-secondary" onclick="editOperation('${e.id}','${e.tableName}','${e.status}','charge');">編集</button>・${e.status !== "使用中" ? `<button type="button" class="btn btn-outline-primary" onclick="restoreOperation('${e.id}','${e.tableName}','charge');">復元</button>` : `<button type="button" class="btn btn-outline-warning" onclick="deleteOperation('${e.id}','${e.tableName}','charge');">削除</button>`}</td></tr>`;
 });
 purposeTable.innerHTML = purposeTableHTML;
 chargeTable.innerHTML = chargeTableHTML;

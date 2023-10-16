@@ -1,6 +1,6 @@
-// ジョブテーブルを表示するための要素を取得
+// 内容テーブルを表示するための要素を取得
 const job = document.getElementById("job");
-// ジョブテーブルのHTMLを構築するための変数
+// 内容テーブルのHTMLを構築するための変数
 let jobtt = "";
 /**
  * 予約のチェック
@@ -9,7 +9,7 @@ let jobtt = "";
 function plan(obj) {
     //配列の長さ==0・予約内容がない（画面に予約内容がないのメッセージを表示されます。）
     if (obj.length == 0) {
-        // ジョブテーブルにHTMLを設定
+        // 内容テーブルにHTMLを設定
         job.innerHTML = jobtt;
         // 変数をリセット
         jobtt = "";
@@ -19,14 +19,14 @@ function plan(obj) {
     }
 }
 /**
- * ジョブ情報をHTMLテーブルに設定する関数
+ * 内容情報をHTMLテーブルに設定する関数
  * @param {Array} 予約内容リスト 
  */
 function setJob(obj) {
     let ArrayJob = {};
     let newArrayJob = [];
 
-    // ジョブ情報を日付ごとにグループ化
+    // 内容情報を日付ごとにグループ化
     obj.forEach(function (item) {
         let datePlan = item.date_plan;
         if (!ArrayJob[datePlan]) {
@@ -34,7 +34,7 @@ function setJob(obj) {
         }
         ArrayJob[datePlan].push(item);
     });
-    // 各日付ごとのジョブを時間順にソートし、新しい配列に追加
+    // 各日付ごとの内容を時間順にソートし、新しい配列に追加
     Object.values(ArrayJob).forEach(e => {
         e.sort(function (a, b) {
             const timeA = new Date('1970-01-01T' + a.time_start + 'Z').getTime();
@@ -47,24 +47,35 @@ function setJob(obj) {
     const timenow = new Date().getHours().toString().padStart(2, '0') + ":" + new Date().getMinutes().toString().padStart(2, '0');
     const dayNow = new Date().toISOString().substring(0, 10);
     const timeLine = new Date(dayNow + 'T' + timenow + 'Z').getTime();
-    // ジョブ情報をHTMLテーブルに追加
+    // 内容情報をHTMLテーブルに追加
     console.log(newArrayJob)
     newArrayJob.forEach(element => {
         element.forEach(e => {
+            //完了場合
             if (e.status == '完了') {
                 jobtt += `<tr><td>${e.date_plan.substring(0, 4)}年${e.date_plan.substring(5, 7)}月${e.date_plan.substring(8, 10)}日　(${e.date_day}曜日)</td><td>${e.time_start}～${e.time_end} </td><td>${e.purpose}</td><td>${e.charge}</td><td>${e.status}</td><td>-</td></tr>`
-            } else if (timeLine >= new Date(e.date_plan + 'T' + e.time_start + 'Z').getTime() && timeLine <= new Date(e.date_plan + 'T' + e.time_end + 'Z').getTime()) {
-                jobtt += `<tr><td>${e.date_plan.substring(0, 4)}年${e.date_plan.substring(5, 7)}月${e.date_plan.substring(8, 10)}日　(${e.date_day}曜日)</td><td>${e.time_start}～${e.time_end} </td><td>${e.purpose}</td><td>${e.charge}</td><td><span class='yoyaku'>利用中</span></td><td><form method="post" action="/kanryo?id=${e.id}"><button type="submit" class="btn btn-success">完了</button></form></td></tr>`
-            } else if (element.length == 1 && newArrayJob.length == 1) {
-                jobtt += `<tr><td>${e.date_plan.substring(0, 4)}年${e.date_plan.substring(5, 7)}月${e.date_plan.substring(8, 10)}日　(${e.date_day}曜日)</td><td>${e.time_start}～${e.time_end}</td><td>${e.purpose}</td><td>${e.charge}</td><td>${e.status}</td><td><a class="btn btn-outline-warning" href="/kk/job/edit/?id=${e.id}">編集</a>・${e.status == '予約中' ? `<button  class="btn btn-outline-danger" onclick="deleteJob('${e.id}','${e.date_plan}','${e.time_start}')">削除</button>` : `<button  class="btn btn-outline-primary" onclick="restoreJob('${e.id}','${e.date_plan}','${e.time_start}')">復元</button>`}</td></tr>`
-            } else if(e.status == 'キャンセル') {
-                jobtt += `<tr><td>${e.date_plan.substring(0, 4)}年${e.date_plan.substring(5, 7)}月${e.date_plan.substring(8, 10)}日　(${e.date_day}曜日)</td><td>${e.time_start}～${e.time_end} </td><td>${e.purpose}</td><td>${e.charge}</td><td>${e.status}</td><td>-</td></tr>`
-            }else{
-                jobtt += `<tr><td>${e.date_plan.substring(0, 4)}年${e.date_plan.substring(5, 7)}月${e.date_plan.substring(8, 10)}日　(${e.date_day}曜日)</td><td>${e.time_start}～${e.time_end}</td><td>${e.purpose}</td><td>${e.charge}</td><td>${e.status}</td><td><a class="btn btn-outline-warning" href="/kk/job/edit/?id=${e.id}">編集</a>・${e.status == '予約中' ? `<button  class="btn btn-outline-danger" onclick="deleteJob('${e.id}','${e.date_plan}','${e.time_start}')">削除</button>` : `<button  class="btn btn-outline-primary" onclick="restoreJob('${e.id}','${e.date_plan}','${e.time_start}')">復元</button>`}</td></tr>`
-            }
+            } else
+                //現在使用場合
+                if (timeLine >= new Date(e.date_plan + 'T' + e.time_start + 'Z').getTime() && timeLine <= new Date(e.date_plan + 'T' + e.time_end + 'Z').getTime()) {
+                    jobtt += `<tr><td>${e.date_plan.substring(0, 4)}年${e.date_plan.substring(5, 7)}月${e.date_plan.substring(8, 10)}日　(${e.date_day}曜日)</td><td>${e.time_start}～${e.time_end} </td><td>${e.purpose}</td><td>${e.charge}</td><td><span class='yoyaku'>利用中</span></td><td><form method="post" action="/kanryo?id=${e.id}"><button type="submit" class="btn btn-success">完了</button></form></td></tr>`
+                } else
+                    // データは１つだけある場合
+                    if (element.length == 1 && newArrayJob.length == 1) {
+                        jobtt += `<tr><td>${e.date_plan.substring(0, 4)}年${e.date_plan.substring(5, 7)}月${e.date_plan.substring(8, 10)}日　(${e.date_day}曜日)</td><td>${e.time_start}～${e.time_end}</td><td>${e.purpose}</td><td>${e.charge}</td><td>${e.status}</td><td><a class="btn btn-outline-warning" href="/kk/job/edit/?id=${e.id}">編集</a>・${e.status == '予約中' ? `<button  class="btn btn-outline-danger" onclick="deleteJob('${e.id}','${e.date_plan}','${e.time_start}')">削除</button>` : `<button  class="btn btn-outline-primary" onclick="restoreJob('${e.id}','${e.date_plan}','${e.time_start}')">復元</button>`}</td></tr>`
+                    } else if (e.status == 'キャンセル') {
+                        //キャンセル場合
+                        jobtt += `<tr><td>${e.date_plan.substring(0, 4)}年${e.date_plan.substring(5, 7)}月${e.date_plan.substring(8, 10)}日　(${e.date_day}曜日)</td><td>${e.time_start}～${e.time_end} </td><td>${e.purpose}</td><td>${e.charge}</td><td>${e.status}</td><td>-</td></tr>`
+                    } else {
+                        //普通場合
+                        jobtt += `<tr><td>${e.date_plan.substring(0, 4)}年${e.date_plan.substring(5, 7)}月${e.date_plan.substring(8, 10)}日　(${e.date_day}曜日)</td><td>${e.time_start}～${e.time_end}</td><td>${e.purpose}</td><td>${e.charge}</td><td>${e.status}</td><td><a class="btn btn-outline-warning" href="/kk/job/edit/?id=${e.id}">編集</a>・${e.status == '予約中' ? `<button  class="btn btn-outline-danger" onclick="deleteJob('${e.id}','${e.date_plan}','${e.time_start}')">削除</button>` : `<button  class="btn btn-outline-primary" onclick="restoreJob('${e.id}','${e.date_plan}','${e.time_start}')">復元</button>`}</td></tr>`
+                    }
         })
     });
-    // ジョブテーブルにHTMLを設定
+    //配列の長さ==0・予約内容がない（画面に予約内容がないのメッセージを表示されます。）
+    if (newArrayJob.length == 0) {
+        jobtt = `<tr><td colspan="4">現在、会議室の予約はございません。</td></tr>`;
+    }
+    // 内容テーブルにHTMLを設定
     job.innerHTML = jobtt;
     jobtt = ""; // 変数をリセット
 }
@@ -110,17 +121,17 @@ async function callCharge() {
         const response = await fetch(apiUrl);
         if (!response.ok) {
             //APIを呼び出しできない場合 input box 表示されます。
-            chargeHTML = `<input type="text" id="charge" name="chargeId" placeholder="内容を入力ください。" required>`;
+            chargeHTML = `<input type="text" id="charge" name="chargeIdId" placeholder="内容を入力ください。" required>`;
         }
         const data = await response.json();
         data.map((e) => {
             //APIを呼び出し場合 選択ボックスを表示されます。
             chargeHTML = chargeHTML + `<option value="${e.id}">${e.charge}</option>`;
         });
-        chargeHTML = `<select id="charge" name="chargeId"><option value="0">全部</option>${chargeHTML}</select>`;
+        chargeHTML = `<select id="charge" name="chargeIdId"><option value="0">全部</option>${chargeHTML}</select>`;
     } catch (error) {
         //APIを呼び出しできない場合 input box 表示されます。
-        chargeHTML = `<input type="text" id="charge" name="chargeId" placeholder="内容を入力ください。" required>`;
+        chargeHTML = `<input type="text" id="charge" name="chargeIdId" placeholder="内容を入力ください。" required>`;
     }
 }
 // 内容情報と担当者を非同期で取得し、フィールドに設定
@@ -149,14 +160,12 @@ async function callJob() {
         const apiUrl = "/job";
         const response = await fetch(apiUrl);
         if (!response.ok) {
-            //APIを呼び出しできない場合 input box 表示されます。
-            // chargeHTML = `<input type="text" id="charge" name="charge" placeholder="内容を入力ください。" required>`;
+            throw new Error("APIを呼び出せません。エラーコード: " + response.status);
         }
         const data = await response.json();
         plan(data);
-        // chargeHTML = `<select id="charge" name="charge"><option>全部</option>${chargeHTML}</select>`;
     } catch (error) {
-        //APIを呼び出しできない場合 input box 表示されます。
-        // chargeHTML = `<input type="text" id="charge" name="charge" placeholder="内容を入力ください。" required>`;
+        // エラーを処理します
+        console.error("エラー: " + error.message);
     }
 }

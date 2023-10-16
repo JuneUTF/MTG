@@ -1,4 +1,4 @@
-package com.juneutf.mtg.config.service;
+package com.juneutf.mtg.service;
 
 import java.util.ArrayList;
 
@@ -11,10 +11,10 @@ import com.juneutf.mtg.model.SearchModel;
 public interface SearchService {
     
     /**
-     * 指定された検索条件に基づいてジョブを検索します。
+     * 指定された検索条件に基づいて内容を検索します。
      *
      * @param model 検索条件を指定するモデル
-     * @return 検索結果のジョブのリスト
+     * @return 検索結果の内容のリスト
      */
     ArrayList<JobModel> selectSearch(SearchModel model);
 }

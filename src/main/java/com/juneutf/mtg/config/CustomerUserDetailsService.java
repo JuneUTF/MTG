@@ -10,8 +10,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.juneutf.mtg.config.service.LoginService;
 import com.juneutf.mtg.model.LoginModel;
+import com.juneutf.mtg.service.LoginService;
 
 /**
  * このクラスは、Spring Securityが提供するUserDetailsServiceインターフェースを実装しています。

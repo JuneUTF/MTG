@@ -1,4 +1,4 @@
-package com.juneutf.mtg.config.service;
+package com.juneutf.mtg.service;
 
 import java.util.ArrayList;
 

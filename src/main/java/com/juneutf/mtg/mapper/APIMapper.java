@@ -8,12 +8,12 @@ import com.juneutf.mtg.model.APIChargeModel;
 import com.juneutf.mtg.model.APIPurposeModel;
 
 /**
- * APIデータへのアクセス操作を提供するマッパーインターフェースです。
+ * APIMapper インタフェースは、APIに関するデータベース操作を提供します。
  */
 @Mapper
 public interface APIMapper {
     /**
-     * APIの料金情報を取得します。
+     * APIの担当者情報を取得します。
      * @return APIChargeModelのリスト
      */
     ArrayList<APIChargeModel> selectAPICharge();

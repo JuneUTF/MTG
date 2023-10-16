@@ -7,12 +7,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import com.juneutf.mtg.config.service.APIService;
-import com.juneutf.mtg.config.service.PlanService;
 import com.juneutf.mtg.model.APIChargeModel;
 import com.juneutf.mtg.model.APIMessengerModel;
 import com.juneutf.mtg.model.APIPurposeModel;
 import com.juneutf.mtg.model.JobModel;
+import com.juneutf.mtg.service.APIService;
+import com.juneutf.mtg.service.PlanService;
 
 import lombok.extern.slf4j.Slf4j;
 /**
@@ -26,8 +26,8 @@ public class PAPIController {
 	@Autowired
 	private PlanService planService;
 	/**
-	 * '/charge'エンドポイントへのGETリクエストを処理し、APIChargeModelオブジェクトを返します。
-	 * @param apiModel APIMessengerModelオブジェクト
+	 * '/charge'エンドポイントへのGETリクエストを処理し、（担当者項目）APIChargeModelオブジェクトを返します。
+	 * @param APIMessengerModelオブジェクト
 	 * @return ResponseEntity
 	 */
 	@GetMapping("/charge")
@@ -42,8 +42,8 @@ public class PAPIController {
 		}
 	}
 	/**
-	 * '/purpose'エンドポイントへのGETリクエストを処理し、APIPurposeModelオブジェクトを返します。
-	 * @param apiModel APIMessengerModelオブジェクト
+	 * '/purpose'エンドポイントへのGETリクエストを処理し、（内容項目）APIPurposeModelオブジェクトを返します。
+	 * @param APIMessengerModelオブジェクト
 	 * @return ResponseEntity
 	 */
 	@GetMapping("/purpose")
@@ -58,8 +58,8 @@ public class PAPIController {
 		}
 	}
 	/**
-	 * '/purpose'エンドポイントへのGETリクエストを処理し、PlanModelオブジェクトを返します。
-	 * @param apiModel APIMessengerModelオブジェクト
+	 * '/job'エンドポイントへのGETリクエストを処理し、(現在からの予約内容)PlanModelオブジェクトを返します。
+	 * @param APIMessengerModelオブジェクト
 	 * @return ResponseEntity
 	 */
 	@GetMapping("/job")

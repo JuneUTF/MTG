@@ -15,14 +15,14 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.juneutf.mtg.config.service.ActionService;
-import com.juneutf.mtg.config.service.PlanService;
-import com.juneutf.mtg.config.service.SetPasswordService;
 import com.juneutf.mtg.config.vender.CreateToken;
 import com.juneutf.mtg.config.vender.EmailService;
 import com.juneutf.mtg.model.JobModel;
 import com.juneutf.mtg.model.LoginModel;
 import com.juneutf.mtg.model.SetPasswordModel;
+import com.juneutf.mtg.service.ActionService;
+import com.juneutf.mtg.service.PlanService;
+import com.juneutf.mtg.service.SetPasswordService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -47,7 +47,7 @@ public class HomeController {
 	/**
 	 * ホームページへのアクセスを処理します。
 	 *
-	 * @return "index" - ホームページへのビュー名
+	 * @return "index" - ホームページへ
 	 */
 	@GetMapping("/")
 	public String getIndex(Model model) {
@@ -56,17 +56,22 @@ public class HomeController {
 		if (!authentication.getName().equals("anonymousUser")) {
 			return "redirect:/kk/job";
 		}
-		// 予約の取得
-		ArrayList<JobModel> job = planService.selectPlan();
-		// タイムリーフに予約内容の渡す
-		model.addAttribute("job", job);
-		return "index";
+		try {
+			// 予約の取得
+			ArrayList<JobModel> job = planService.selectPlan();
+			// タイムリーフに予約内容の渡す
+			model.addAttribute("job", job);
+			return "index";
+		} catch (Exception e) {
+			log.error("予約内容を取得出来ませんでした。");
+			return "error";
+		}
 	}
 
 	/**
 	 * ログインページへのアクセスを処理します。
 	 *
-	 * @return "login" - ログインページへのビュー名
+	 * @return "login" - ログインページへ
 	 */
 	@GetMapping("/login")
 	public String getLogin() {
@@ -82,7 +87,7 @@ public class HomeController {
 	 * パスワード変更ページへのアクセスを処理します。
 	 *
 	 * @param loginModel ログインモデルオブジェクト
-	 * @return "getPassword" - パスワード変更ページへのビュー名
+	 * @return "getPassword" - パスワード変更ページへ
 	 */
 	@GetMapping("/password")
 	public String getchangerPass(LoginModel loginModel) {
@@ -98,7 +103,7 @@ public class HomeController {
 	 * トークンを送信するためのページへのアクセスを処理します。
 	 *
 	 * @param setPasswordModel パスワード設定モデルオブジェクト
-	 * @param model            モデルオブジェクト
+	 * @param model モデルオブジェクト
 	 * @return "redirect:/setpassword" - トークン送信後のリダイレクト
 	 */
 	@GetMapping("/sendtoken")
@@ -131,7 +136,7 @@ public class HomeController {
 	/**
 	 * パスワード設定ページへのアクセスを処理します。
 	 *
-	 * @return "setPassword" - パスワード設定ページへのビュー名
+	 * @return "setPassword" - パスワード設定ページ
 	 */
 	@GetMapping("/setpassword")
 	public String showSetPassword() {
@@ -147,7 +152,7 @@ public class HomeController {
 	 * パスワードを設定するためのPOSTリクエストを処理します。
 	 *
 	 * @param setPasswordModel パスワード設定モデルオブジェクト
-	 * @param model            モデルオブジェクト
+	 * @param model  モデルオブジェクト
 	 * @return "redirect:/kk/job" - パスワード設定後のリダイレクト
 	 */
 	@PostMapping("/setpassword")
@@ -197,16 +202,24 @@ public class HomeController {
 			return "error";
 		}
 	}
+	/**
+	 * 予約内容を完了するためのPOSTリクエストを処理します。
+	 *
+	 * @param 予約内容のID番号
+	 * @return "redirect:/" - 完了後のリダイレクト
+	 */
 	@PostMapping("/kanryo")
-	public String setKanryo(int id,Model model) {
+	public String setKanryo(int id) {
 		try {
+			//予約内容のID番号として完了行動
 			actionService.actionUpdateById(id);
 			//Websocket行動
 			ArrayList<JobModel> job = planService.selectPlan();
 			messagingTemplate.convertAndSend("/job/notification", job);
+			return "redirect:/";
 		} catch (Exception e) {
-			log.warn("編完了機能はエラーが発生します。");
+			log.warn("完了機能ID"+id+"はエラーが発生します。");
+			return "error";
 		}
-		return "redirect:/";
 	}
 }

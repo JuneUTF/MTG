@@ -7,12 +7,11 @@ import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
-import com.juneutf.mtg.config.service.ActionService;
-import com.juneutf.mtg.config.service.PlanService;
 import com.juneutf.mtg.config.vender.CheckTime;
 import com.juneutf.mtg.model.JobModel;
+import com.juneutf.mtg.service.ActionService;
+import com.juneutf.mtg.service.PlanService;
 
-import lombok.extern.log4j.Log4j;
 import lombok.extern.slf4j.Slf4j;
 
 @Service
@@ -32,7 +31,7 @@ public class CompleteAction {
      */
     @Scheduled(fixedRate = 60 * 1000)
     public void logNumberOne() {
-        // プランを選択します。
+        // 予約を選択します。
         ArrayList<JobModel> jobModel = planService.selectPlan();
         jobModel.forEach(e -> {
             // 終了時間がまだ到達していない場合、アクションを更新します。

@@ -3,44 +3,44 @@ package com.juneutf.mtg.model;
 import lombok.Data;
 
 /**
- * プラン情報を表すデータモデルクラスです。
+ * 予約情報を表すデータモデルクラスです。
  */
 @Data
 public class PlanModel {
     /**
-     * プランの一意の識別子です。
+     * 予約ID。
      */
     private int id;
     /**
-     * プランの曜日です。
+     * 予約の曜日です。
      */
     private String date_day;
     /**
-     * プランの計画日です。
+     * 予約の計画日です。
      */
     private String date_plan;
 
     /**
-     * プランの開始時間です。
+     * 予約の開始時間です。
      */
     private String time_start;
 
     /**
-     * プランの終了時間です。
+     * 予約の終了時間です。
      */
     private String time_end;
 
     /**
-     * プランの内容です。
+     * 予約の内容です。
      */
     private int purpose;
 
     /**
-     * プランの担当者です。
+     * 予約の担当者です。
      */
     private int charge;
     /**
-     * プランの状況です。
+     * 予約の状況です。
      */
     private String status;
 }

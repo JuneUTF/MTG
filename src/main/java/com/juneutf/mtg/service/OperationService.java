@@ -1,8 +1,9 @@
-package com.juneutf.mtg.config.service;
+package com.juneutf.mtg.service;
 
 import java.util.ArrayList;
 
 import com.juneutf.mtg.model.OperationModel;
+import com.juneutf.mtg.model.TableModel;
 
 /**
  * OperationService インターフェースは、操作に関連するサービスメソッドを提供します。
@@ -29,7 +30,7 @@ public interface OperationService {
      * @param model 削除する操作のモデル
      * @return 操作が正常に削除された場合は1、それ以外の場合は0を返します。
      */
-    int deleteByIdAndNameID(OperationModel model);
+    int deleteByIdAndtableName(TableModel model);
     
     /**
      * 指定されたIDおよび名前IDに基づいて操作を復元します。
@@ -37,7 +38,7 @@ public interface OperationService {
      * @param model 復元する操作のモデル
      * @return 操作が正常に復元された場合は1、それ以外の場合は0を返します。
      */
-    int restoreByIdAndNameID(OperationModel model);
+    int restoreByIdAndtableName(TableModel model);
     
     /**
      * 指定されたIDおよび名前IDに基づいて操作を編集します。
@@ -45,7 +46,7 @@ public interface OperationService {
      * @param model 編集する操作のモデル
      * @return 操作が正常に編集された場合は1、それ以外の場合は0を返します。
      */
-    int editByIdAndNameID(OperationModel model);
+    int editByIdAndtableName(TableModel model);
     
     /**
      * 操作を登録します。
@@ -53,5 +54,5 @@ public interface OperationService {
      * @param model 登録する操作のモデル
      * @return 操作が正常に登録された場合は1、それ以外の場合は0を返します。
      */
-    int regByIdAndNameID(OperationModel model);
+    int regByIdAndtableName(TableModel model);
 }

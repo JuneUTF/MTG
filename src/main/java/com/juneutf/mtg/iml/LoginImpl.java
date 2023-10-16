@@ -3,9 +3,9 @@ package com.juneutf.mtg.iml;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.juneutf.mtg.config.service.LoginService;
 import com.juneutf.mtg.mapper.LoginMapper;
 import com.juneutf.mtg.model.LoginModel;
+import com.juneutf.mtg.service.LoginService;
 
 /**
  * このクラスは、ログイン関連のサービスを提供します。

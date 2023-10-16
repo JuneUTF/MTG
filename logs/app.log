@@ -1,0 +1,10 @@
+2023-10-16 14:53:26.118  INFO   SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin.shutdown - Application shutdown requested.
+2023-10-16 14:53:26.119  INFO   SimpleBrokerMessageHandler.info - Stopping...
+2023-10-16 14:53:26.119  INFO   SimpleBrokerMessageHandler.info - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@294d18c7]]
+2023-10-16 14:53:26.119  INFO   SimpleBrokerMessageHandler.info - Stopped.
+2023-10-16 14:53:26.129  INFO   Http11NioProtocol.log - Pausing ProtocolHandler ["http-nio-8080"]
+2023-10-16 14:53:26.130  INFO   StandardService.log - Stopping service [Tomcat]
+2023-10-16 14:53:26.132  INFO   Http11NioProtocol.log - Stopping ProtocolHandler ["http-nio-8080"]
+2023-10-16 14:53:26.133  INFO   Http11NioProtocol.log - Destroying ProtocolHandler ["http-nio-8080"]
+2023-10-16 14:53:26.135  INFO   HikariDataSource.close - HikariPool-2 - Shutdown initiated...
+2023-10-16 14:53:26.137  INFO   HikariDataSource.close - HikariPool-2 - Shutdown completed.

@@ -63,7 +63,7 @@
                         </div>
                         <div class="mb-1">
                             <label for="charge" class="form-label">担当：</label>
-                            <select class="form-select" id="chargeId" name="chargeId">
+                            <select class="form-select" id="chargeId" name="chargeIdId">
                             <option th:value="${job[0].chargeId}" th:text ="${job[0].charge}"></option>
                             
                             </select>
@@ -87,7 +87,7 @@
     </nav>
     <script th:inline="javascript">
         /*<![CDATA[*/
-        // ジョブ情報を格納する変数
+        // 内容情報を格納する変数
         let ArrayJob = /*[[${job}]]*/;
         /*]]>*/
     </script>

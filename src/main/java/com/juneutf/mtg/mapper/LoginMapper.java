@@ -5,7 +5,7 @@ import org.apache.ibatis.annotations.Mapper;
 import com.juneutf.mtg.model.LoginModel;
 
 /**
- * このマッパーは、ユーザー名に基づいてログイン情報をデータベースから選択するためのメソッドを提供します。
+ * ユーザー名に基づいてログイン情報をデータベースから選択するためのメソッドを提供します。
  */
 @Mapper
 public interface LoginMapper {

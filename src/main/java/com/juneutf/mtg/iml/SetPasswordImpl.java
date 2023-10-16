@@ -3,9 +3,9 @@ package com.juneutf.mtg.iml;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.juneutf.mtg.config.service.SetPasswordService;
 import com.juneutf.mtg.mapper.SetPasswordMapper;
 import com.juneutf.mtg.model.SetPasswordModel;
+import com.juneutf.mtg.service.SetPasswordService;
 
 /**
  * このクラスは、パスワードの設定およびリセットに関するサービスを提供します。

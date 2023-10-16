@@ -5,7 +5,7 @@ async function callPurpose() {
     try {
         const apiUrl = "/purpose";
         const response = await fetch(apiUrl);
-        if (!response.ok){
+        if (!response.ok) {
             //APIを呼び出しできない場合 input box 表示されます。
         }
         const data = await response.json();
@@ -72,7 +72,7 @@ function setDay() {
  * 過去の選択日付と現在の日付を比較する関数 // kiểm tra xem ngày đang chọn quá ở quá khứ không.
  * @returns {boolean} 過去の日付が現在の日付以下である場合はtrue、それ以外の場合はfalseを返します。
  */
-function compareDates() { 
+function compareDates() {
     // 現在の日付を取得してISOString形式に変換し、日付部分のみを抽出
     const d1 = new Date(new Date().toISOString().substring(0, 10));
     // 選択された日付をDateオブジェクトに変換
@@ -101,7 +101,7 @@ const time_start = document.getElementById("time_start");
 // 開始時刻入力時に実行されるリスナーを設定
 time_start.addEventListener('input', checkInput);
 
-function checkInput(){
+function checkInput() {
     callAPI();
     checkTimeActive(time_start.value);
     if (checkTimeRegister(ArrayJob, time_start.value)) {
@@ -110,17 +110,17 @@ function checkInput(){
     } else if (checkTimeRegister(ArrayJob, time_end.value) || checkTinmeTow()) {
         msg.textContent = `${time_start.value}～${time_end.value}に予約がありました。`;
         btn.disabled = true;//送信ボタンを無効化
-    } else  if (checkTowDay()) {
+    } else if (checkTowDay()) {
         msg.textContent = `開始時刻より終了時刻を選択してください。`;
         btn.disabled = true;//送信ボタンを無効化
     } else if (checkTimeRegister(ArrayJob, time_end.value) || checkTinmeTow()) {
         msg.textContent = `${time_start.value}～${time_end.value}に予約がありました。`;
         btn.disabled = true;//送信ボタンを無効化
-    } else if(time_end.value!=""){
+    } else if (time_end.value != "") {
         msg.textContent = `　`;
         btn.disabled = false;//送信ボタンを有効化
         checkTimeActive(time_end.value);
-    }else{
+    } else {
         msg.textContent = `終了時間を入力してください。`;
         btn.disabled = true;//送信ボタンを有効化
     }
@@ -191,25 +191,29 @@ function checkTowDay() {
     return start >= end;
 }
 //call api job
-function callAPI(){
+function callAPI() {
     const apiUrl = `/job`;
-fetch(apiUrl)
-  .then(response => {
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
-    }
-    return response.json();
-})
-.then(data => {
-    ArrayJob= data;
-})
+    fetch(apiUrl)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+            return response.json();
+        })
+        .then(data => {
+            ArrayJob = data;
+        })
 }
-function checkTimeActive(str){
+/**
+ * 営業時間の検証、営業時間以外場合はエラーメッセージを表示されます。
+ * @param {string} str 時間（hh:mm）
+ */
+function checkTimeActive(str) {
     const start = new Date(date_plan.value + 'T' + '09:00' + 'Z').getTime();
     let check = new Date(date_plan.value + 'T' + str + 'Z').getTime();
     const end = new Date(date_plan.value + 'T' + '21:00' + 'Z').getTime();
-   if(start>check || check>end){
-    msg.textContent="営業時間：09:00～21:00 です。";
-    btn.disabled = true;//送信ボタンを有効化
-   }
+    if (start > check || check > end) {
+        msg.textContent = "営業時間：09:00～21:00 です。";
+        btn.disabled = true;//送信ボタンを有効化
+    }
 }
