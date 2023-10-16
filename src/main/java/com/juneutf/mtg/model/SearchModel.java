@@ -13,7 +13,7 @@ public class SearchModel {
      */
 	private String date_end;
     /**
-     *目的IDです。
+     *内容IDです。
      */
     private int purposeId;
 
@@ -45,7 +45,7 @@ public class SearchModel {
     private String time_end;
 
     /**
-     * プランの目的です。
+     * プランの内容です。
      */
     private String purpose;
 
@@ -54,7 +54,7 @@ public class SearchModel {
      */
     private String charge;
     /**
-     * 目的IDです。
+     * 内容IDです。
      */
     /**
      * プランの状況です。

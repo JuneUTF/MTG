@@ -66,7 +66,7 @@ function setJob(obj) {
         e.forEach(e => {
             if (timeLine <= new Date(e.date_plan + 'T' + e.time_end + 'Z').getTime()) {
                 if (timeLine >= new Date(e.date_plan + 'T' + e.time_start + 'Z').getTime()) {
-                    jobtt += `<tr><td>${e.date_plan.substring(0, 4)}年${e.date_plan.substring(5, 7)}月${e.date_plan.substring(8, 10)}日(${e.date_day}曜日)</td><td>${e.time_start}～${e.time_end} <span class='yoyaku'>利用中</span> </td><td>${e.purpose}</td><td><form method="post" action="/kanryo?id=${e.id}"><button type="submit" class="btn btn-success">完了</button></form></td></tr>`
+                    jobtt += `<tr><td>${e.date_plan.substring(0, 4)}年${e.date_plan.substring(5, 7)}月${e.date_plan.substring(8, 10)}日(${e.date_day}曜日)</td><td>${e.time_start}～${e.time_end} <span class='yoyaku'>利用中</span> </td><td>${e.purpose}</td><td>${e.charge} - <form method="post" action="/kanryo?id=${e.id}"><button type="submit" class="btn btn-success">完了</button></form></td></tr>`
                 } else {
                     jobtt += `<tr><td>${e.date_plan.substring(0, 4)}年${e.date_plan.substring(5, 7)}月${e.date_plan.substring(8, 10)}日(${e.date_day}曜日)</td><td>${e.time_start}～${e.time_end}</td><td>${e.purpose}</td><td>${e.charge}</td></tr>`
                 }
@@ -77,3 +77,41 @@ function setJob(obj) {
     job.innerHTML = jobtt;
     jobtt = ""; // 変数をリセット
 }
+// 全画面表示イベント処理
+const fullWidth = document.getElementById("fullWidth");
+let fullWidthBoolean = false;
+
+fullWidth.addEventListener('click', setFullWidth);
+
+function setFullWidth() {
+  if (fullWidthBoolean) {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    // Firefox
+    } else if (document.mozCancelFullScreen) { 
+      document.mozCancelFullScreen();
+    // Chrome, Safari, and Opera
+    } else if (document.webkitExitFullscreen) { 
+      document.webkitExitFullscreen();
+    // Internet Explorer/Edge
+    } else if (document.msExitFullscreen) { 
+      document.msExitFullscreen();
+    }
+    fullWidthBoolean = false;
+    fullWidth.innerText = "全画面表示";
+  } else {
+    const element = document.body;
+    if (element.requestFullscreen) {
+      element.requestFullscreen();
+    } else if (element.mozRequestFullScreen) { 
+      element.mozRequestFullScreen();
+    } else if (element.webkitRequestFullscreen) {
+      element.webkitRequestFullscreen();
+    } else if (element.msRequestFullscreen) {
+      element.msRequestFullscreen();
+    }
+    fullWidthBoolean = true;
+    fullWidth.innerText = "普通表示";
+  }
+}
+

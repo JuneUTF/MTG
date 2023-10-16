@@ -92,20 +92,20 @@ const date_start = document.getElementById("date_start");
 const date_end = document.getElementById("date_end");
 //開始日付の初期値を現在の日付に設定
 date_start.value = new Date().toISOString().substring(0, 10);
-// 目的入力フィールドを取得
+// 内容入力フィールドを取得
 const purpose = document.getElementById("purpose");
 // 担当者入力フィールドを取得
 const charge = document.getElementById("charge");
-// 目的情報のHTMLを生成する変数
+// 内容情報のHTMLを生成する変数
 let purposeHTML = '';
-// 目的情報を取得する非同期関数
+// 内容情報を取得する非同期関数
 async function callPurpose() {
     try {
         const apiUrl = "/purpose";
         const response = await fetch(apiUrl);
         if (!response.ok) {
             //APIを呼び出しできない場合 input box 表示されます。
-            purposeHTML = `<input type="text" id="purpose" name="purpose" placeholder="目的を入力ください。" required>`;
+            purposeHTML = `<input type="text" id="purpose" name="purpose" placeholder="内容を入力ください。" required>`;
         }
         const data = await response.json();
         data.map((e) => {
@@ -115,7 +115,7 @@ async function callPurpose() {
         purposeHTML = `<select id="purpose" name="purposeId"><option value="0">全員</option>${purposeHTML}</select>`;
     } catch (error) {
         //APIを呼び出しできない場合 input box 表示されます。
-        purposeHTML = `<input type="text" id="purpose" name="purpose" placeholder="目的を入力ください。" required>`;
+        purposeHTML = `<input type="text" id="purpose" name="purpose" placeholder="内容を入力ください。" required>`;
     }
 }
 let chargeHTML = '';
@@ -126,7 +126,7 @@ async function callCharge() {
         const response = await fetch(apiUrl);
         if (!response.ok) {
             //APIを呼び出しできない場合 input box 表示されます。
-            chargeHTML = `<input type="text" id="charge" name="charge" placeholder="目的を入力ください。" required>`;
+            chargeHTML = `<input type="text" id="charge" name="charge" placeholder="内容を入力ください。" required>`;
         }
         const data = await response.json();
         data.map((e) => {
@@ -136,10 +136,10 @@ async function callCharge() {
         chargeHTML = `<select id="charge" name="chargeId"><option value="0">全部</option>${chargeHTML}</select>`;
     } catch (error) {
         //APIを呼び出しできない場合 input box 表示されます。
-        chargeHTML = `<input type="text" id="charge" name="charge" placeholder="目的を入力ください。" required>`;
+        chargeHTML = `<input type="text" id="charge" name="charge" placeholder="内容を入力ください。" required>`;
     }
 }
-// 目的情報と担当者を非同期で取得し、フィールドに設定
+// 内容情報と担当者を非同期で取得し、フィールドに設定
 (async () => {
     await callPurpose();
     purpose.innerHTML = purposeHTML;
@@ -166,13 +166,13 @@ async function callJob() {
         const response = await fetch(apiUrl);
         if (!response.ok) {
             //APIを呼び出しできない場合 input box 表示されます。
-            // chargeHTML = `<input type="text" id="charge" name="charge" placeholder="目的を入力ください。" required>`;
+            // chargeHTML = `<input type="text" id="charge" name="charge" placeholder="内容を入力ください。" required>`;
         }
         const data = await response.json();
         plan(data);
         // chargeHTML = `<select id="charge" name="charge"><option>全部</option>${chargeHTML}</select>`;
     } catch (error) {
         //APIを呼び出しできない場合 input box 表示されます。
-        // chargeHTML = `<input type="text" id="charge" name="charge" placeholder="目的を入力ください。" required>`;
+        // chargeHTML = `<input type="text" id="charge" name="charge" placeholder="内容を入力ください。" required>`;
     }
 }

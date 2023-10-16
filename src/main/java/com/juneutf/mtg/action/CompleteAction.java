@@ -30,7 +30,7 @@ public class CompleteAction {
     /**
      * 定期的に呼び出され、アクションを実行し、WebSocketを介して通知を送信します。
      */
-    @Scheduled(fixedRate = 5 * 60 * 1000)
+    @Scheduled(fixedRate = 60 * 1000)
     public void logNumberOne() {
         // プランを選択します。
         ArrayList<JobModel> jobModel = planService.selectPlan();

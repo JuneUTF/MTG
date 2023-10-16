@@ -26,7 +26,7 @@
             <a class="nav-link" href="/kk/plan">新規予約</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/kk/operation">担当・目的</a>
+            <a class="nav-link" href="/kk/operation">担当・内容</a>
           </li>
         </ul>
         <div class="d-flex">
@@ -56,7 +56,7 @@
                             <input type="time" class="form-control" id="time_end" name="time_end" required th:value="${job[0].time_end}">
                         </div>
                         <div class="mb-1">
-                            <label for="purpose" class="form-label">目的：</label>
+                            <label for="purpose" class="form-label">内容：</label>
                             <select class="form-select" id="purpose" name="purposeId">
                             <option th:value="${job[0].purposeId}" th:text ="${job[0].purpose}"></option>
                             </select>

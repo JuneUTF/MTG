@@ -53,7 +53,7 @@ public class PAPIController {
 			return ResponseEntity.status(200).body(res);
 		} catch (Exception e) {
 			apiModel.setIsData("false");
-			log.warn("目的のAPIを呼び出せない");
+			log.warn("内容のAPIを呼び出せない");
 			return ResponseEntity.status(400).body(apiModel);
 		}
 	}

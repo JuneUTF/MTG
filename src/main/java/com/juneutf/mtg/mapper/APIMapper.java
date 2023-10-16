@@ -19,7 +19,7 @@ public interface APIMapper {
     ArrayList<APIChargeModel> selectAPICharge();
 
     /**
-     * APIの目的情報を取得します。
+     * APIの内容情報を取得します。
      * @return APIPurposeModelのリスト
      */
     ArrayList<APIPurposeModel> selectAPIPurpose();

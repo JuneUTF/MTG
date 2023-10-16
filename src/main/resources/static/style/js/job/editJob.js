@@ -1,6 +1,6 @@
-// 目的入力フィールドを取得
+// 内容入力フィールドを取得
 const purpose = document.getElementById("purpose");
-// 目的情報を取得する非同期関数
+// 内容情報を取得する非同期関数
 async function callPurpose() {
     try {
         const apiUrl = "/purpose";
@@ -42,7 +42,7 @@ async function callCharge() {
         //APIを呼び出しできない場合 input box 表示されます。
     }
 }
-// 目的情報と担当者を非同期で取得し、フィールドに設定
+// 内容情報と担当者を非同期で取得し、フィールドに設定
 (async () => {
     await callPurpose();
     await callCharge();

@@ -31,7 +31,7 @@ public class JobModel {
     private String time_end;
 
     /**
-     * プランの目的です。
+     * プランの内容です。
      */
     private String purpose;
 
@@ -40,7 +40,7 @@ public class JobModel {
      */
     private String charge;
     /**
-     * 目的IDです。
+     * 内容IDです。
      */
     private int purposeId;
 

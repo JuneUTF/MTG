@@ -31,7 +31,7 @@ public class PlanModel {
     private String time_end;
 
     /**
-     * プランの目的です。
+     * プランの内容です。
      */
     private int purpose;
 
