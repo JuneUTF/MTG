@@ -114,4 +114,9 @@ function setFullWidth() {
     fullWidth.innerText = "普通表示";
   }
 }
+// 10分ごとにページをリロードします（600,000ミリ秒）
+setInterval(function() {
+  location.reload(); // ページをリロード
+}, 600000); // 10分 = 10 * 60 * 1000ミリ秒
+
 
