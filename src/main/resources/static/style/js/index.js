@@ -114,9 +114,32 @@ function setFullWidth() {
     fullWidth.innerText = "普通表示";
   }
 }
+  // `fetch`を使用してAPIを呼び出します
+function callAPI() {
+  fetch("/job")
+    .then(response => {
+      // HTTP応答のステータスを確認
+      if (!response.ok) {
+        throw new Error("APIを呼び出せません。エラーコード: " + response.status);
+      }
+      // JSONデータをJavaScriptオブジェクトに変換
+      return response.json();
+    })
+    .then(data => {
+      // ここでデータを処理します
+      setJob(data);
+    })
+    .catch(error => {
+      // エラーを処理します
+      console.error("エラー: " + error.message);
+    });
+}
+//リフレッシュボタン処理
+const refresh = document.getElementById("refresh");
+refresh.addEventListener('click', ()=>{callAPI()});
 // 10分ごとにページをリロードします（600,000ミリ秒）
 setInterval(function() {
-  location.reload(); // ページをリロード
+  callAPI(); // ページをリロード
 }, 600000); // 10分 = 10 * 60 * 1000ミリ秒
 
 
