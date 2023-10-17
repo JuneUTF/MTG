@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.juneutf.mtg.config.vender.GetIntoDay;
 import com.juneutf.mtg.model.JobModel;
 import com.juneutf.mtg.model.PlanModel;
 import com.juneutf.mtg.service.PlanService;
@@ -28,6 +29,8 @@ import lombok.extern.slf4j.Slf4j;
 public class PlanController {
     @Autowired
     private PlanService planService;
+    @Autowired
+    private GetIntoDay getIntoDay;
     @Autowired
     private SimpMessagingTemplate messagingTemplate;
 
@@ -64,6 +67,8 @@ public class PlanController {
                 model.addAttribute("msg", result.getAllErrors().get(0).getDefaultMessage());
                 return "plan/plan";
             }
+            String toDayString = getIntoDay.setDay(planModel.getDate_plan(), planModel.getDate_day());
+            planModel.setDate_day(toDayString);
             // データベースに登録
             int insertPlan = planService.insertPlan(planModel);
             if (insertPlan == 0) {

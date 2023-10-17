@@ -33,7 +33,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter  {
 			//この脆弱性を突いた攻撃をそのままCSRF攻撃と呼びます。
             http.csrf(csrf -> csrf.disable());
 			//("/", "/login", "/logout"　誰でもできます
-            http.authorizeHttpRequests(requests -> requests.antMatchers("/","/style/**","/login","/password").permitAll());
+            http.authorizeHttpRequests(requests -> requests.antMatchers("/","/style/**","/file/**","/login","/password").permitAll());
 			//管理者だけはいります
             http.authorizeHttpRequests(requests -> requests.antMatchers("/kk/**").authenticated());
             http.authorizeHttpRequests().and().exceptionHandling(handling -> handling.accessDeniedPage("/about"));

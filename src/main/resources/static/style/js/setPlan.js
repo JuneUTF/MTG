@@ -41,10 +41,8 @@ function compareDates() {
 function checkDay() {
     if (compareDates()) {//正しい場合
         msg.textContent = '　';
-        EventTimeStart();
         setDay();
-        checkTimeTowDay();
-        btn.disabled = false;//送信ボタンを有効化
+        checkInput();
     } else {
         msg.textContent = '過去の日付を選択しないでください。';
         setDay();
@@ -87,17 +85,17 @@ async function callCharge() {
         const response = await fetch(apiUrl);
         if (!response.ok) {
             //APIを呼び出しできない場合 input box 表示されます。
-            chargeHTML = `<input type="text" class="form-control" id="charge" name="chargeId" placeholder="内容を入力ください。" required>`;
+            chargeHTML = `<input type="text" class="form-control" id="charge" name="charge" placeholder="内容を入力ください。" required>`;
         }
         const data = await response.json();
         data.map((e) => {
             //APIを呼び出し場合 選択ボックスを表示されます。
             chargeHTML = chargeHTML + `<option value="${e.id}">${e.charge}</option>`;
         });
-        chargeHTML = `<select class="form-select" id="charge" name="chargeId">${chargeHTML}</select>`;
+        chargeHTML = `<select class="form-select" id="charge" name="charge">${chargeHTML}</select>`;
     } catch (error) {
         //APIを呼び出しできない場合 input box 表示されます。
-        chargeHTML = `<input type="text" class="form-control" id="charge" name="chargeId" placeholder="内容を入力ください。" required>`;
+        chargeHTML = `<input type="text" class="form-control" id="charge" name="charge" placeholder="内容を入力ください。" required>`;
     }
 }
 // 内容情報と担当者を非同期で取得し、フィールドに設定

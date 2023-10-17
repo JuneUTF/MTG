@@ -12,20 +12,20 @@
 <body> 
 <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #0e8695;">
   <div class="container-fluid">
-    <a class="navbar-brand fw-bold" href="#">会議室管理システム</a>
+    <a class="navbar-brand fw-bold" href="#">会議室予約一覧・編集システム</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" href="/kk/job">予約管理</a>
+            <a class="nav-link" href="/kk/job">予約一覧・編集</a>
           </li>
           <li class="nav-item">
             <a class="nav-link btn btn-secondary" href="/kk/plan">新規予約</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/kk/operation">担当・内容</a>
+            <a class="nav-link" href="/kk/operation">内容・担当編集</a>
           </li>
         </ul>
       <div class="d-flex">
@@ -38,7 +38,10 @@
 	<div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6 form-container">
-                <h2 class="text-center mb-4">会議室予約</h2>
+            	<div id="logo" class="col-6 text-center pb-1">
+                	<img alt="K&Kソフト株式株式" src="/file/logo.png">
+                </div>
+                <h2 class="text-center mb-2">新規会議室予約</h2>
                 <p class="text-success text-center fs-5" th:text="${msg}"></p>
                 <p class="text-danger text-center fs-5" id="msg">　</p>
                 <form class="login-form" th:action="@{/kk/plan}" method="post">
@@ -62,9 +65,9 @@
                             <label for="charge" class="form-label">担当：</label>
                             <div id="charge"></div>
                         </div>
-                    <button type="submit" class="btn btn-primary btn-block btn-outline-success" id="submit">送信</button>
+                    <button type="submit" class="btn btn-primary btn-block btn-outline-success" id="submit">予約</button>
                 </form>
-                    <a href="/kk/job" class="btn btn-outline-danger mt-2">予約画面</a>
+                    <a href="/kk/job" class="btn btn-outline-danger mt-2">予約表示画面</a>
             </div>
         </div>
     </div>

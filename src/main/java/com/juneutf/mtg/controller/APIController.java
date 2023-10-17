@@ -20,7 +20,7 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 @Controller
-public class PAPIController {
+public class APIController {
 	@Autowired
 	private APIService apiService;
 	@Autowired
@@ -31,14 +31,14 @@ public class PAPIController {
 	 * @return ResponseEntity
 	 */
 	@GetMapping("/charge")
-	public ResponseEntity<?> getCherge(APIMessengerModel apiModel){
+	public ResponseEntity<?> getCherge(APIMessengerModel apiMessengerModel){
 		try {
 			ArrayList<APIChargeModel> res = apiService.selectAPICharge();
 			return ResponseEntity.status(200).body(res);
 		} catch (Exception e) {
-			apiModel.setIsData("false");
+			apiMessengerModel.setIsData("false");
 			log.warn("担当者のAPIを呼び出せない");
-			return ResponseEntity.status(400).body(apiModel);
+			return ResponseEntity.status(400).body(apiMessengerModel);
 		}
 	}
 	/**
@@ -47,14 +47,14 @@ public class PAPIController {
 	 * @return ResponseEntity
 	 */
 	@GetMapping("/purpose")
-	public ResponseEntity<?> getPurpose(APIMessengerModel apiModel){
+	public ResponseEntity<?> getPurpose(APIMessengerModel apiMessengerModel){
 		try {
 			ArrayList<APIPurposeModel> res = apiService.selectAPIPurpose();
 			return ResponseEntity.status(200).body(res);
 		} catch (Exception e) {
-			apiModel.setIsData("false");
+			apiMessengerModel.setIsData("false");
 			log.warn("内容のAPIを呼び出せない");
-			return ResponseEntity.status(400).body(apiModel);
+			return ResponseEntity.status(400).body(apiMessengerModel);
 		}
 	}
 	/**
@@ -63,14 +63,14 @@ public class PAPIController {
 	 * @return ResponseEntity
 	 */
 	@GetMapping("/job")
-	public ResponseEntity<?> getJob(APIMessengerModel apiModel){
+	public ResponseEntity<?> getJob(APIMessengerModel apiMessengerModel){
 		try {
 			ArrayList<JobModel> res = planService.selectPlan();
 			return ResponseEntity.status(200).body(res);
 		} catch (Exception e) {
-			apiModel.setIsData("false");
+			apiMessengerModel.setIsData("false");
 			log.warn("JOBのAPIを呼び出せない");
-			return ResponseEntity.status(400).body(apiModel);
+			return ResponseEntity.status(400).body(apiMessengerModel);
 		}
 	}
 }

@@ -45,18 +45,18 @@ function editOperation(id, text, status, tableName) {
   }
 }
 function showFormDelete(id, status, tableName) {
-  let showHTML = `<div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h3 class="modal-title">${tableName == "purpose" ? "内容" : "担当者"}の削除</h3></div><div class="modal-body">ID: ${id}、${status}の削除に解除の決定ですか？</div>
-  <div class="modal-footer"><button type="button" class="btn btn-secondary" onclick="hiddenFormHTML()" data-dismiss="modal">中止</button>
-  <form action="/kk/operation/delete?tableName=${tableName}&id=${id}" method="post"><button type="submit" class="btn btn-danger">決定</button></form></div></div></div>`;
+  let showHTML = `<div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h3 class="modal-title">${tableName == "purpose" ? "内容" : "担当者"}の削除</h3></div><div class="modal-body">ID: ${id}、${status}の削除に解除のＯＫですか？</div>
+  <div class="modal-footer"><button type="button" class="btn btn-secondary" onclick="hiddenFormHTML()" data-dismiss="modal">Cancel</button>
+  <form action="/kk/operation/delete?tableName=${tableName}&id=${id}" method="post"><button type="submit" class="btn btn-danger">ＯＫ</button></form></div></div></div>`;
   showForm.innerHTML = showHTML;
   showForm.style.animationName = "showForm";
   showID = true;
   booleanID = "D" + id;
 }
 function showFormreStore(id, status, tableName) {
-  let showHTML = `<div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h3 class="modal-title">${tableName == "purpose" ? "内容" : "担当者"}の復元</h3></div><div class="modal-body">ID: ${id}、 ${status}の使用中に復元の決定ですか？</div>
-  <div class="modal-footer"><button type="button" class="btn btn-secondary" onclick="hiddenFormHTML()" data-dismiss="modal">中止</button>
-  <form action="/kk/operation/restore?tableName=${tableName}&id=${id}" method="post"><button type="submit" class="btn btn-primary">決定</button></form></div></div></div>`;
+  let showHTML = `<div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h3 class="modal-title">${tableName == "purpose" ? "内容" : "担当者"}の復元</h3></div><div class="modal-body">ID: ${id}、 ${status}の使用中に復元のＯＫですか？</div>
+  <div class="modal-footer"><button type="button" class="btn btn-secondary" onclick="hiddenFormHTML()" data-dismiss="modal">Cancel</button>
+  <form action="/kk/operation/restore?tableName=${tableName}&id=${id}" method="post"><button type="submit" class="btn btn-primary">ＯＫ</button></form></div></div></div>`;
   showForm.innerHTML = showHTML;
   showForm.style.animationName = "showForm";
   showID = true;
@@ -71,8 +71,8 @@ function showFormEdit(id, textEdit, text, tableName) {
 	<label for="password" class="form-label">番号: <strong>${id}</strong> - ${text}</label>
 	<input type="text" class="form-control" id="textEdit" name="textEdit" value="${textEdit}" placeholder="パスワードを入力ください。" required>
   </div>
-  <div class="modal-footer"><button type="button" class="btn btn-secondary" onclick="hiddenFormHTML()" data-dismiss="modal">中止</button>
-  <button type="submit" class="btn btn-primary" id="btnsubmit">決定</button></form></div></div></div>`;
+  <div class="modal-footer"><button type="button" class="btn btn-secondary" onclick="hiddenFormHTML()" data-dismiss="modal">Cancel</button>
+  <button type="submit" class="btn btn-primary" id="btnsubmit">ＯＫ</button></form></div></div></div>`;
   showForm.innerHTML = showHTML;
   showForm.style.animationName = "showForm";
   statusBTN = document.getElementById('textEdit');
@@ -89,8 +89,8 @@ function registerOperation(tableName) {
 	<label for="password" class="form-label">${tableName == "purpose" ? "内容" : "担当者"}：</label>
 	<input type="text" class="form-control" id="textEdit" name="textEdit"  placeholder="${tableName == "purpose" ? "内容" : "担当者"}を入力ください。" required>
   </div>
-  <div class="modal-footer"><button type="button" class="btn btn-secondary" onclick="hiddenFormHTML()" data-dismiss="modal">中止</button>
-  <button type="submit" class="btn btn-primary" id="btnsubmit">決定</button></form></div></div></div>`;
+  <div class="modal-footer"><button type="button" class="btn btn-secondary" onclick="hiddenFormHTML()" data-dismiss="modal">Cancel</button>
+  <button type="submit" class="btn btn-primary" id="btnsubmit">ＯＫ</button></form></div></div></div>`;
   showForm.innerHTML = showHTML;
   showForm.style.animationName = "showForm";
   statusBTN = document.getElementById('textEdit');

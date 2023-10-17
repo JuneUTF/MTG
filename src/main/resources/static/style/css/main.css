@@ -2,7 +2,6 @@ html,
 body,
 .intro {
   height: 100%;
-  background-color: #fff;
 }
 * {
   margin: 0;
@@ -25,7 +24,6 @@ thead th {
 }
 
 .table-scroll {
-  border-radius: 5px;
   position: relative;
   height: 75vh;
   overflow-x: hidden;
@@ -70,17 +68,6 @@ thead {
   	-o-animation: my 700ms infinite; 
   	animation: my 700ms infinite;
 }
-.align-items-center {
-    background-color: white;
-}
-.card, .card-body{
-	padding: 0 !important;
-}
 form{
 	display: inline;
-	padding-left: 10px;
-}
-#logo img{
-	width:auto;
-	height: 50px;
 }

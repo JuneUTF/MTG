@@ -12,6 +12,9 @@
 	<div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6 form-container">
+            	<div id="logo" class="col-6 text-center pb-5">
+                		<img alt="K&Kソフト株式株式" src="/file/logo.png">
+                </div>
                 <h2 class="text-center mb-4">ログイン</h2>
                 <form class="login-form" th:action="@{/login}" method="post">
                 	<div th:if="${param.error}">
@@ -29,6 +32,7 @@
                     <button type="submit" class="btn btn-primary btn-block btn-outline-success" id="submit">ログイン</button>
                 </form>
                     <a href="/password" class="btn btn-outline-danger mt-2">パスワード再設定</a>
+                    <a href="/" class="btn btn-outline-danger mt-2">予約表示画面</a>
             </div>
         </div>
     </div>
