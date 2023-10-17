@@ -143,7 +143,7 @@ async function callCharge() {
             //APIを呼び出し場合 選択ボックスを表示されます。
             chargeHTML = chargeHTML + `<option value="${e.id}">${e.charge}</option>`;
         });
-        chargeHTML = `<select id="charge" name="chargeIdId"><option value="0">全部</option>${chargeHTML}</select>`;
+        chargeHTML = `<select id="charge" name="chargeId"><option value="0">全部</option>${chargeHTML}</select>`;
     } catch (error) {
         //APIを呼び出しできない場合 input box 表示されます。
         chargeHTML = `<input type="text" id="charge" name="chargeId" placeholder="内容を入力ください。" required>`;

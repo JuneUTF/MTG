@@ -2,146 +2,150 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="jp">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/style/bootstrap/css/bootstrap.min.css">
-  <script type="text/javascript" src="/style/bootstrap/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="/style/css/menu.css">
-  <link rel="stylesheet" href="/style/css/operation.css">
-  <title>内容・担当編集管理</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/style/bootstrap/css/bootstrap.min.css">
+<script type="text/javascript"
+	src="/style/bootstrap/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="/style/css/menu.css">
+<link rel="stylesheet" href="/style/css/operation.css">
+<title>内容・担当編集管理</title>
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #0e8695;">
-    <div class="container-fluid">
-      <a class="navbar-brand fw-bold" href="#">会議室予約一覧・編集システム</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" href="/kk/job">予約一覧・編集</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/kk/plan">新規予約</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link btn btn-secondary" href="/kk/operation">内容・担当編集</a>
-          </li>
-        </ul>
-        <div class="d-flex">
-          <a class="btn btn-outline-light" href="/logout">ログアウト</a>
-        </div>
-      </div>
-    </div>
-  </nav>
-  <div id="showForm">
-  </div>
-  <section class="intro">
-    <div class="bg-image h-100" style="background-color: #f5f7fa; ">
-      <div class="mask d-flex align-items-center h-100">
-        <div class="px-1" style="width:100%;">
-          <div class="row justify-content-center">
-            <div class="col-12">
-              <div class="card">
-                <div class="card-body">
-	                <div id="logo" class="col-6">
-	                	<img alt="K&Kソフト株式株式" src="/file/logo.png">
-	                </div>
-                    <section id="search">
-                      <form th:action="@{/kk/job/search}" method="post" class="form-inline">
-                      <div class=" py-2">
-                        <div class="row justify-content-center">
-                            <div class="col col-md-5 justify-content-center">
-                              <div class="input-group">
-                                <span>日付：</span>
-                                <input type="date" name="date_start" id="date_start" class="form-control">
-                                <span>～</span>
-                                <input type="date" name="date_end" id="date_end" class="form-control">
-                                <div class="input-group-append">
-                                </div>
-                            </div>
-                            </div> 
-                            <div class=" col col-md-2 justify-content-center">
-                              <div class="input-group">
-                              <span>内容:</span><span id="purpose"></span>
-                              </div>
-                            </div>
-                            <div class=" col col-md-2 justify-content-center">
-                                <span>担当者:</span><span id="charge"></span>
-                            </div>
-                            <div class=" col col-md-2 justify-content-center">
-                              <span>状況:</span>
-                              <select id="status" name="status">
-                              		<option value="">全部</option>
-                              		<option value="予約中">予約中</option>
-                              		<option value="削除">削除</option>
-                              		<option value="完了">完了</option>
-                              </select>
-                            </div>
-                            <div class=" col col-md-1">
-                              <div class="input-group-append">
-                                <button type="submit" class="btn btn-primary">検索</button>
-                            </div>
-                            </div>
-                        </div>
-                      </div>
-                    </form>
-                    </section>
-                  <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true">
-                    <div class="row justify-content-center">
-                            <div class="col col-md-6 justify-content-center">
-                            <table class="table table-striped">
-                      <thead style="background-color: #0e8695;">
-                        <tr class="text-center">
-                          <th scope="col" class="col-1">番号</th>
-                          <th scope="col" class="col-3">内容</th>
-                          <th scope="col" class="col-3">状況</th>
-                          <th scope="col" class="col-5"><button type="button" class="btn btn-outline-light" onclick="registerOperation('purpose');">追加</button></th>
-                        </tr>
-                      </thead>
-                      <tbody id="purposetable" class="text-center scroll">
-                      </tbody>
-                    </table>
-                            </div>
-                            <div class="col col-md-6 justify-content-center">
-                            <table class="table table-striped">
-                      <thead style="background-color: #0e8695;">
-                        <tr class="text-center">
-                          <th scope="col" class="col-1">番号</th>
-                          <th scope="col" class="col-3">担当者</th>
-                          <th scope="col" class="col-3">状況</th>
-                          <th scope="col" class="col-5"><button type="button" class="btn btn-outline-light" onclick="registerOperation('charge');">追加</button></th>
-                        </tr>
-                      </thead>
-                      <tbody id="chargetable" class="text-center scroll">
-                      
-                      </tbody>
-                    </table>
-                            </div>
-                            </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <script type="text/javascript" src="/style/soket/sockjs_1.4.0.js"></script>
-  <script type="text/javascript" src="/style/soket/stomp_2.3.3.js"></script>
-  <script th:inline="javascript">
+	<nav class="navbar navbar-expand-lg navbar-dark"
+		style="background-color: #0e8695;">
+		<div class="container-fluid">
+			<a class="navbar-brand fw-bold" href="#">会議室予約一覧・編集システム</a>
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-lg-0">
+					<li class="nav-item"><a class="nav-link" href="/kk/job">予約一覧・編集</a>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="/kk/plan">新規予約</a>
+					</li>
+					<li class="nav-item"><a class="nav-link btn btn-secondary"
+						href="/kk/operation">内容・担当編集</a></li>
+				</ul>
+				<div class="d-flex">
+					<a class="btn btn-outline-light" href="/logout">ログアウト</a>
+				</div>
+			</div>
+		</div>
+	</nav>
+	<div id="showForm"></div>
+	<section class="intro">
+		<div class="bg-image h-100" style="background-color: #f5f7fa;">
+			<div class="mask d-flex align-items-center h-100">
+				<div class="px-1" style="width: 100%;">
+					<div class="row justify-content-center">
+						<div class="col-12">
+							<div class="card">
+								<div class="card-body">
+									<div id="logo" class="col-6">
+										<img alt="K&Kソフト株式株式" src="/file/logo.png">
+									</div>
+									<section id="search">
+										<form th:action="@{/kk/job/search}" method="post"
+											class="form-inline">
+											<div class=" py-2">
+												<div class="row justify-content-center">
+													<div class="col col-md-5 justify-content-center">
+														<div class="input-group">
+															<span>日付：</span> <input type="date" name="date_start"
+																id="date_start" class="form-control"> <span>～</span>
+															<input type="date" name="date_end" id="date_end"
+																class="form-control">
+															<div class="input-group-append"></div>
+														</div>
+													</div>
+													<div class=" col col-md-2 justify-content-center">
+														<div class="input-group">
+															<span>内容:</span><span id="purpose"></span>
+														</div>
+													</div>
+													<div class=" col col-md-2 justify-content-center">
+														<span>担当者:</span><span id="charge"></span>
+													</div>
+													<div class=" col col-md-2 justify-content-center">
+														<span>状況:</span> <select id="status" name="status">
+															<option value="">全部</option>
+															<option value="予約中">予約中</option>
+															<option value="削除">取消</option>
+															<option value="完了">完了</option>
+														</select>
+													</div>
+													<div class=" col col-md-1">
+														<div class="input-group-append">
+															<button type="submit" class="btn btn-primary">検索</button>
+														</div>
+													</div>
+												</div>
+											</div>
+										</form>
+									</section>
+									<div class="table-responsive table-scroll"
+										data-mdb-perfect-scrollbar="true">
+										<div class="row justify-content-center">
+											<div class="col col-md-6 justify-content-center">
+												<table class="table table-striped">
+													<thead style="background-color: #0e8695;">
+														<tr class="text-center">
+															<th scope="col" class="col-1">番号</th>
+															<th scope="col" class="col-3">内容</th>
+															<th scope="col" class="col-3">状況</th>
+															<th scope="col" class="col-5"><button type="button"
+																	class="btn btn-outline-light"
+																	onclick="registerOperation('purpose');">追加</button></th>
+														</tr>
+													</thead>
+													<tbody id="purposetable" class="text-center scroll">
+													</tbody>
+												</table>
+											</div>
+											<div class="col col-md-6 justify-content-center">
+												<table class="table table-striped">
+													<thead style="background-color: #0e8695;">
+														<tr class="text-center">
+															<th scope="col" class="col-1">番号</th>
+															<th scope="col" class="col-3">担当者</th>
+															<th scope="col" class="col-3">状況</th>
+															<th scope="col" class="col-5"><button type="button"
+																	class="btn btn-outline-light"
+																	onclick="registerOperation('charge');">追加</button></th>
+														</tr>
+													</thead>
+													<tbody id="chargetable" class="text-center scroll">
+
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<script type="text/javascript" src="/style/soket/sockjs_1.4.0.js"></script>
+	<script type="text/javascript" src="/style/soket/stomp_2.3.3.js"></script>
+	<script th:inline="javascript">
         /*<![CDATA[*/
         // 内容情報を格納する変数
         let chargeData = /*[[${charge}]]*/;
         let purposeData = /*[[${purpose}]]*/;
         /*]]>*/
     </script>
-  <script src="/style/js/operation.js"></script>
-  <script src="/style/js/vender/operation.js"></script>
+	<script src="/style/js/operation.js"></script>
+	<script src="/style/js/vender/operation.js"></script>
 </body>
 
 </html>

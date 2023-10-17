@@ -1,0 +1,34 @@
+CREATE TABLE plan (
+    ID SERIAL PRIMARY KEY,
+    date_day VARCHAR(1) NOT NULL,
+    date_plan Date NOT NULL,
+    time_start VARCHAR(5) NOT NULL,
+    time_end VARCHAR(5) NOT NULL,
+    purpose int NOT NULL,
+    charge int NOT NULL,
+    status VARCHAR(10) NULL
+);
+
+CREATE TABLE charge (
+    ID SERIAL PRIMARY KEY,
+    charge VARCHAR(255) NOT NULL,
+    status VARCHAR(10) NULL
+);
+
+
+CREATE TABLE purpose (
+    ID SERIAL PRIMARY KEY,
+    purpose VARCHAR(255) NOT NULL,
+     status VARCHAR(10) NULL
+);
+ 
+
+
+CREATE TABLE USER_INFOR (
+    ID SERIAL PRIMARY KEY,
+    USERNAME VARCHAR(255) NOT NULL,
+    EMAIL VARCHAR(255) NOT NULL,
+    PASSWORD VARCHAR(255) NOT NULL,
+    TOKEN VARCHAR(255),
+    STATUS VARCHAR(10)
+);

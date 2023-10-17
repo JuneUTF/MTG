@@ -184,6 +184,7 @@ public class JobController {
         try {
             ArrayList<JobModel> job = searchService.selectSearch(searchModel);
             model.addAttribute("job", job);
+            model.addAttribute("searchModel", searchModel);
             return "job/search";
         } catch (Exception e) {
             log.warn("検索機能はエラーが発生します。");
