@@ -45,7 +45,6 @@ public class JobController {
      */
     @GetMapping("/job")
     public String getJob(Model model, JobModel jobModel) {
-    	System.out.println(jobModel);
         try {
             // IDを検証
             // IDがない場合、今日より予約内容を取得
@@ -150,7 +149,6 @@ public class JobController {
                     SimpleDateFormat outputFormat = new SimpleDateFormat("yyyy年MM月dd日");
                     Date datecover = inputFormat.parse(job.get(0).getDate_plan());
                     job.get(0).setDate_day(outputFormat.format(datecover) + " (" + job.get(0).getDate_day() + ")");
-                    System.out.println(job);
                     // 内容を画面に渡す
                     model.addAttribute("job", job);
                     return "job/getjob";
@@ -222,8 +220,6 @@ public class JobController {
     public ResponseEntity<?> postSearchAPI(@RequestBody SearchModel searchModel,APIMessengerModel apiMessengerModel) {
         try {
 			ArrayList<JobModel> job = searchService.selectSearch(searchModel);
-			System.out.println(job.size());
-			System.out.println(searchModel);
 			return ResponseEntity.status(200).body(job);
 		} catch (Exception e) {
 			apiMessengerModel.setIsData("false");

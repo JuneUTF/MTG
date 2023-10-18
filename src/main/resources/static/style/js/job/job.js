@@ -203,7 +203,7 @@ function setJobAPI(obj) {
                 jobtt += `<tr><td>${e.date_plan.substring(0, 4)}年${e.date_plan.substring(5, 7)}月${e.date_plan.substring(8, 10)}日 (${e.date_day})</td><td>${e.time_start}～${e.time_end} </td><td>${e.purpose}</td><td>${e.charge}</td><td>${e.status}</td><td>-</td></tr>`
             } else
                 //現在使用場合
-                if (timeLine >= new Date(e.date_plan + 'T' + e.time_start + 'Z').getTime() && timeLine <= new Date(e.date_plan + 'T' + e.time_end + 'Z').getTime()) {
+                if (timeLine >= new Date(e.date_plan + 'T' + e.time_start + 'Z').getTime() && timeLine <= new Date(e.date_plan + 'T' + e.time_end + 'Z').getTime() && e.status == '予約中') {
                     jobtt += `<tr><td>${e.date_plan.substring(0, 4)}年${e.date_plan.substring(5, 7)}月${e.date_plan.substring(8, 10)}日 (${e.date_day})</td><td>${e.time_start}～${e.time_end} </td><td>${e.purpose}</td><td>${e.charge}</td><td><span class='yoyaku'>利用中</span></td><td><form method="post" action="/kanryo?id=${e.id}"><button type="submit" class="btn btn-success">完了</button></form></td></tr>`
                 } else
                     // データは１つだけある場合
