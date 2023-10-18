@@ -3,6 +3,8 @@ const job = document.getElementById("job");
 /**
  * Websocketに接続・アクションの行動はplanを呼び出してBodyのパラメータを渡す
  */
+//Websocketの接続検証
+let isConnected = true;
 // WebSocketを使用して内容情報を受信し、表示するための関数
 var stompClient = null;
 function connectWebSocket() {
@@ -10,8 +12,10 @@ function connectWebSocket() {
     stompClient = Stomp.over(socket); // Stompクライアントを作成
     stompClient.connect({}, function (frame) {
         stompClient.subscribe('/job/notification', function (job) {
-            var newJob = JSON.parse(job.body);
-            setJob(newJob);
+            if(isConnected){
+            	var newJob = JSON.parse(job.body);
+            	setJob(newJob);
+            };
         });
     });
 }
@@ -228,6 +232,7 @@ function setJobAPI(obj) {
 }
 document.getElementById("searchButton").addEventListener("click", function (event) {
     event.preventDefault();
+    isConnected = false;//websoket中止
     searchData = {
         date_start: document.getElementById("date_start").value,
         date_end: document.getElementById("date_end").value,
@@ -236,7 +241,6 @@ document.getElementById("searchButton").addEventListener("click", function (even
         status: document.getElementById("status").value
     };
     // リクエストを送信
-    console.log(searchData)
     fetch("/kk/job/searchAPI", {
         method: 'POST',
         body: JSON.stringify(searchData),
