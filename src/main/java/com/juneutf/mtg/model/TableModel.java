@@ -21,4 +21,20 @@ public class TableModel {
      * テーブルに関連するテキスト情報です。
      */
     private String textEdit;
+    /**
+	 * ユーザー名
+	 */
+    private String username; 
+    /**
+	 * メールアドレス
+	 */
+    private String email; 
+    /**
+	 *パスワード
+	 */
+    private String password; 
+    /**
+	 * 名前
+	 */
+    private String fullname; 
 }

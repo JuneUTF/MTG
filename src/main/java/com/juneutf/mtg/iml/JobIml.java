@@ -51,16 +51,6 @@ public class JobIml implements JobService {
     }
 
     /**
-     * すべての予約内容を選択します。
-     *
-     * @return 選択されたすべての予約内容のリスト
-     */
-    @Override
-    public ArrayList<JobModel> selectJob() {
-        return mapper.selectJob();
-    }
-
-    /**
      * 指定された予約内容を復元します。
      *
      * @param jobModel 復元する予約内容の情報を含むモデル

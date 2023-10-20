@@ -1,6 +1,7 @@
 package com.juneutf.mtg.iml;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -78,4 +79,22 @@ public class OperationImpl implements OperationService{
     public int regByIdAndtableName(TableModel model) {
         return mapper.regByIdAndtableName(model);
     }
+    /**
+     * 内容新規登録の業務検証
+     * @param TableModel 登録対象のデータを指定する TableModel オブジェクト
+     * @return 存在場合はTrue、存在ない場合はFalse.
+     */
+	@Override
+	public List<TableModel> checkUserNameAndEmail(TableModel model) {
+		return mapper.checkUserNameAndEmail(model);
+	}
+	/**
+     * 内容新規登録の業務検証
+     * @param TableModel 登録対象のデータを指定する TableModel オブジェクト
+     * @return 存在場合はTrue、存在ない場合はFalse.
+     */
+	@Override
+	public List<TableModel> checkPurpose(TableModel model) {
+		return mapper.checkPurpose(model);
+	}
 }

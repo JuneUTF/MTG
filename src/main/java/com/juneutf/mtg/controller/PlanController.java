@@ -6,6 +6,8 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.juneutf.mtg.config.vender.CustomUser;
 import com.juneutf.mtg.config.vender.GetIntoDay;
 import com.juneutf.mtg.model.JobModel;
 import com.juneutf.mtg.model.PlanModel;
@@ -48,8 +51,16 @@ public class PlanController {
      * @return 予定ページ
      */
     @GetMapping("/plan")
-    public String getPlan() {
-        return "plan/plan";
+    public String getPlan(Model model) {
+    	try {
+    		UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            CustomUser customUser = (CustomUser) userDetails;
+            model.addAttribute("fullName", customUser.getFullName());
+            model.addAttribute("id", customUser.getId());
+            return "plan/plan";
+		} catch (Exception e) {
+			return "error";
+		}
     }
 
     /**
@@ -80,7 +91,7 @@ public class PlanController {
             messagingTemplate.convertAndSend("/job/notification", job);
             int nowJob = planService.selectMaxIdPlan().get(0).getMAX();
             log.info("予約内容の新規登録情報：" + planModel);
-            return "redirect:/kk/job?id=" + nowJob;
+            return "redirect:/kk/getjob?id=" + nowJob;
         } catch (Exception e) {
             log.warn("新規登録予約はエラーが発生しました。");
             return "error";

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="jp">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/style/bootstrap/css/bootstrap.min.css">
+<script src="/style/bootstrap/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="/style/css/home.css">
+<link rel="stylesheet" href="/style/css/menu.css">
+<title>会議室予約-パスワード変更</title>
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark"
+		style="background-color: #0e8695;">
+		<div class="container-fluid">
+			<a class="navbar-brand fw-bold" href="#">会議室予約管理システム</a>
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-lg-0">
+					<li class="nav-item"><a class="nav-link" href="/kk/job">予約一覧・編集</a></li>
+					<li class="nav-item"><a class="nav-link" href="/kk/plan">新規予約</a>
+					</li>
+					<li class="nav-item"
+						th:if="${#authorization.expression('hasRole(''ADMIN'')')}"><a
+						class="nav-link" href="/ad/operation">内容・担当編集</a></li>
+					<li class="nav-item"><a class="nav-link btn btn-secondary"
+						href="/kk/password">パスワード変更</a></li>
+				</ul>
+				<div class="d-flex">
+					<a class="btn btn-outline-light" href="/logout"><span
+						th:if="${#request.userPrincipal != null}"
+						th:text="${#request.userPrincipal.name}"></span></a>
+				</div>
+			</div>
+		</div>
+	</nav>
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-md-6 form-container">
+				<div id="logo" class="col-6 text-center pb-5">
+					<img alt="K&Kソフト株式株式" src="/file/logo.png">
+				</div>
+				<h2 class="text-center mb-4">パスワード変更</h2>
+				<p class="text-danger text-center fs-5" th:text="${error}"></p>
+				<p class="text-success text-center fs-5" th:text="${msg}"></p>
+				<form class="login-form" th:action="@{/kk/password}" method="post">
+					<div class="mb-3">
+						<label for="password" class="form-label">現在パスワード：</label> <input
+							type="password" class="form-control" id="password"
+							name="password" placeholder="現在パスワードを入力ください。" required>
+						<div id="password-error" class="text-danger  mt-1">　</div>
+					</div>
+					<div class="mb-3">
+						<label for="newpassword" class="form-label">新パスワード：</label> <input
+							type="password" class="form-control" id="newpassword"
+							name="newpassword" placeholder="新パスワードを入力ください。" required>
+						<div id="newpassword-error" class="text-danger  mt-1">　</div>
+					</div>
+					<div class="mb-3">
+						<label for="repassword" class="form-label">パスワード再入力：</label> <input
+							type="password" class="form-control" id="repassword"
+							name="repassword" placeholder="パスワード再入力を入力ください。" required>
+						<div id="repassword-error" class="text-danger  mt-1">　</div>
+					</div>
+					<div class="input-group mb-2">
+						<div class="input-group-prepend">
+							<div class="input-group-text me-2">
+								<input type="checkbox" id="showPassword"
+									aria-label="Checkbox for following text input">
+							</div>
+						</div>
+							パスワードが表示します。
+					</div>
+					<button type="submit"
+						class="btn btn-primary btn-block btn-outline-success" id="submit">変更</button>
+				</form>
+				<a href="/kk/job" class="btn btn-outline-danger mt-2">予約一覧・編集</a>
+			</div>
+		</div>
+	</div>
+	<script src="/style/js/password.js"></script>
+</body>
+</html>

@@ -50,7 +50,7 @@ function setJob(obj) {
     e.forEach(e => {
       if (timeLine <= new Date(e.date_plan + 'T' + e.time_end + 'Z').getTime()) {
         if (timeLine >= new Date(e.date_plan + 'T' + e.time_start + 'Z').getTime()) {
-          jobtt += `<tr><td>${e.date_plan.substring(0, 4)}年${e.date_plan.substring(5, 7)}月${e.date_plan.substring(8, 10)}日 (${e.date_day})</td><td>${e.time_start}～${e.time_end} <span class='yoyaku'>利用中</span> </td><td>${e.purpose}</td><td>${e.charge} - <form method="post" action="/kanryo?id=${e.id}"><button type="submit" class="btn btn-success">完了</button></form></td></tr>`
+          jobtt += `<tr><td>${e.date_plan.substring(0, 4)}年${e.date_plan.substring(5, 7)}月${e.date_plan.substring(8, 10)}日 (${e.date_day})</td><td>${e.time_start}～${e.time_end} <span class='yoyaku'>利用中</span> </td><td>${e.purpose}</td><td>${e.charge} - <button  class="btn btn-success" onclick="getOK('${e.id}')">完了</button></td></tr>`
         } else {
           jobtt += `<tr><td>${e.date_plan.substring(0, 4)}年${e.date_plan.substring(5, 7)}月${e.date_plan.substring(8, 10)}日 (${e.date_day})</td><td>${e.time_start}～${e.time_end}</td><td>${e.purpose}</td><td>${e.charge}</td></tr>`
         }
@@ -70,7 +70,6 @@ const fullWidth = document.getElementById("fullWidth");
 let fullWidthBoolean = false;
 
 fullWidth.addEventListener('click', setFullWidth);
-
 function setFullWidth() {
   if (fullWidthBoolean) {
     if (document.exitFullscreen) {
@@ -122,6 +121,32 @@ function callAPI() {
       console.error("エラー: " + error.message);
     });
 }
+function getOK(id) { 
+  const postData = {
+    id: `${id}`
+  };
+
+  fetch('/kanryo', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json' 
+    },
+    body: JSON.stringify(postData)
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error("APIを呼び出せません。エラーコード: " + response.status);
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log(data);
+  })
+  .catch(error => {
+    console.error("エラー: " + error.message);
+  });
+}
+
 callAPI();
 //リフレッシュボタン処理
 const refresh = document.getElementById("refresh");

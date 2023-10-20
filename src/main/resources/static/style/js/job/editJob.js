@@ -190,9 +190,11 @@ function checkTowDay() {
     const end = new Date(date_plan.value + 'T' + time_end.value + 'Z').getTime();
     return start >= end;
 }
+//編集ID取得
+const editID = document.getElementById("editid").value;
 //call api job
 function callAPI() {
-    const apiUrl = `/job`;
+    const apiUrl = `/kk/getjobapi?id=${editID}`;
     fetch(apiUrl)
         .then(response => {
             if (!response.ok) {

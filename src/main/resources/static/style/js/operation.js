@@ -15,7 +15,7 @@ let chargeData;
 // データを取得する関数
 function fetchDatacharge(url) {
   // Fetch APIを使用してデータを取得
-  fetch("/kk/charge")
+  fetch("/ad/charge")
     .then(response => {
       // レスポンスが成功した場合、JSONデータを解析
       if (!response.ok) {
@@ -27,7 +27,11 @@ function fetchDatacharge(url) {
       // データをコンソールに表示
       chargeData = data;
       chargeData.map((e) => {
-        chargeTableHTML += `<tr><td>${e.id}</td><td>${e.tableName}</td><td>${e.status}</td><td><button type="button" class="btn btn-outline-secondary" onclick="editOperation('${e.id}','${e.tableName}','${e.status}','charge');">編集</button>・${e.status !== "使用中" ? `<button type="button" class="btn btn-outline-primary" onclick="restoreOperation('${e.id}','${e.tableName}','charge');">復元</button>` : `<button type="button" class="btn btn-outline-warning" onclick="deleteOperation('${e.id}','${e.tableName}','charge');">削除</button>`}</td></tr>`;
+        if(e.id==1){
+          chargeTableHTML += `<tr><td>${e.id}</td><td>${e.tableName}</td><td>${e.status}</td><td>管理者</td></tr>`;
+        }else{
+        chargeTableHTML += `<tr><td>${e.id}</td><td>${e.tableName}</td><td>${e.status}</td><td><button type="button" class="btn btn-outline-secondary" onclick="editOperation('${e.id}','${e.tableName}','${e.status}','user_infor');">編集</button>・${e.status !== "使用中" ? `<button type="button" class="btn btn-outline-primary" onclick="restoreOperation('${e.id}','${e.tableName}','user_infor');">復元</button>` : `<button type="button" class="btn btn-outline-warning" onclick="deleteOperation('${e.id}','${e.tableName}','user_infor');">削除</button>`}</td></tr>`;
+      	}
       }); chargeTable.innerHTML = chargeTableHTML;
     })
     .catch(error => {
@@ -40,12 +44,12 @@ let purposeData;
 // データを取得する関数
 function fetchDatapurpose(url) {
   // Fetch APIを使用してデータを取得
-  fetch("/kk/purpose")
+  fetch("/ad/purpose")
     .then(response => {
       // レスポンスが成功した場合、JSONデータを解析
       if (!response.ok) {
         throw new Error('ネットワークエラー');
-      }
+      } 
       return response.json();
     })
     .then(data => {

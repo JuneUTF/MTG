@@ -6,6 +6,7 @@ import lombok.Data;
  */
 @Data
 public class APIMessengerModel {
+	private int id;
 	/**
 	 * 処理できる場合はtrue、処理エラー場合はfalse
 	 */

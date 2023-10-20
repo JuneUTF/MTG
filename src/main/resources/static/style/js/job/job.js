@@ -1,3 +1,5 @@
+//  FullName　取得
+let FullName_Role = document.getElementById("textName").getAttribute("data-textdata").split(".");
 // 内容テーブルを表示するための要素を取得
 const job = document.getElementById("job");
 /**
@@ -12,9 +14,9 @@ function connectWebSocket() {
     stompClient = Stomp.over(socket); // Stompクライアントを作成
     stompClient.connect({}, function (frame) {
         stompClient.subscribe('/job/notification', function (job) {
-            if(isConnected){
-            	var newJob = JSON.parse(job.body);
-            	setJob(newJob);
+            if (isConnected) {
+                var newJob = JSON.parse(job.body);
+                setJobAPI(newJob);
             };
         });
     });
@@ -22,83 +24,6 @@ function connectWebSocket() {
 connectWebSocket();
 // 内容テーブルのHTMLを構築するための変数
 let jobtt = "";
-/**
- * 予約のチェック
- * @param {Array} 予約内容リスト 
- */
-function plan(obj) {
-    //配列の長さ==0・予約内容がない（画面に予約内容がないのメッセージを表示されます。）
-    if (obj.length == 0) {
-        // 内容テーブルにHTMLを設定
-        job.innerHTML = jobtt;
-        // 変数をリセット
-        jobtt = "";
-        // 予約内容がある。（setJobを呼び出して予約内容の配列を渡す。）
-    } else {
-        setJob(obj);
-    }
-}
-/**
- * 内容情報をHTMLテーブルに設定する関数
- * @param {Array} 予約内容リスト 
- */
-function setJob(obj) {
-    let ArrayJob = {};
-    let newArrayJob = [];
-
-    // 内容情報を日付ごとにグループ化
-    obj.forEach(function (item) {
-        let datePlan = item.date_plan;
-        if (!ArrayJob[datePlan]) {
-            ArrayJob[datePlan] = [];
-        }
-        ArrayJob[datePlan].push(item);
-    });
-    // 各日付ごとの内容を時間順にソートし、新しい配列に追加
-    Object.values(ArrayJob).forEach(e => {
-        e.sort(function (a, b) {
-            const timeA = new Date('1970-01-01T' + a.time_start + 'Z').getTime();
-            const timeB = new Date('1970-01-01T' + b.time_start + 'Z').getTime();
-            return timeA - timeB;
-        });
-        newArrayJob.push(e)
-    });
-    // 現在の時間と日付を取得
-    const timenow = new Date().getHours().toString().padStart(2, '0') + ":" + new Date().getMinutes().toString().padStart(2, '0');
-    const dayNow = new Date().toISOString().substring(0, 10);
-    const timeLine = new Date(dayNow + 'T' + timenow + 'Z').getTime();
-    // 内容情報をHTMLテーブルに追加
-    newArrayJob.forEach(element => {
-        element.forEach(e => {
-            //現在時間から表示されます。
-            if (timeLine <= new Date(e.date_plan + 'T' + e.time_end + 'Z').getTime()) {
-                //終了場合
-                if (e.status == '完了') {
-                    jobtt += `<tr><td>${e.date_plan.substring(0, 4)}年${e.date_plan.substring(5, 7)}月${e.date_plan.substring(8, 10)}日 (${e.date_day})</td><td>${e.time_start}～${e.time_end} </td><td>${e.purpose}</td><td>${e.charge}</td><td>${e.status}</td><td>-</td></tr>`
-                } else
-                    //現在使用場合
-                    if (timeLine >= new Date(e.date_plan + 'T' + e.time_start + 'Z').getTime() && e.status == "予約中") {
-                        jobtt += `<tr><td>${e.date_plan.substring(0, 4)}年${e.date_plan.substring(5, 7)}月${e.date_plan.substring(8, 10)}日 (${e.date_day})</td><td>${e.time_start}～${e.time_end} </td><td>${e.purpose}</td><td>${e.charge}</td><td><span class='yoyaku'>利用中</span></td><td><form method="post" action="/kanryo?id=${e.id}"><button type="submit" class="btn btn-success">完了</button></form></td></tr>`
-                    } else {
-                        //未来場合
-                        jobtt += `<tr><td>${e.date_plan.substring(0, 4)}年${e.date_plan.substring(5, 7)}月${e.date_plan.substring(8, 10)}日 (${e.date_day})</td><td>${e.time_start}～${e.time_end}</td><td>${e.purpose}</td><td>${e.charge}</td><td>${e.status}</td><td><a class="btn btn-outline-warning" href="/kk/job/edit/?id=${e.id}">変更</a>・${e.status == '予約中' ? `<button  class="btn btn-outline-danger" onclick="deleteJob('${e.id}','${e.date_plan}','${e.time_start}')">取消</button>` : `<button  class="btn btn-outline-primary" onclick="restoreJob('${e.id}','${e.date_plan}','${e.time_start}')">復元</button>`}</td></tr>`
-                    }
-            } else
-                //データは１つだけある場合
-                if (element.length == 1 && newArrayJob.length == 1) {
-                    jobtt += `<tr><td>${e.date_plan.substring(0, 4)}年${e.date_plan.substring(5, 7)}月${e.date_plan.substring(8, 10)}日 (${e.date_day})</td><td>${e.time_start}～${e.time_end}</td><td>${e.purpose}</td><td>${e.charge}</td><td>${e.status}</td><td><a class="btn btn-outline-warning" href="/kk/job/edit/?id=${e.id}">変更</a>・${e.status == '予約中' ? `<button  class="btn btn-outline-danger" onclick="deleteJob('${e.id}','${e.date_plan}','${e.time_start}')">取消</button>` : `<button  class="btn btn-outline-primary" onclick="restoreJob('${e.id}','${e.date_plan}','${e.time_start}')">復元</button>`}</td></tr>`
-                }
-        })
-    });
-    //配列の長さ==0・予約内容がない（画面に予約内容がないのメッセージを表示されます。）
-    if (newArrayJob.length == 0) {
-        jobtt = `<tr><td colspan="6">現在、会議室の予約はございません。</td></tr>`;
-    }
-    // 内容テーブルにHTMLを設定
-    job.innerHTML = jobtt;
-    jobtt = ""; // 変数をリセット
-}
-
 //検索機能設定
 //開始日付入力フィールドを取得
 const date_start = document.getElementById("date_start");
@@ -153,12 +78,12 @@ async function callCharge() {
         chargeHTML = `<input type="text" id="charge" name="chargeId" placeholder="内容を入力ください。" required>`;
     }
 }
-async function callJob() {
+async function callJob() {　
     try {
-        const apiUrl = "/job";
+        const apiUrl = "/kk/jobAPI";
         const response = await fetch(apiUrl);
         const data = await response.json();
-        plan(data);
+        setJobAPI(data);
     } catch (error) {
         //APIを呼び出しできない
     }
@@ -202,24 +127,36 @@ function setJobAPI(obj) {
     // 内容情報をHTMLテーブルに追加
     newArrayJob.forEach(element => {
         element.forEach(e => {
-            //完了場合
-            if (e.status == '完了') {
-                jobtt += `<tr><td>${e.date_plan.substring(0, 4)}年${e.date_plan.substring(5, 7)}月${e.date_plan.substring(8, 10)}日 (${e.date_day})</td><td>${e.time_start}～${e.time_end} </td><td>${e.purpose}</td><td>${e.charge}</td><td>${e.status}</td><td>-</td></tr>`
-            } else
-                //現在使用場合
-                if (timeLine >= new Date(e.date_plan + 'T' + e.time_start + 'Z').getTime() && timeLine <= new Date(e.date_plan + 'T' + e.time_end + 'Z').getTime() && e.status == '予約中') {
-                    jobtt += `<tr><td>${e.date_plan.substring(0, 4)}年${e.date_plan.substring(5, 7)}月${e.date_plan.substring(8, 10)}日 (${e.date_day})</td><td>${e.time_start}～${e.time_end} </td><td>${e.purpose}</td><td>${e.charge}</td><td><span class='yoyaku'>利用中</span></td><td><form method="post" action="/kanryo?id=${e.id}"><button type="submit" class="btn btn-success">完了</button></form></td></tr>`
+            if (e.charge == FullName_Role[0] || FullName_Role[1] == '[ROLE_ADMIN]') {
+                if (e.status == '完了') {
+                    jobtt += `<tr><td>${e.date_plan.substring(0, 4)}年${e.date_plan.substring(5, 7)}月${e.date_plan.substring(8, 10)}日 (${e.date_day})</td><td>${e.time_start}～${e.time_end} </td><td>${e.purpose}</td><td>${e.charge}</td><td>${e.status}</td><td>-</td></tr>`
                 } else
-                    // データは１つだけある場合
-                    if (element.length == 1 && newArrayJob.length == 1) {
-                        jobtt += `<tr><td>${e.date_plan.substring(0, 4)}年${e.date_plan.substring(5, 7)}月${e.date_plan.substring(8, 10)}日 (${e.date_day})</td><td>${e.time_start}～${e.time_end}</td><td>${e.purpose}</td><td>${e.charge}</td><td>${e.status}</td><td><a class="btn btn-outline-warning" href="/kk/job/edit/?id=${e.id}">変更</a>・${e.status == '予約中' ? `<button  class="btn btn-outline-danger" onclick="deleteJob('${e.id}','${e.date_plan}','${e.time_start}')">取消</button>` : `<button  class="btn btn-outline-primary" onclick="restoreJob('${e.id}','${e.date_plan}','${e.time_start}')">復元</button>`}</td></tr>`
-                    } else if (e.status == 'キャンセル') {
-                        //キャンセル場合
-                        jobtt += `<tr><td>${e.date_plan.substring(0, 4)}年${e.date_plan.substring(5, 7)}月${e.date_plan.substring(8, 10)}日 (${e.date_day})</td><td>${e.time_start}～${e.time_end} </td><td>${e.purpose}</td><td>${e.charge}</td><td>${e.status}</td><td>-</td></tr>`
+                    //現在使用場合
+                    if (timeLine >= new Date(e.date_plan + 'T' + e.time_start + 'Z').getTime() && timeLine <= new Date(e.date_plan + 'T' + e.time_end + 'Z').getTime() && e.status == '予約中') {
+                        jobtt += `<tr><td>${e.date_plan.substring(0, 4)}年${e.date_plan.substring(5, 7)}月${e.date_plan.substring(8, 10)}日 (${e.date_day})</td><td>${e.time_start}～${e.time_end} </td><td>${e.purpose}</td><td>${e.charge}</td><td><span class='yoyaku'>利用中</span></td><td>${e.charge} - <button  class="btn btn-success" onclick="getOK('${e.id}')">完了</button></td></tr>`
+                    } else
+                        // データは１つだけある場合
+                        if (element.length == 1 && newArrayJob.length == 1) {
+                            jobtt += `<tr><td>${e.date_plan.substring(0, 4)}年${e.date_plan.substring(5, 7)}月${e.date_plan.substring(8, 10)}日 (${e.date_day})</td><td>${e.time_start}～${e.time_end}</td><td>${e.purpose}</td><td>${e.charge}</td><td>${e.status}</td><td><a class="btn btn-outline-warning" href="/kk/job/edit/?id=${e.id}">変更</a>・${e.status == '予約中' ? `<button  class="btn btn-outline-danger" onclick="deleteJob('${e.id}','${e.date_plan}','${e.time_start}')">取消</button>` : `<button  class="btn btn-outline-primary" onclick="restoreJob('${e.id}','${e.date_plan}','${e.time_start}')">復元</button>`}</td></tr>`
+                        } else if (e.status == 'キャンセル' && timeLine >= new Date(e.date_plan + 'T' + e.time_start + 'Z').getTime()) {
+                            //キャンセル場合
+                            jobtt += `<tr><td>${e.date_plan.substring(0, 4)}年${e.date_plan.substring(5, 7)}月${e.date_plan.substring(8, 10)}日 (${e.date_day})</td><td>${e.time_start}～${e.time_end} </td><td>${e.purpose}</td><td>${e.charge}</td><td>${e.status}</td><td>-</td></tr>`
+                        } else {
+                            //普通場合
+                            jobtt += `<tr><td>${e.date_plan.substring(0, 4)}年${e.date_plan.substring(5, 7)}月${e.date_plan.substring(8, 10)}日 (${e.date_day})</td><td>${e.time_start}～${e.time_end}</td><td>${e.purpose}</td><td>${e.charge}</td><td>${e.status}</td><td><a class="btn btn-outline-warning" href="/kk/job/edit/?id=${e.id}">変更</a>・${e.status == '予約中' ? `<button  class="btn btn-outline-danger" onclick="deleteJob('${e.id}','${e.date_plan}','${e.time_start}')">取消</button>` : `<button  class="btn btn-outline-primary" onclick="restoreJob('${e.id}','${e.date_plan}','${e.time_start}')">復元</button>`}</td></tr>`
+                        }
+            } else {
+                if (e.status == '完了') {
+                    jobtt += `<tr><td>${e.date_plan.substring(0, 4)}年${e.date_plan.substring(5, 7)}月${e.date_plan.substring(8, 10)}日 (${e.date_day})</td><td>${e.time_start}～${e.time_end} </td><td>${e.purpose}</td><td>${e.charge}</td><td>${e.status}</td><td>-</td></tr>`
+                } else
+                    //現在使用場合
+                    if (timeLine >= new Date(e.date_plan + 'T' + e.time_start + 'Z').getTime() && timeLine <= new Date(e.date_plan + 'T' + e.time_end + 'Z').getTime() && e.status == '予約中') {
+                        jobtt += `<tr><td>${e.date_plan.substring(0, 4)}年${e.date_plan.substring(5, 7)}月${e.date_plan.substring(8, 10)}日 (${e.date_day})</td><td>${e.time_start}～${e.time_end} </td><td>${e.purpose}</td><td>${e.charge}</td><td><span class='yoyaku'>利用中</span></td><td>-</td></tr>`
                     } else {
                         //普通場合
-                        jobtt += `<tr><td>${e.date_plan.substring(0, 4)}年${e.date_plan.substring(5, 7)}月${e.date_plan.substring(8, 10)}日 (${e.date_day})</td><td>${e.time_start}～${e.time_end}</td><td>${e.purpose}</td><td>${e.charge}</td><td>${e.status}</td><td><a class="btn btn-outline-warning" href="/kk/job/edit/?id=${e.id}">変更</a>・${e.status == '予約中' ? `<button  class="btn btn-outline-danger" onclick="deleteJob('${e.id}','${e.date_plan}','${e.time_start}')">取消</button>` : `<button  class="btn btn-outline-primary" onclick="restoreJob('${e.id}','${e.date_plan}','${e.time_start}')">復元</button>`}</td></tr>`
+                        jobtt += `<tr><td>${e.date_plan.substring(0, 4)}年${e.date_plan.substring(5, 7)}月${e.date_plan.substring(8, 10)}日 (${e.date_day})</td><td>${e.time_start}～${e.time_end}</td><td>${e.purpose}</td><td>${e.charge}</td><td>${e.status}</td><td>-</td></tr>`
                     }
+            }
         })
     });
     //配列の長さ==0・予約内容がない（画面に予約内容がないのメッセージを表示されます。）
@@ -256,3 +193,29 @@ document.getElementById("searchButton").addEventListener("click", function (even
             console.error('エラー:', error);
         });
 });
+//API完了送信
+function getOK(id) { 
+  const postData = {
+    id: `${id}`
+  };
+
+  fetch('/kanryo', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json' 
+    },
+    body: JSON.stringify(postData)
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error("APIを呼び出せません。エラーコード: " + response.status);
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log(data);
+  })
+  .catch(error => {
+    console.error("エラー: " + error.message);
+  });
+}

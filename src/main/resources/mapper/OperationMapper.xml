@@ -4,8 +4,8 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.juneutf.mtg.mapper.OperationMapper">
 	<select id="selectCharge" resultType="com.juneutf.mtg.model.OperationModel">
-	SELECT id,charge AS tableName,status
-	FROM charge ORDER BY id ASC;
+	SELECT id,fullname AS tableName,status
+	FROM user_infor ORDER BY id ASC;
 	</select>
 	<select id="selectPurpose" resultType="com.juneutf.mtg.model.OperationModel">
 	SELECT id,purpose AS tableName,status
@@ -16,8 +16,8 @@
 	<if test="tableName =='purpose'">
         purpose
     </if>
-    <if test="tableName =='charge'">
-        charge
+    <if test="tableName =='user_infor'">
+        user_infor
     </if>
 	 SET status = '削除'  WHERE id = #{id};
 	</update>
@@ -26,8 +26,8 @@
 	<if test="tableName =='purpose'">
         purpose
     </if>
-    <if test="tableName =='charge'">
-        charge
+    <if test="tableName =='user_infor'">
+        user_infor
     </if>
 	SET status = '使用中'  WHERE id = #{id};
 	</update>
@@ -38,8 +38,8 @@
 	<if test="tableName =='purpose'">
         purpose SET purpose = #{textEdit} WHERE id = #{id};
     </if>
-    <if test="tableName =='charge'">
-        charge SET charge =#{textEdit} WHERE id = #{id};
+    <if test="tableName =='user_infor'">
+        user_infor SET fullname =#{textEdit} WHERE id = #{id};
     </if>
 	</update>
 	
@@ -48,9 +48,17 @@
 	<if test="tableName =='purpose'">
         purpose (purpose,status) VALUES( #{textEdit},'使用中');
     </if>
-    <if test="tableName =='charge'">
-        charge (charge,status) VALUES(#{textEdit},'使用中');
+    <if test="tableName =='user_infor'">
+        user_infor (username, email, password, status, role,fullname) VALUES(#{username},#{email},#{password},'使用中','USER',#{fullname});
     </if>
 	</insert>
+	<select id="checkUserNameAndEmail" resultType="com.juneutf.mtg.model.TableModel">
+	SELECT username,email
+	FROM user_infor WHERE username = #{username} OR email = #{email};
+	</select>
+	<select id="checkPurpose" resultType="com.juneutf.mtg.model.TableModel">
+	SELECT purpose
+	FROM purpose WHERE purpose = #{purpose};
+	</select>
 	
 </mapper>

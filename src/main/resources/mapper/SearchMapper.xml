@@ -6,9 +6,9 @@
 
 	<select id="selectSearch" resultType="com.juneutf.mtg.model.SearchModel">
 	SELECT plan.ID, plan.date_day, plan.date_plan, plan.time_start, plan.time_end,
-	charge.charge AS charge,purpose.purpose AS purpose, plan.status
+	user_infor.fullname AS charge,purpose.purpose AS purpose, plan.status
 	FROM plan
-	JOIN charge ON plan.charge = charge.ID
+	JOIN user_infor ON plan.charge = user_infor.ID
 	JOIN purpose ON plan.purpose = purpose.ID
     WHERE
         plan.date_plan >=TO_DATE(#{date_start}, 'YYYY-MM-DD')
@@ -19,7 +19,7 @@
         AND purpose.id = #{purposeId}
     </if>
     <if test="chargeId !=0">
-        AND charge.id = #{chargeId}
+        AND user_infor.id = #{chargeId}
     </if>
     <if test="purpose != null and purpose != ''">
         AND plan.purpose = #{purpose}

@@ -12,15 +12,30 @@
 	</insert>
 
 	<select id="selectPlan" resultType="com.juneutf.mtg.model.JobModel">
-	SELECT plan.ID, plan.date_day, plan.date_plan, plan.time_start, plan.time_end, charge.charge AS charge,purpose.purpose AS purpose, plan.status
+	SELECT plan.ID, plan.date_day, plan.date_plan, plan.time_start, plan.time_end, user_infor.fullname AS charge,purpose.purpose AS purpose, plan.status
 	FROM plan
-	JOIN charge ON plan.charge = charge.ID
+	JOIN user_infor ON plan.charge = user_infor.ID
 	JOIN purpose ON plan.purpose = purpose.ID
-	WHERE plan.date_plan >= current_date	AND plan.status = '予約中'
+	WHERE plan.date_plan >= current_date AND plan.status = '予約中'
+	ORDER BY plan.date_plan ASC;
+	</select>
+	<select id="selectPlanAPI" resultType="com.juneutf.mtg.model.JobModel">
+	SELECT plan.ID, plan.date_day, plan.date_plan, plan.time_start, plan.time_end, user_infor.fullname AS charge,purpose.purpose AS purpose, plan.status
+	FROM plan
+	JOIN user_infor ON plan.charge = user_infor.ID
+	JOIN purpose ON plan.purpose = purpose.ID
+	WHERE plan.date_plan >= current_date
 	ORDER BY plan.date_plan ASC;
 	</select>
 	<select id="selectMaxIdPlan" resultType="com.juneutf.mtg.model.JobModel">
 	SELECT MAX(id) FROM plan
+	</select>
+	<select id="selectPlanEdit" resultType="com.juneutf.mtg.model.JobModel">
+	SELECT plan.ID, plan.date_day, plan.date_plan, plan.time_start, plan.time_end, user_infor.fullname AS charge,purpose.purpose AS purpose, plan.status
+	FROM plan
+	JOIN user_infor ON plan.charge = user_infor.ID
+	JOIN purpose ON plan.purpose = purpose.ID
+	WHERE plan.date_plan >= current_date AND plan.status = '予約中' and plan.id != #{id}
 	</select>
 	
 </mapper>

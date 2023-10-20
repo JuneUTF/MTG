@@ -43,11 +43,4 @@ public interface JobMapper {
      * @return 復元が成功した場合は 1 以上の整数値、失敗した場合は 0
      */
     int restoreJobById(JobModel jobModel);
-
-    /**
-     * すべての JobModel オブジェクトを取得します。
-     *
-     * @return すべての JobModel オブジェクトのリスト
-     */
-    ArrayList<JobModel> selectJob();
 }

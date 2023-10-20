@@ -31,7 +31,7 @@ public class PlanImpl implements PlanService {
 
     /**
      * 予約を選択します。
-     *
+     *(予約中状態）
      * @return 選択された予約内容モデルのリスト
      */
     @Override
@@ -48,4 +48,22 @@ public class PlanImpl implements PlanService {
     public ArrayList<JobModel> selectMaxIdPlan() {
         return mapper.selectMaxIdPlan();
     }
+
+    /**
+     * 予約を選択します。
+     *
+     * @return 選択された予約内容モデルのリスト
+     */
+    @Override
+    public ArrayList<JobModel> selectPlanAPI() {
+        return mapper.selectPlanAPI();
+    }
+    /**
+     * 指定された日付(予約中状態のID編集以外）の予約を取得します。
+     * @return PlanModelのリスト
+     */
+	@Override
+	public ArrayList<JobModel> selectPlanEdit(int id) {
+		return mapper.selectPlanEdit(id);
+	}
 }

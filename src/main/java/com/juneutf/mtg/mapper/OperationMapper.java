@@ -1,6 +1,7 @@
 package com.juneutf.mtg.mapper;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
@@ -52,4 +53,16 @@ public interface OperationMapper {
      * @return 登録が成功した場合は 1、失敗した場合は 0
      */
     int regByIdAndtableName(TableModel model);
+    /**
+     * 内容新規登録の業務検証
+     * @param TableModel 登録対象のデータを指定する TableModel オブジェクト
+     * @return 存在場合はTrue、存在ない場合はFalse.
+     */
+     List<TableModel> checkUserNameAndEmail(TableModel model);
+     /**
+      * 内容新規登録の業務検証
+      * @param TableModel 登録対象のデータを指定する TableModel オブジェクト
+      * @return 存在場合はTrue、存在ない場合はFalse.
+      */
+      List<TableModel> checkPurpose(TableModel model);
 }

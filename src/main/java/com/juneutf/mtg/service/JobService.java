@@ -40,12 +40,5 @@ public interface JobService {
      * @return 内容(内容)が正常に復元された場合は1、それ以外の場合は0を返します。
      */
     int restoreJobById(JobModel jobModel);
-    
-    /**
-     * すべての内容(内容)を取得します。
-     *
-     * @return すべての内容(内容)のリスト
-     */
-    ArrayList<JobModel> selectJob();
 }
 

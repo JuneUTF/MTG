@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -20,7 +19,6 @@ import com.juneutf.mtg.config.vender.EmailService;
 import com.juneutf.mtg.model.JobModel;
 import com.juneutf.mtg.model.LoginModel;
 import com.juneutf.mtg.model.SetPasswordModel;
-import com.juneutf.mtg.service.ActionService;
 import com.juneutf.mtg.service.PlanService;
 import com.juneutf.mtg.service.SetPasswordService;
 
@@ -39,10 +37,6 @@ public class HomeController {
 	private PasswordEncoder passwordEncoder;
 	@Autowired
 	private PlanService planService;
-	@Autowired
-    private ActionService actionService;
-	@Autowired
-    private SimpMessagingTemplate messagingTemplate;
 
 	/**
 	 * ホームページへのアクセスを処理します。
@@ -202,24 +196,5 @@ public class HomeController {
 			return "error";
 		}
 	}
-	/**
-	 * 予約内容を完了するためのPOSTリクエストを処理します。
-	 *
-	 * @param 予約内容のID番号
-	 * @return "redirect:/" - 完了後のリダイレクト
-	 */
-	@PostMapping("/kanryo")
-	public String setKanryo(int id) {
-		try {
-			//予約内容のID番号として完了行動
-			actionService.actionUpdateById(id);
-			//Websocket行動
-			ArrayList<JobModel> job = planService.selectPlan();
-			messagingTemplate.convertAndSend("/job/notification", job);
-			return "redirect:/";
-		} catch (Exception e) {
-			log.warn("完了機能ID"+id+"はエラーが発生します。");
-			return "error";
-		}
-	}
+	
 }

@@ -1,6 +1,7 @@
 package com.juneutf.mtg.service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.juneutf.mtg.model.OperationModel;
 import com.juneutf.mtg.model.TableModel;
@@ -55,4 +56,17 @@ public interface OperationService {
      * @return 操作が正常に登録された場合は1、それ以外の場合は0を返します。
      */
     int regByIdAndtableName(TableModel model);
+    
+    /**
+     * 内容新規登録の業務検証
+     * @param TableModel 登録対象のデータを指定する TableModel オブジェクト
+     * @return 存在場合はTrue、存在ない場合はFalse.
+     */
+     List<TableModel> checkUserNameAndEmail(TableModel model);
+     /**
+      * 内容新規登録の業務検証
+      * @param TableModel 登録対象のデータを指定する TableModel オブジェクト
+      * @return 存在場合はTrue、存在ない場合はFalse.
+      */
+      List<TableModel> checkPurpose(TableModel model);
 }

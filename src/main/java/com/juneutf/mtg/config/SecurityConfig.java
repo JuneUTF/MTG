@@ -36,7 +36,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter  {
             http.authorizeHttpRequests(requests -> requests.antMatchers("/","/style/**","/file/**","/login","/password").permitAll());
 			//管理者だけはいります
             http.authorizeHttpRequests(requests -> requests.antMatchers("/kk/**").authenticated());
-            http.authorizeHttpRequests().and().exceptionHandling(handling -> handling.accessDeniedPage("/about"));
+            http.authorizeHttpRequests(requests -> requests.antMatchers("/ad/**").hasRole("ADMIN"));
+            http.authorizeHttpRequests().and().exceptionHandling(handling -> handling.accessDeniedPage("/error"));
 			//ログイン設定
             http.authorizeHttpRequests().and()
                     .formLogin(login -> login
@@ -56,9 +57,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter  {
                     		.tokenValiditySeconds(30 * 24 * 60 * 60)
                             .tokenValiditySeconds(86400)
                             .key("juneutf"))
-						//ログアウトURL設定
+						//<span th:if="${#request.userPrincipal != null}" th:text="${#request.userPrincipal.name}"></span>URL設定
                     .logout(logout -> logout.logoutUrl("/logout")
-					//ログアウトOKのページ設定
+					//<span th:if="${#request.userPrincipal != null}" th:text="${#request.userPrincipal.name}"></span>OKのページ設定
                             .logoutSuccessUrl("/login")
                             .deleteCookies("JSESSIONID")
                     		);

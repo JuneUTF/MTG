@@ -5,7 +5,7 @@
 <mapper namespace="com.juneutf.mtg.mapper.APIMapper">
 
 	<select id="selectAPICharge" resultType="com.juneutf.mtg.model.APIChargeModel">
-    SELECT id, charge FROM charge WHERE status = '使用中' ORDER BY id ASC;
+    SELECT id,fullname AS charge FROM user_infor WHERE status = '使用中' ORDER BY id ASC;
 	</select>
 	<select id="selectAPIPurpose" resultType="com.juneutf.mtg.model.APIPurposeModel">
     SELECT id,purpose FROM purpose WHERE status = '使用中' ORDER BY id ASC;

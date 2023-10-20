@@ -1,15 +1,12 @@
 package com.juneutf.mtg.config;
 
-import java.util.Set;
-import java.util.HashSet;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import com.juneutf.mtg.config.vender.CustomUser;
 import com.juneutf.mtg.model.LoginModel;
 import com.juneutf.mtg.service.LoginService;
 
@@ -37,21 +34,13 @@ public class CustomerUserDetailsService implements UserDetailsService {
         
         // ユーザーが見つからない場合は例外をスローします。
         if (user == null) {
-            throw new UsernameNotFoundException("ユーザーが見つかりませんでした: " + username);
-        }
+            throw new UsernameNotFoundException(username+":ユーザーが見つかりませんでした。 ");
+        }if(user.isEnabled()) {
+        	throw new UsernameNotFoundException(user.getUsername() + "ロックされました。");
+        }else {
+        	// ユーザーのユーザー名、パスワード、および権限を持つUserDetailsオブジェクトを作成します。
+        	return new CustomUser(user.getUsername(), user.getPassword(), user.getAuthorities(),user.getFullname(),user.getId());			
+		}
         
-        // ユーザーのユーザー名、パスワード、および権限を持つUserDetailsオブジェクトを作成します。
-        return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), getAuthority());
-    }
-
-    /**
-     * ユーザーの権限（ロール）を取得します。
-     *
-     * @return ユーザーの権限を表すSimpleGrantedAuthorityオブジェクトのセット。
-     */
-    private Set<SimpleGrantedAuthority> getAuthority() {
-        Set<SimpleGrantedAuthority> authorities = new HashSet<>();
-        authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
-        return authorities;
     }
 }

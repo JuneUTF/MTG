@@ -29,11 +29,14 @@
 						href="/kk/job">予約一覧・編集</a></li>
 					<li class="nav-item"><a class="nav-link" href="/kk/plan">新規予約</a>
 					</li>
-					<li class="nav-item"><a class="nav-link" href="/kk/operation">内容・担当編集</a>
-					</li>
+					<li class="nav-item"
+						th:if="${#authorization.expression('hasRole(''ADMIN'')')}"><a
+						class="nav-link" href="/ad/operation">内容・担当編集</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="/kk/password">パスワード変更</a></li>
 				</ul>
 				<div class="d-flex">
-					<a class="btn btn-outline-light" href="/logout">ログアウト</a>
+					<a class="btn btn-outline-light" href="/logout"><span id="textName" th:if="${#request.userPrincipal != null}" th:attr="data-textdata=${fullName}" th:text="${#request.userPrincipal.name}"></span></a>
 				</div>
 			</div>
 		</div>
@@ -111,9 +114,10 @@
 													<td th:inline="text">[[${job[0].purpose}]]</td>
 													<td th:inline="text">[[${job[0].charge}]]</td>
 													<td th:inline="text">[[${job[0].status}]]</td>
-													<td><span th:if="${job[0].status == '完了'}">-</span>
-													<span th:if="${job[0].status != '完了'}"> <a class="btn btn-outline-warning" th:href="'/kk/job/edit/?id=' + ${job[0].id}">変更</a></span>
-													</td>
+													<td><span th:if="${job[0].status == '完了'}">-</span> <span
+														th:if="${job[0].status != '完了'}"> <a
+															class="btn btn-outline-warning"
+															th:href="'/kk/job/edit/?id=' + ${job[0].id}">変更</a></span></td>
 												</tr>
 											</tbody>
 										</table>
@@ -128,8 +132,8 @@
 	</section>
 	<script type="text/javascript" src="/style/soket/sockjs_1.4.0.js"></script>
 	<script type="text/javascript" src="/style/soket/stomp_2.3.3.js"></script>
-	<script src="/style/javascript/vender/confrim.js"></script>
-	<script src="/style/javascript/job/getjob.js"></script>
+	<script src="/style/js/vender/confrim.js"></script>
+	<script src="/style/js/job/getjob.js"></script>
 </body>
 
 </html>

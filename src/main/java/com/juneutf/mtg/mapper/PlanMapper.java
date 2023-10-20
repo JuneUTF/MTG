@@ -20,7 +20,7 @@ public interface PlanMapper {
     int insertPlan(PlanModel planModel);
 
     /**
-     * 指定された日付の予約を取得します。
+     * 指定された日付(予約中状態）の予約を取得します。
      * @param date_plan 日付
      * @return PlanModelのリスト
      */
@@ -31,4 +31,15 @@ public interface PlanMapper {
      * @return PlanModelのリスト
      */
     ArrayList<JobModel> selectMaxIdPlan();
+    /**
+     * 指定された日付の予約を取得します。
+     * @param date_plan 日付
+     * @return PlanModelのリスト
+     */
+	ArrayList<JobModel> selectPlanAPI();
+	/**
+     * 指定された日付(予約中状態のID編集以外）の予約を取得します。
+     * @return PlanModelのリスト
+     */
+	ArrayList<JobModel> selectPlanEdit(int id);
 }
