@@ -1,12 +1,17 @@
 package com.juneutf.mtg.controller;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.juneutf.mtg.model.APIMessengerModel;
+import com.juneutf.mtg.model.OperationModel;
 import com.juneutf.mtg.model.TableModel;
 import com.juneutf.mtg.service.OperationService;
 
@@ -18,7 +23,38 @@ import lombok.extern.slf4j.Slf4j;
 public class OperationController {
 	@Autowired
 	private OperationService operationService;
-
+	/**
+	 * '/charge'エンドポイントへのGETリクエストを処理し、（担当者項目）APIChargeModelオブジェクトを返します。
+	 * @param APIMessengerModelオブジェクト
+	 * @return ResponseEntity
+	 */
+	@GetMapping("/charge")
+	public ResponseEntity<?> getCherge(APIMessengerModel apiMessengerModel){
+		try {
+			ArrayList<OperationModel> res = operationService.selectCharge();
+			return ResponseEntity.status(200).body(res);
+		} catch (Exception e) {
+			apiMessengerModel.setIsData("false");
+			log.warn("担当者のAPIを呼び出せない");
+			return ResponseEntity.status(400).body(apiMessengerModel);
+		}
+	}
+	/**
+	 * '/purpose'エンドポイントへのGETリクエストを処理し、（内容項目）APIPurposeModelオブジェクトを返します。
+	 * @param APIMessengerModelオブジェクト
+	 * @return ResponseEntity
+	 */
+	@GetMapping("/purpose")
+	public ResponseEntity<?> getPurpose(APIMessengerModel apiMessengerModel){
+		try {
+			ArrayList<OperationModel> res = operationService.selectPurpose();
+			return ResponseEntity.status(200).body(res);
+		} catch (Exception e) {
+			apiMessengerModel.setIsData("false");
+			log.warn("内容のAPIを呼び出せない");
+			return ResponseEntity.status(400).body(apiMessengerModel);
+		}
+	}
 	/**
 	 * 操作情報を取得するGETメソッド（担当者リスト・内容リストを渡す）。
 	 * @param model モデル
@@ -27,8 +63,6 @@ public class OperationController {
 	@GetMapping("/operation")
 	public String getOperation(Model model) {
 		try {
-			model.addAttribute("charge", operationService.selectCharge());
-			model.addAttribute("purpose", operationService.selectPurpose());
 			return "operation/index";
 		} catch (Exception e) {
 			log.warn("GetMapping operationにエラー発生します。");
