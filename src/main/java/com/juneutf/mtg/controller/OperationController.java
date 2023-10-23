@@ -148,7 +148,7 @@ public class OperationController {
 	public String postOperationDelete(TableModel tableModel) {
 		try {
 			//tableNameのIDとして削除
-			if(tableModel.getId() == 1) {
+			if(tableModel.getId() == 1 &&  tableModel.getTableName().equals("user_infor")) {
 				log.warn("スーパー管理者が削除出来ない。");
 				return null;
 			}
@@ -188,7 +188,7 @@ public class OperationController {
 	public String postOperationEdit(TableModel tableModel) {
 		try {
 			//tableNameのIDとして編集
-			if(tableModel.getId() == 1) {
+			if(tableModel.getId() == 1 &&  tableModel.getTableName().equals("user_infor")) {
 				log.warn("スーパー管理者が削除出来ない。");
 				return null;
 			}
