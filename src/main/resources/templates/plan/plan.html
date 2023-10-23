@@ -29,11 +29,12 @@
 					<li class="nav-item"
 						th:if="${#authorization.expression('hasRole(''ADMIN'')')}"><a
 						class="nav-link" href="/ad/operation">内容・担当編集</a></li>
-					<li class="nav-item"><a class="nav-link"
-						href="/kk/password">パスワード変更</a></li>
+					<li class="nav-item"><a class="nav-link" href="/kk/password">パスワード変更</a></li>
 				</ul>
 				<div class="d-flex">
-					<a class="btn btn-outline-light" href="/logout"><span th:if="${#request.userPrincipal != null}" th:text="${#request.userPrincipal.name}"></span></a>
+					<a class="btn btn-outline-light" href="/logout"><span
+						th:if="${#request.userPrincipal != null}"
+						th:text="${#request.userPrincipal.name}"></span></a>
 				</div>
 			</div>
 		</div>
@@ -68,19 +69,17 @@
 						</div>
 						<div class="mb-1">
 							<label for="purpose" class="form-label">内容：</label>
-							<div id="purpose"></div>
+							<select class="form-select" name="purpose">
+								<option th:each="purpose : ${purpose}" th:value="${purpose.id}"
+									th:text="${purpose.purpose}"></option>
+							</select>
 						</div>
 						<div class="mb-1">
-							<label for="charge" class="form-label">担当：</label>
-							<div th:if="${#authorization.expression('hasRole(''ADMIN'')')}">
-								<div id="charge"></div>
-							</div>
-							<div
-								th:unless="${#authorization.expression('hasRole(''ADMIN'')')}">
-								<select class="form-select" name="charge">
-									<option th:value="${id}">[[${fullName}]]</option>
-								</select>
-							</div>
+							<label for="charge" class="form-label">担当：</label> 
+							<select class="form-select" name="charge">
+								<option th:each="charge : ${charge}" th:value="${charge.id}"
+									th:text="${charge.charge}"></option>
+							</select>
 						</div>
 						<button type="submit"
 							class="btn btn-primary btn-block btn-outline-success" id="submit">予約</button>
@@ -90,6 +89,6 @@
 			</div>
 		</div>
 	</nav>
-	<script src="/style/js/setPlan.js"></script>
+	<script src="/style/javascript/setPlan.js"></script>
 </body>
 </html>

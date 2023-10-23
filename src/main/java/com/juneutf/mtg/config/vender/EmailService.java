@@ -52,7 +52,7 @@ public class EmailService {
      * @param token 送信するトークン
      * @throws MessagingException メッセージ送信中に発生した例外
      */
-    public void sendRegister(TableModel tableModel) throws MessagingException {
+    public void sendRegister(TableModel tableModel,String pasString) throws MessagingException {
         MimeMessage message = emailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message, true, "UTF-8");
         helper.setTo(tableModel.getEmail());
@@ -62,7 +62,7 @@ public class EmailService {
         //トークン渡す
         context.setVariable("fullname", tableModel.getFullname());
         context.setVariable("username", tableModel.getUsername());
-        context.setVariable("password", tableModel.getPassword());
+        context.setVariable("password", pasString);
         //HTMLファイアウォール定義
         String htmlContent = templateEngine.process("email/register", context);
         helper.setText(htmlContent, true);

@@ -29,8 +29,7 @@
 					<li class="nav-item"
 						th:if="${#authorization.expression('hasRole(''ADMIN'')')}"><a
 						class="nav-link" href="/ad/operation">内容・担当編集</a></li>
-					<li class="nav-item"><a class="nav-link"
-						href="/kk/password">パスワード変更</a></li>
+					<li class="nav-item"><a class="nav-link" href="/kk/password">パスワード変更</a></li>
 				</ul>
 				<div class="d-flex">
 					<a class="btn btn-outline-light" href="/logout"><span
@@ -46,8 +45,8 @@
 				<div class="col-md-6 form-container">
 					<form class="login-form" th:action="@{/kk/job}" method="post">
 						<h2 class="text-center mb-4">
-							会議室予約編集ID:<input type="text" name="id" id="editid" class="none_css" required
-								readonly th:value="${job[0].id}">
+							会議室予約編集ID:<input type="text" name="id" id="editid"
+								class="none_css" required readonly th:value="${job[0].id}">
 						</h2>
 						<p class="text-success text-center fs-5" th:text="${msg}"></p>
 						<p class="text-danger text-center fs-5" id="msg"></p>
@@ -70,24 +69,19 @@
 						</div>
 						<div class="mb-1">
 							<label for="purpose" class="form-label">内容：</label> <select
-								class="form-select" id="purpose" name="purposeId">
-								<option th:value="${job[0].purposeId}"
-									th:text="${job[0].purpose}"></option>
+								class="form-select" name="purposeId">
+								<option th:each="purpose : ${purpose}" th:value="${purpose.id}"
+									th:text="${purpose.purpose}"></option>
 							</select>
 						</div>
 						<div class="mb-1">
-							<label for="charge" class="form-label">担当：</label>
-							<div th:if="${#authorization.expression('hasRole(''ADMIN'')')}">
-								<select class="form-select" id="charge" name="chargeId">
-									<option th:value="${job[0].chargeId}" th:text="${job[0].charge}"></option>
-								</select>
-							</div>
-							<div th:unless="${#authorization.expression('hasRole(''ADMIN'')')}">
-								<select class="form-select" name="chargeId">
-									<option th:value="${job[0].chargeId}" th:text="${job[0].charge}"></option>
-								</select>
-							</div>
-							
+							<label for="charge" class="form-label">担当：</label> <select
+								class="form-select" name="chargeId">
+								<option th:value="${job[0].chargeId}" th:text="${job[0].charge}"></option>
+								<option th:each="charge : ${charge}" th:value="${charge.id}"
+									th:text="${charge.charge}"></option>
+							</select>
+
 						</div>
 						<div class="mb-1">
 							<label for="charge" class="form-label">状態：</label> <select
@@ -107,6 +101,6 @@
 			</div>
 		</div>
 	</nav>
-	<script src="/style/js/job/editJob.js"></script>
+	<script src="/style/javascript/job/editJob.js"></script>
 </body>
 </html>

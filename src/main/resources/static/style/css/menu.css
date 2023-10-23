@@ -52,9 +52,9 @@ span{
 #showForm {
 	width:400px;
   position: absolute;
-  top: 30%;
+  top: 50%;
   z-index: 1;
-  transform: translateX(50%);
+  transform: translate(50%, -50%);
   animation: 300ms ease-in-out forwards ;
   overflow: hidden;
 }

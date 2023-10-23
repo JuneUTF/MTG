@@ -46,7 +46,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter  {
 						//ログインページ表示設定
                             .loginPage("/login")
 						//ログインOKは移動するページ設定
-                            .defaultSuccessUrl("/kk")
+                            .defaultSuccessUrl("/kk/plan")
 						//ログイン失敗ページ設定
                             .failureUrl("/login?error=true")
 						//ログインページの中にネームデータ取り出し

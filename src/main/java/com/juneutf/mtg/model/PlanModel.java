@@ -34,11 +34,15 @@ public class PlanModel {
      * 予約の内容です。
      */
     private int purpose;
-
     /**
      * 予約の担当者です。
      */
     private int charge;
+
+    /**
+     * 予約されたのidです。
+     */
+    private int registerid;
     /**
      * 予約の状況です。
      */

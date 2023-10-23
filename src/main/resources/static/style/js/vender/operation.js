@@ -98,10 +98,21 @@ function registeruser(tableName) {
 	<div id="msgcheck"></div>
 	<form action="/ad/operation/reg?tableName=${tableName}" method="post">
   <div class="modal-body">
-	<label for="textEdit" class="form-label">担当者：</label>
+	<label for="textEdit" class="form-label">メールアドレス：</label>
 	<input type="email" class="form-control mt-2" id="email" name="email"  placeholder="メールアドレスを入力ください。" required>
   	<div id="textEdit-error" class="text-danger  mt-1">　</div>
+  	<label for="textEdit" class="form-label">名前：</label>
 	<input type="text" class="form-control mt-2" id="fullname" name="fullname"  placeholder="名前を入力ください。" required>
+	<label for="textEdit" class="form-label">公開：</label>
+	<select class="form-select mt-2" aria-label="Default select example" name="publicid">
+		<option value="1">公開</option>
+		<option value="0">非常</option>
+	</select>
+	<label for="textEdit" class="form-label">権限：</label>
+	<select class="form-select mt-2" aria-label="Default select example" name="role">
+		<option value="USER">一般</option>
+		<option value="ADMIN">管理者</option>
+	</select>
   </div>
   <div class="modal-footer"><button type="button" class="btn btn-secondary" onclick="hiddenFormHTML()" data-dismiss="modal">Cancel</button>
   <button type="submit" class="btn btn-primary" id="btnsubmit">ＯＫ</button></form></div></div></div>`;
@@ -122,39 +133,41 @@ function hiddenFormHTML() {
 let emailBoolean = false;
 let fullnameBoolean = false;
 function checkEmail() {
-   const textEdit = document.getElementById('textEdit-error')
-  // データを取得する関数
-  // Fetch APIを使用してデータを取得
+  const textEdit = document.getElementById('textEdit-error');
+
+  if (!isValidEmail(email.value)) {
+    email.classList.remove("is-valid");
+    email.classList.add("is-invalid");
+    textEdit.textContent = "メールアドレスを入力ください。";
+    emailBoolean = true;
+    return;
+  }
   fetch(`/ad/chargeapi?email=${email.value}`)
     .then(response => {
-      // レスポンスが成功した場合、JSONデータを解析
       if (!response.ok) {
         throw new Error('ネットワークエラー');
       }
       return response.json();
     })
     .then(data => {
-      // データをコンソールに 
       if (!JSON.parse(data.isData)) {
-        // 妥当な入力スタイルを削除
         email.classList.remove("is-valid");
-        // 不正な入力スタイルを追加
         email.classList.add("is-invalid");
         textEdit.textContent = "メールアドレスが存在しています。";
         emailBoolean = true;
       } else {
-        email.classList.add("is-valid"); // 妥当な入力スタイルを削除
-        email.classList.remove("is-invalid"); // 不正な入力スタイルを追加
-       	textEdit.textContent = "　";
+        email.classList.add("is-valid");
+        email.classList.remove("is-invalid");
+        textEdit.textContent = "　";
         emailBoolean = false;
       }
     })
     .catch(error => {
-      // エラーが発生した場合、エラーメッセージを表示
       console.error('エラー:', error);
     });
-	btnBolean();
+  btnBolean();
 }
+
 function checkFullName(){
 	if(fullname.value !=null){
 	fullnameBoolean=true
@@ -169,4 +182,47 @@ function btnBolean() {
   } else {
     btnsubmit.disabled = false;
   }
+}
+function isValidEmail(email) {
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return emailRegex.test(email);
+}
+function editUser(id,fullname,publicid,role){  
+  let publicIDHTML;
+  if(publicid == 0){
+    publicIDHTML = `<option value="0">非常</option>
+		                <option value="1">公開</option>`
+  }else{
+    publicIDHTML = `<option value="1">公開</option>
+                    <option value="0">非常</option>`
+  }
+  let roleHTML;
+  if(role == "ADMIN"){
+    roleHTML = `<option value="ADMIN">管理者</option>
+		        <option value="USER">一般</option>`
+  }else{
+    roleHTML = `<option value="USER">一般</option>
+                <option value="ADMIN">管理者</option>`
+  }
+  let showHTML = `<div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h3 class="modal-title">担当者の編集</h3></div>
+	<div id="msgcheck"></div>
+	<form action="/ad/operation/edit?id=${id}&tableName=user_infor" method="post">
+  <div class="modal-body">
+  <label for="textEdit" class="form-label">名前：</label>
+	<input type="text" class="form-control" id="fullname" name="fullname" value="${fullname}" required>
+  <label for="textEdit" class="form-label">公開：</label>
+	<select class="form-select mt-2" aria-label="Default select example" name="publicid">
+		`+publicIDHTML+`
+	</select>
+  <label for="textEdit" class="form-label">権限：</label>
+  <select class="form-select mt-2" aria-label="Default select example" name="role">
+		`+roleHTML+`
+	</select>
+  </div>
+  <div class="modal-footer"><button type="button" class="btn btn-secondary" onclick="hiddenFormHTML()" data-dismiss="modal">Cancel</button>
+  <button type="submit" class="btn btn-primary" id="btnsubmit">ＯＫ</button></form></div></div></div>`;
+  showForm.innerHTML = showHTML;
+  showForm.style.animationName = "showForm";
+  showID = true;
+  booleanID = "E" + id;
 }

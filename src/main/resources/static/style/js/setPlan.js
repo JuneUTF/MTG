@@ -52,59 +52,6 @@ function checkDay() {
 // 初期状態で曜日を表示
 setDay();
 callAPI();
-// 内容情報のHTMLを生成する変数
-let purposeHTML = '';
-// 内容情報を取得する非同期関数
-async function callPurpose() {
-    try {
-        const apiUrl = "/purpose";
-        const response = await fetch(apiUrl);
-        if (!response.ok) {
-            //APIを呼び出しできない場合 input box 表示されます。
-            purposeHTML = `<input type="text" class="form-control" id="purpose" name="purpose" placeholder="内容を入力ください。" required>`;
-        }
-        const data = await response.json();
-        data.map((e) => {
-            //APIを呼び出し場合 選択ボックスを表示されます。
-            purposeHTML = purposeHTML + `<option value="${e.id}">${e.purpose}</option>`;
-        });
-        purposeHTML = `<select class="form-select" id="purpose" name="purpose">${purposeHTML}</select>`;
-    } catch (error) {
-        //APIを呼び出しできない場合 input box 表示されます。
-        purposeHTML = `<input type="text" class="form-control" id="purpose" name="purpose" placeholder="内容を入力ください。" required>`;
-    }
-}
-// 担当者入力フィールドを取得
-const charge = document.getElementById("charge");
-// 担当者のHTMLを生成する変数
-let chargeHTML = '';
-// 担当者を取得する非同期関数
-async function callCharge() {
-    try {
-        const apiUrl = "/charge";
-        const response = await fetch(apiUrl);
-        if (!response.ok) {
-            //APIを呼び出しできない場合 input box 表示されます。
-            chargeHTML = `<input type="text" class="form-control" id="charge" name="charge" placeholder="内容を入力ください。" required>`;
-        }
-        const data = await response.json();
-        data.map((e) => {
-            //APIを呼び出し場合 選択ボックスを表示されます。
-            chargeHTML = chargeHTML + `<option value="${e.id}">${e.charge}</option>`;
-        });
-        chargeHTML = `<select class="form-select" id="charge" name="charge">${chargeHTML}</select>`;
-    } catch (error) {
-        //APIを呼び出しできない場合 input box 表示されます。
-        chargeHTML = `<input type="text" class="form-control" id="charge" name="charge" placeholder="内容を入力ください。" required>`;
-    }
-}
-// 内容情報と担当者を非同期で取得し、フィールドに設定
-(async () => {
-    await callPurpose();
-    purpose.innerHTML = purposeHTML;
-    await callCharge();
-    charge.innerHTML = chargeHTML;
-})();
 // 開始時刻入力フィールドを取得
 const time_start = document.getElementById("time_start");
 // 開始時刻入力時に実行されるリスナーを設定

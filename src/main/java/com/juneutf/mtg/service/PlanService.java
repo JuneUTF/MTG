@@ -38,4 +38,12 @@ public interface PlanService {
      * @return PlanModelのリスト
      */
 	ArrayList<JobModel> selectPlanEdit(int id);
+	/**
+     * 公開担当者 JobModel オブジェクトを取得します。
+	 * @param id 
+     *
+     * @param id 取得する JobModel の ID
+     * @return ID に対応する JobModel オブジェクトのリスト
+     */
+	ArrayList<JobModel> selectPublicId(int id);
 }

@@ -17,8 +17,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.juneutf.mtg.config.vender.CustomUser;
 import com.juneutf.mtg.config.vender.GetIntoDay;
+import com.juneutf.mtg.model.APIChargeModel;
+import com.juneutf.mtg.model.APIPurposeModel;
 import com.juneutf.mtg.model.JobModel;
 import com.juneutf.mtg.model.PlanModel;
+import com.juneutf.mtg.service.APIService;
 import com.juneutf.mtg.service.PlanService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -36,6 +39,8 @@ public class PlanController {
     private GetIntoDay getIntoDay;
     @Autowired
     private SimpMessagingTemplate messagingTemplate;
+    @Autowired
+    private APIService apiService;
 
     /**
      * インデックスページにアクセスするためのGETリクエストを処理します。
@@ -55,8 +60,15 @@ public class PlanController {
     	try {
     		UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
             CustomUser customUser = (CustomUser) userDetails;
-            model.addAttribute("fullName", customUser.getFullName());
-            model.addAttribute("id", customUser.getId());
+            ArrayList<APIPurposeModel> purpose = apiService.selectAPIPurpose();
+            model.addAttribute("purpose", purpose); 
+            if(customUser.getAuthorities().toString().equals("[ROLE_ADMIN]")) {
+            	ArrayList<APIChargeModel> jobadmin = apiService.selectAPICharge();
+            	model.addAttribute("charge", jobadmin);    
+            }else {
+            	ArrayList<JobModel> jobuser = planService.selectPublicId(customUser.getId());
+            	model.addAttribute("charge", jobuser);            	
+			}
             return "plan/plan";
 		} catch (Exception e) {
 			return "error";
@@ -80,6 +92,9 @@ public class PlanController {
             }
             String toDayString = getIntoDay.setDay(planModel.getDate_plan(), planModel.getDate_day());
             planModel.setDate_day(toDayString);
+            UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            CustomUser customUser = (CustomUser) userDetails;
+            planModel.setRegisterid(customUser.getId());
             // データベースに登録
             int insertPlan = planService.insertPlan(planModel);
             if (insertPlan == 0) {

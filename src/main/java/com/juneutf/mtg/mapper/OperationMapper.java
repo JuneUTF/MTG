@@ -65,4 +65,5 @@ public interface OperationMapper {
       * @return 存在場合はTrue、存在ない場合はFalse.
       */
       List<TableModel> checkPurpose(TableModel model);
+      
 }

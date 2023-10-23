@@ -6,9 +6,9 @@
 
 	<insert id="insertPlan" parameterType="com.juneutf.mtg.model.PlanModel" useGeneratedKeys="true" keyProperty="id">
     INSERT INTO plan
-    (date_day, date_plan, time_start, time_end, purpose, charge, status)
+    (date_day, date_plan, time_start, time_end, purpose, charge, status,registerid)
     VALUES
-    (#{date_day}, #{date_plan}::date, #{time_start}, #{time_end}, #{purpose}, #{charge}, '予約中')
+    (#{date_day}, #{date_plan}::date, #{time_start}, #{time_end}, #{purpose}, #{charge}, '予約中',#{registerid})
 	</insert>
 
 	<select id="selectPlan" resultType="com.juneutf.mtg.model.JobModel">
@@ -29,6 +29,11 @@
 	</select>
 	<select id="selectMaxIdPlan" resultType="com.juneutf.mtg.model.JobModel">
 	SELECT MAX(id) FROM plan
+	</select>
+	<select id="selectPublicId" resultType="com.juneutf.mtg.model.JobModel">
+	SELECT id, fullname AS charge FROM user_infor WHERE id = #{id}  OR publicid=1  AND status = '使用中'
+	ORDER BY CASE WHEN id = #{id} THEN 0 ELSE 1 END, id ASC;
+	
 	</select>
 	<select id="selectPlanEdit" resultType="com.juneutf.mtg.model.JobModel">
 	SELECT plan.ID, plan.date_day, plan.date_plan, plan.time_start, plan.time_end, user_infor.fullname AS charge,purpose.purpose AS purpose, plan.status

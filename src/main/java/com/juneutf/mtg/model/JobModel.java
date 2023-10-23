@@ -49,6 +49,10 @@ public class JobModel {
      */
     private int chargeId;
     /**
+     * 予約されたのidです。
+     */
+    private int registerid;
+    /**
      * 予約の状況です。
      */
     private String status;

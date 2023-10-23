@@ -66,4 +66,14 @@ public class PlanImpl implements PlanService {
 	public ArrayList<JobModel> selectPlanEdit(int id) {
 		return mapper.selectPlanEdit(id);
 	}
+	/**
+     * 公開担当者 JobModel オブジェクトを取得します。
+     *
+     * @param id 取得する JobModel の ID
+     * @return ID に対応する JobModel オブジェクトのリスト
+     */
+	@Override
+	public ArrayList<JobModel> selectPublicId(int id) {
+		return mapper.selectPublicId(id);
+	}
 }

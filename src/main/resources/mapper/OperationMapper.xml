@@ -3,8 +3,8 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.juneutf.mtg.mapper.OperationMapper">
-	<select id="selectCharge" resultType="com.juneutf.mtg.model.OperationModel">
-	SELECT id,fullname AS tableName,status
+	<select id="selectCharge" resultType="com.juneutf.mtg.model.TableModel">
+	SELECT id,fullname,publicid,role,status
 	FROM user_infor ORDER BY id ASC;
 	</select>
 	<select id="selectPurpose" resultType="com.juneutf.mtg.model.OperationModel">
@@ -39,7 +39,7 @@
         purpose SET purpose = #{textEdit} WHERE id = #{id};
     </if>
     <if test="tableName =='user_infor'">
-        user_infor SET fullname =#{textEdit} WHERE id = #{id};
+        user_infor SET fullname =#{fullname},publicid =#{publicid},role =#{role} WHERE id = #{id};
     </if>
 	</update>
 	
@@ -49,7 +49,7 @@
         purpose (purpose,status) VALUES( #{textEdit},'使用中');
     </if>
     <if test="tableName =='user_infor'">
-        user_infor (username, email, password, status, role,fullname) VALUES(#{username},#{email},#{password},'使用中','USER',#{fullname});
+        user_infor (username, email, password, status, role,fullname,publicid) VALUES(#{username},#{email},#{password},'使用中',#{role},#{fullname},#{publicid});
     </if>
 	</insert>
 	<select id="checkUserNameAndEmail" resultType="com.juneutf.mtg.model.TableModel">

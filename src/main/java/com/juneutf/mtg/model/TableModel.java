@@ -37,4 +37,16 @@ public class TableModel {
 	 * 名前
 	 */
     private String fullname; 
+    /**
+     * 予約されたのidです。
+     */
+    private int publicid;
+    /**
+     * 権限です。
+     */
+    private String role;
+    /**
+     * 状況です。
+     */
+    private String status;
 }

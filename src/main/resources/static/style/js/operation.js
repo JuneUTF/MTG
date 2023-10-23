@@ -27,10 +27,10 @@ function fetchDatacharge(url) {
       // データをコンソールに表示
       chargeData = data;
       chargeData.map((e) => {
-        if(e.id==1){
-          chargeTableHTML += `<tr><td>${e.id}</td><td>${e.tableName}</td><td>${e.status}</td><td>管理者</td></tr>`;
-        }else{
-        chargeTableHTML += `<tr><td>${e.id}</td><td>${e.tableName}</td><td>${e.status}</td><td><button type="button" class="btn btn-outline-secondary" onclick="editOperation('${e.id}','${e.tableName}','${e.status}','user_infor');">編集</button>・${e.status !== "使用中" ? `<button type="button" class="btn btn-outline-primary" onclick="restoreOperation('${e.id}','${e.tableName}','user_infor');">復元</button>` : `<button type="button" class="btn btn-outline-warning" onclick="deleteOperation('${e.id}','${e.tableName}','user_infor');">削除</button>`}</td></tr>`;
+      if(e.id == 1){
+      chargeTableHTML += `<tr><td>${e.id}</td><td>${e.fullname}</td><td>${e.role == "ADMIN"?"管理者":"一般"}</td><td>${e.publicid == "0"?"非常":"公開"}</td><td>${e.status}</td><td>-</td></tr>`;
+      }else{
+        chargeTableHTML += `<tr><td>${e.id}</td><td>${e.fullname}</td><td>${e.role == "ADMIN"?"管理者":"一般"}</td><td>${e.publicid == "0"?"非常":"公開"}</td><td>${e.status}</td><td><button type="button" class="btn btn-outline-secondary" onclick="editUser('${e.id}','${e.fullname}','${e.publicid}','${e.role}');">編集</button>・${e.status !== "使用中" ? `<button type="button" class="btn btn-outline-primary" onclick="restoreOperation('${e.id}','${e.fullname}','user_infor');">復元</button>` : `<button type="button" class="btn btn-outline-warning" onclick="deleteOperation('${e.id}','${e.fullname}','user_infor');">削除</button>`}</td></tr>`;
       	}
       }); chargeTable.innerHTML = chargeTableHTML;
     })

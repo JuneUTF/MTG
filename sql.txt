@@ -6,6 +6,7 @@ CREATE TABLE plan (
     time_end VARCHAR(5) NOT NULL,
     purpose int NOT NULL,
     charge int NOT NULL,
+    registerid int NOT NULL,
     status VARCHAR(10) NULL
 );
 
@@ -25,5 +26,31 @@ CREATE TABLE USER_INFOR (
     PASSWORD VARCHAR(255) NOT NULL,
     role VARCHAR(10) NOT NULL,
     TOKEN VARCHAR(255),
+    PUBLICID int NOT NULL,
     STATUS VARCHAR(10)
 );
+
+INSERT 
+INTO user_infor( 
+    username
+    , fullname
+    , email
+    , password
+    , role
+    , status
+    ,publicid
+) 
+ログイン情報
+ユーザー名：　kanrisya
+パスワード： 12345678
+権限：　ADMIN
+VALUES ( 
+    'kanrisya'
+    , '管理者'
+    , 'admin@gmail.com'
+    , '$2a$10$7JcK7uv57pdXaGa.2C/ucekhGhItH5M.oxbL4hAXUIRE8tGH0Idru'
+    , 'ADMIN'
+    , '使用中'
+    ,0
+)
+

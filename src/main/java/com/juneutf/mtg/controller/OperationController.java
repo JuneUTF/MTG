@@ -148,6 +148,10 @@ public class OperationController {
 	public String postOperationDelete(TableModel tableModel) {
 		try {
 			//tableNameのIDとして削除
+			if(tableModel.getId() == 1) {
+				log.warn("スーパー管理者が削除出来ない。");
+				return null;
+			}
 			operationService.deleteByIdAndtableName(tableModel);
 			log.info("削除情報：" + tableModel);
 			return "redirect:/ad/operation";
@@ -184,6 +188,10 @@ public class OperationController {
 	public String postOperationEdit(TableModel tableModel) {
 		try {
 			//tableNameのIDとして編集
+			if(tableModel.getId() == 1) {
+				log.warn("スーパー管理者が削除出来ない。");
+				return null;
+			}
 			operationService.editByIdAndtableName(tableModel);
 			log.info("編集情報：" + tableModel);
 			return "redirect:/ad/operation";
@@ -201,15 +209,14 @@ public class OperationController {
 	@PostMapping("/operation/reg")
 	public String postOperationReg(TableModel tableModel) {
 		try {
-			System.out.println(tableModel);
 			//tableNameとして新規登録
 			if(tableModel.getTableName().equals("user_infor") && operationService.checkUserNameAndEmail(tableModel).size()==0) {
 				tableModel.setUsername(coverRegister.getUsername(tableModel.getEmail()));
 				String pasString = coverRegister.createPassword();
 				tableModel.setPassword(pasString);
-				emailService.sendRegister(tableModel);
 				tableModel.setPassword(encoder.encode(pasString));
 				operationService.regByIdAndtableName(tableModel);
+				emailService.sendRegister(tableModel,pasString);
 			}else if (tableModel.getTableName().equals("purpose") && operationService.checkPurpose(tableModel).size()== 0) {
 				operationService.regByIdAndtableName(tableModel);				
 			}else {

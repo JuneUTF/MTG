@@ -18,7 +18,7 @@
                 <h2 class="text-center mb-4">ログイン</h2>
                 <form class="login-form" th:action="@{/login}" method="post">
                 	 <div th:if="${param.error}">
-            			<p style="color: red; text-align: center;" th:text="${param.error}"></p>
+            			<p style="color: red; text-align: center;"> ログインが一致しません。<br>またはアカウントがロックになっています。</p>
        				 </div>
                     <div class="mb-3">
                         <label for="username" class="form-label">ユーザー名またはメールアドレス：</label>
@@ -36,6 +36,6 @@
             </div>
         </div>
     </div>
-    <script src="style/js/home.js"></script>
+    <script src="style/javascript/home.js"></script>
 </body>
 </html>

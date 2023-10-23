@@ -20,9 +20,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.juneutf.mtg.config.vender.CustomUser;
+import com.juneutf.mtg.model.APIChargeModel;
 import com.juneutf.mtg.model.APIMessengerModel;
+import com.juneutf.mtg.model.APIPurposeModel;
 import com.juneutf.mtg.model.JobModel;
 import com.juneutf.mtg.model.SearchModel;
+import com.juneutf.mtg.service.APIService;
 import com.juneutf.mtg.service.JobService;
 import com.juneutf.mtg.service.PlanService;
 import com.juneutf.mtg.service.SearchService;
@@ -41,6 +44,8 @@ public class JobController {
 	private JobService jobService;
 	@Autowired
 	private SimpMessagingTemplate messagingTemplate;
+	@Autowired
+	private APIService apiService;
 	/**
 	 * '/job'エンドポイントへのGETリクエストを処理し、(現在からの予約内容)PlanModelオブジェクトを返します。
 	 * @param APIMessengerModelオブジェクト
@@ -64,10 +69,8 @@ public class JobController {
 	 */
 	@GetMapping("/getjobapi")
 	public ResponseEntity<?> getJob(@RequestParam  int id,APIMessengerModel apiMessengerModel){
-		System.out.println(id);
 		try {
 			ArrayList<JobModel> res = planService.selectPlanEdit(id);
-			System.out.println(res);
 			return ResponseEntity.status(200).body(res);
 		} catch (Exception e) {
 			apiMessengerModel.setIsData("false");
@@ -108,6 +111,15 @@ public class JobController {
 	         role = authority.getAuthority();
 	     }
 	     	model.addAttribute("role",role);
+	     	 ArrayList<APIPurposeModel> purpose = apiService.selectAPIPurpose();
+	         model.addAttribute("purpose", purpose); 
+	         if(customUser.getAuthorities().toString().equals("[ROLE_ADMIN]")) {
+	         	ArrayList<APIChargeModel> jobadmin = apiService.selectAPICharge();
+	         	model.addAttribute("charge", jobadmin);    
+	         }else {
+	         	ArrayList<JobModel> jobuser = planService.selectPublicId(customUser.getId());
+	         	model.addAttribute("charge", jobuser);            	
+	 		}
 			// IDを検証
 			// IDがない場合、予約内容に遷移
 			if (jobModel.getId() == 0) {
@@ -117,12 +129,12 @@ public class JobController {
 				ArrayList<JobModel> job = jobService.selectJobById(jobModel.getId());
 				// 取得した予約内容の比較
 				// 予約内容がある
-				if (job.size()== 1 && (customUser.getFullName().equals(job.get(0).getCharge()) || role.equals("ROLE_ADMIN"))) {
+				if (job.size()== 1 && (customUser.getFullName().equals(job.get(0).getCharge()) || role.equals("ROLE_ADMIN")) || job.get(0).getRegisterid() == customUser.getId()) {
 					// 内容を画面に渡す
 					model.addAttribute("job", job);
 					return "job/edit";
 				} else {
-					log.warn("編集予約内容機能でIDとして予約内容を取得する際、エラーが発生します。");
+					log.warn("編集予約内容機能で権限がない");
 					return "error";
 				}
 			}
@@ -142,11 +154,6 @@ public class JobController {
 	@PostMapping("job")
 	public String postEditID(JobModel jobModel, Model model) {
 		try {
-			UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-	        CustomUser customUser = (CustomUser) userDetails;
-	        if(customUser.getFullName().equals(customUser)) {
-	        	return null;
-	        }
 			// データベース内の予約内容が変更された結果
 			int jobUpdate = jobService.updateJobById(jobModel);
 			log.info("予約内容の編集情報：" + jobModel);
