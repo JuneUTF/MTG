@@ -49,7 +49,7 @@ public class APIControllerTest {
         ArrayList<APIChargeModel> chargeModels = new ArrayList<>();
         chargeModels.add(new APIChargeModel());
 
-        Mockito.when(apiService.selectAPICharge()).thenReturn(chargeModels);
+        Mockito.when(apiService.selectAPICharge(0)).thenReturn(chargeModels);
 
         ResponseEntity<?> response = apiController.getCherge(apiMessengerModel);
 
@@ -64,7 +64,7 @@ public class APIControllerTest {
     public void testGetChergeException() {
         APIMessengerModel apiMessengerModel = new APIMessengerModel();
 
-        Mockito.when(apiService.selectAPICharge()).thenThrow(new RuntimeException());
+        Mockito.when(apiService.selectAPICharge(0)).thenThrow(new RuntimeException());
 
         ResponseEntity<?> response = apiController.getCherge(apiMessengerModel);
 
@@ -82,7 +82,7 @@ public class APIControllerTest {
         ArrayList<APIPurposeModel> purposeModels = new ArrayList<>();
         purposeModels.add(new APIPurposeModel());
 
-        Mockito.when(apiService.selectAPIPurpose()).thenReturn(purposeModels);
+        Mockito.when(apiService.selectAPIPurpose(0)).thenReturn(purposeModels);
 
         ResponseEntity<?> response = apiController.getPurpose(apiMessengerModel);
 
@@ -97,7 +97,7 @@ public class APIControllerTest {
     public void testGetPurposeException() {
         APIMessengerModel apiMessengerModel = new APIMessengerModel();
 
-        Mockito.when(apiService.selectAPIPurpose()).thenThrow(new RuntimeException());
+        Mockito.when(apiService.selectAPIPurpose(0)).thenThrow(new RuntimeException());
 
         ResponseEntity<?> response = apiController.getPurpose(apiMessengerModel);
 

@@ -1,0 +1,3 @@
+2023-10-24 11:05:35.578  WARN   APIController.getCherge - 担当者のAPIを呼び出せない
+2023-10-24 11:05:35.706  WARN   APIController.getPurpose - 内容のAPIを呼び出せない
+2023-10-24 11:05:35.715  WARN   APIController.getJob - JOBのAPIを呼び出せない
