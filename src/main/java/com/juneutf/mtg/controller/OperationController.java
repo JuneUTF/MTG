@@ -208,6 +208,7 @@ public class OperationController {
 	 */
 	@PostMapping("/operation/reg")
 	public String postOperationReg(TableModel tableModel) {
+		System.out.println("ok"+ (operationService.checkPurpose(tableModel).size()== 0));
 		try {
 			//tableNameとして新規登録
 			if(tableModel.getTableName().equals("user_infor") && operationService.checkUserNameAndEmail(tableModel).size()==0) {

@@ -60,10 +60,10 @@ public class PlanController {
     	try {
     		UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
             CustomUser customUser = (CustomUser) userDetails;
-            ArrayList<APIPurposeModel> purpose = apiService.selectAPIPurpose();
+            ArrayList<APIPurposeModel> purpose = apiService.selectAPIPurpose(0);
             model.addAttribute("purpose", purpose); 
             if(customUser.getAuthorities().toString().equals("[ROLE_ADMIN]")) {
-            	ArrayList<APIChargeModel> jobadmin = apiService.selectAPICharge();
+            	ArrayList<APIChargeModel> jobadmin = apiService.selectAPICharge(0);
             	model.addAttribute("charge", jobadmin);    
             }else {
             	ArrayList<JobModel> jobuser = planService.selectPublicId(customUser.getId());

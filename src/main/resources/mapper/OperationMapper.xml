@@ -58,7 +58,7 @@
 	</select>
 	<select id="checkPurpose" resultType="com.juneutf.mtg.model.TableModel">
 	SELECT purpose
-	FROM purpose WHERE purpose = #{purpose};
+	FROM purpose WHERE purpose = #{textEdit};
 	</select>
 	
 </mapper>

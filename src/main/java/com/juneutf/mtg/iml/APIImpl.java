@@ -24,8 +24,8 @@ public class APIImpl implements APIService {
      * @return APIの担当者モデルのリスト
      */
     @Override
-    public ArrayList<APIChargeModel> selectAPICharge() {
-        return mapper.selectAPICharge();
+    public ArrayList<APIChargeModel> selectAPICharge(int id) {
+        return mapper.selectAPICharge(id);
     }
 
     /**
@@ -34,7 +34,7 @@ public class APIImpl implements APIService {
      * @return APIの内容モデルのリスト
      */
     @Override
-    public ArrayList<APIPurposeModel> selectAPIPurpose() {
-        return mapper.selectAPIPurpose();
+    public ArrayList<APIPurposeModel> selectAPIPurpose(int id) {
+        return mapper.selectAPIPurpose(id);
     }
 }

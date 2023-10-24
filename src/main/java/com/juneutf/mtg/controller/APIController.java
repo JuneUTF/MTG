@@ -41,7 +41,7 @@ public class APIController {
 	@GetMapping("/charge")
 	public ResponseEntity<?> getCherge(APIMessengerModel apiMessengerModel){
 		try {
-			ArrayList<APIChargeModel> res = apiService.selectAPICharge();
+			ArrayList<APIChargeModel> res = apiService.selectAPICharge(0);
 			return ResponseEntity.status(200).body(res);
 		} catch (Exception e) {
 			apiMessengerModel.setIsData("false");
@@ -57,7 +57,7 @@ public class APIController {
 	@GetMapping("/purpose")
 	public ResponseEntity<?> getPurpose(APIMessengerModel apiMessengerModel){
 		try {
-			ArrayList<APIPurposeModel> res = apiService.selectAPIPurpose();
+			ArrayList<APIPurposeModel> res = apiService.selectAPIPurpose(0);
 			return ResponseEntity.status(200).body(res);
 		} catch (Exception e) {
 			apiMessengerModel.setIsData("false");

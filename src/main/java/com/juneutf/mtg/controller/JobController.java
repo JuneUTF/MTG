@@ -111,15 +111,6 @@ public class JobController {
 	         role = authority.getAuthority();
 	     }
 	     	model.addAttribute("role",role);
-	     	 ArrayList<APIPurposeModel> purpose = apiService.selectAPIPurpose();
-	         model.addAttribute("purpose", purpose); 
-	         if(customUser.getAuthorities().toString().equals("[ROLE_ADMIN]")) {
-	         	ArrayList<APIChargeModel> jobadmin = apiService.selectAPICharge();
-	         	model.addAttribute("charge", jobadmin);    
-	         }else {
-	         	ArrayList<JobModel> jobuser = planService.selectPublicId(customUser.getId());
-	         	model.addAttribute("charge", jobuser);            	
-	 		}
 			// IDを検証
 			// IDがない場合、予約内容に遷移
 			if (jobModel.getId() == 0) {
@@ -127,6 +118,15 @@ public class JobController {
 			} else {
 				// IDがある場合、IDで予約内容を取得
 				ArrayList<JobModel> job = jobService.selectJobById(jobModel.getId());
+				ArrayList<APIPurposeModel> purpose = apiService.selectAPIPurpose(job.get(0).getPurposeId());
+		         model.addAttribute("purpose", purpose); 
+		         if(customUser.getAuthorities().toString().equals("[ROLE_ADMIN]")) {
+		         	ArrayList<APIChargeModel> jobadmin = apiService.selectAPICharge(job.get(0).getChargeId());
+		         	model.addAttribute("charge", jobadmin);    
+		         }else {
+		         	ArrayList<JobModel> jobuser = planService.selectPublicId(customUser.getId());
+		         	model.addAttribute("charge", jobuser);            	
+		 		}
 				// 取得した予約内容の比較
 				// 予約内容がある
 				if (job.size()== 1 && (customUser.getFullName().equals(job.get(0).getCharge()) || role.equals("ROLE_ADMIN")) || job.get(0).getRegisterid() == customUser.getId()) {

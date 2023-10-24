@@ -15,12 +15,12 @@ public interface APIService {
      *
      * @return API担当者モデルのリスト
      */
-    ArrayList<APIChargeModel> selectAPICharge();
+    ArrayList<APIChargeModel> selectAPICharge(int id);
     
     /**
      * API内容モデルのリストを取得します。
      *
      * @return API内容モデルのリスト
      */
-    ArrayList<APIPurposeModel> selectAPIPurpose();
+    ArrayList<APIPurposeModel> selectAPIPurpose(int id);
 }

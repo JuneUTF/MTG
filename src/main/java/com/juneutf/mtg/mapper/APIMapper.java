@@ -16,11 +16,11 @@ public interface APIMapper {
      * APIの担当者情報を取得します。
      * @return APIChargeModelのリスト
      */
-    ArrayList<APIChargeModel> selectAPICharge();
+    ArrayList<APIChargeModel> selectAPICharge(int id);
 
     /**
      * APIの内容情報を取得します。
      * @return APIPurposeModelのリスト
      */
-    ArrayList<APIPurposeModel> selectAPIPurpose();
+    ArrayList<APIPurposeModel> selectAPIPurpose(int id);
 }
