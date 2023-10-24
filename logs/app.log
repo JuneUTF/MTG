@@ -1,3 +1,210 @@
 2023-10-24 11:05:35.578  WARN   APIController.getCherge - 担当者のAPIを呼び出せない
 2023-10-24 11:05:35.706  WARN   APIController.getPurpose - 内容のAPIを呼び出せない
 2023-10-24 11:05:35.715  WARN   APIController.getJob - JOBのAPIを呼び出せない
+2023-10-24 11:46:33.149  INFO   MtgApplication.logStarting - Starting MtgApplication using Java 17.0.8.1 on JuneUTF with PID 5152 (C:\JavaSpingBoot\K&K\MTG\target\classes started by juneu in C:\JavaSpingBoot\K&K\MTG)
+2023-10-24 11:46:33.148  INFO   Version.<clinit> - HV000001: Hibernate Validator 6.2.5.Final
+2023-10-24 11:46:33.154  INFO   MtgApplication.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+2023-10-24 11:46:33.240  INFO   DevToolsPropertyDefaultsPostProcessor.logTo - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-10-24 11:46:33.242  INFO   DevToolsPropertyDefaultsPostProcessor.logTo - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-10-24 11:46:35.516  INFO   TomcatWebServer.initialize - Tomcat initialized with port(s): 8080 (http)
+2023-10-24 11:46:35.529  INFO   Http11NioProtocol.log - Initializing ProtocolHandler ["http-nio-8080"]
+2023-10-24 11:46:35.532  INFO   StandardService.log - Starting service [Tomcat]
+2023-10-24 11:46:35.534  INFO   StandardEngine.log - Starting Servlet engine: [Apache Tomcat/9.0.80]
+2023-10-24 11:46:35.655  INFO   [/].log - Initializing Spring embedded WebApplicationContext
+2023-10-24 11:46:35.656  INFO   ServletWebServerApplicationContext.prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 2413 ms
+2023-10-24 11:46:36.476  WARN   TemplateMode.parse - [THYMELEAF][restartedMain] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2023-10-24 11:46:36.730  INFO   DefaultSecurityFilterChain.<init> - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@574ecb24, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@77800ac, org.springframework.security.web.context.SecurityContextPersistenceFilter@144a3f36, org.springframework.security.web.header.HeaderWriterFilter@ad8adbf, org.springframework.security.web.authentication.logout.LogoutFilter@2dc77756, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4d0360a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6275810c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@58e8f473, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@53013122, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@56d197b7, org.springframework.security.web.session.SessionManagementFilter@69bf7f57, org.springframework.security.web.access.ExceptionTranslationFilter@6e1a1319, org.springframework.security.web.access.intercept.AuthorizationFilter@132aaa1d]
+2023-10-24 11:46:37.035  INFO   WelcomePageHandlerMapping.<init> - Adding welcome page template: index
+2023-10-24 11:46:37.385  INFO   OptionalLiveReloadServer.startServer - LiveReload server is running on port 35729
+2023-10-24 11:46:37.415  INFO   Http11NioProtocol.log - Starting ProtocolHandler ["http-nio-8080"]
+2023-10-24 11:46:37.447  INFO   TomcatWebServer.start - Tomcat started on port(s): 8080 (http) with context path ''
+2023-10-24 11:46:37.450  INFO   SimpleBrokerMessageHandler.info - Starting...
+2023-10-24 11:46:37.451  INFO   SimpleBrokerMessageHandler.info - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@1cb64a92]]
+2023-10-24 11:46:37.451  INFO   SimpleBrokerMessageHandler.info - Started.
+2023-10-24 11:46:37.469  INFO   MtgApplication.logStarted - Started MtgApplication in 4.869 seconds (JVM running for 6.423)
+2023-10-24 11:46:37.491  INFO   HikariDataSource.getConnection - HikariPool-1 - Starting...
+2023-10-24 11:46:37.655  INFO   HikariDataSource.getConnection - HikariPool-1 - Start completed.
+2023-10-24 11:46:43.135  INFO   [/].log - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-10-24 11:46:43.135  INFO   DispatcherServlet.initServletBean - Initializing Servlet 'dispatcherServlet'
+2023-10-24 11:46:43.135  INFO   DispatcherServlet.initServletBean - Completed initialization in 0 ms
+2023-10-24 11:47:36.848  INFO   WebSocketMessageBrokerStats.lambda$initLoggingTask$0 - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 1 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(1)-CONNECTED(1)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 9, active threads = 0, queued tasks = 0, completed tasks = 9], outboundChannel[pool size = 2, active threads = 0, queued tasks = 0, completed tasks = 2], sockJsScheduler[pool size = 12, active threads = 1, queued tasks = 2, completed tasks = 12]
+2023-10-24 11:57:53.480  INFO   LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener.onApplicationEvent - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2023-10-24 11:57:53.485  INFO   SimpleBrokerMessageHandler.info - Stopping...
+2023-10-24 11:57:53.486  INFO   SimpleBrokerMessageHandler.info - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@1cb64a92]]
+2023-10-24 11:57:53.486  INFO   SimpleBrokerMessageHandler.info - Stopped.
+2023-10-24 11:57:53.511  INFO   Http11NioProtocol.log - Pausing ProtocolHandler ["http-nio-8080"]
+2023-10-24 11:57:53.512  INFO   StandardService.log - Stopping service [Tomcat]
+2023-10-24 11:57:53.514  INFO   [/].log - Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-10-24 11:57:53.521  WARN   WebappClassLoaderBase.log - The web application [ROOT] appears to have started a thread named [MessageBroker-4] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.8.1/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.8.1/java.util.concurrent.locks.LockSupport.park(LockSupport.java:341)
+ java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block(AbstractQueuedSynchronizer.java:506)
+ java.base@17.0.8.1/java.util.concurrent.ForkJoinPool.unmanagedBlock(ForkJoinPool.java:3465)
+ java.base@17.0.8.1/java.util.concurrent.ForkJoinPool.managedBlock(ForkJoinPool.java:3436)
+ java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1623)
+ java.base@17.0.8.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1177)
+ java.base@17.0.8.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.8.1/java.lang.Thread.run(Thread.java:833)
+2023-10-24 11:57:53.522  WARN   WebappClassLoaderBase.log - The web application [ROOT] appears to have started a thread named [MessageBroker-6] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.8.1/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.8.1/java.util.concurrent.locks.LockSupport.park(LockSupport.java:341)
+ java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block(AbstractQueuedSynchronizer.java:506)
+ java.base@17.0.8.1/java.util.concurrent.ForkJoinPool.unmanagedBlock(ForkJoinPool.java:3465)
+ java.base@17.0.8.1/java.util.concurrent.ForkJoinPool.managedBlock(ForkJoinPool.java:3436)
+ java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1623)
+ java.base@17.0.8.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1177)
+ java.base@17.0.8.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.8.1/java.lang.Thread.run(Thread.java:833)
+2023-10-24 11:57:53.523  WARN   WebappClassLoaderBase.log - The web application [ROOT] appears to have started a thread named [MessageBroker-7] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.8.1/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.8.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.8.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.8.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.8.1/java.lang.Thread.run(Thread.java:833)
+2023-10-24 11:57:53.524  WARN   WebappClassLoaderBase.log - The web application [ROOT] appears to have started a thread named [MessageBroker-11] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.8.1/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.8.1/java.util.concurrent.locks.LockSupport.park(LockSupport.java:341)
+ java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block(AbstractQueuedSynchronizer.java:506)
+ java.base@17.0.8.1/java.util.concurrent.ForkJoinPool.unmanagedBlock(ForkJoinPool.java:3465)
+ java.base@17.0.8.1/java.util.concurrent.ForkJoinPool.managedBlock(ForkJoinPool.java:3436)
+ java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1623)
+ java.base@17.0.8.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1177)
+ java.base@17.0.8.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.8.1/java.lang.Thread.run(Thread.java:833)
+2023-10-24 11:57:53.525  INFO   Http11NioProtocol.log - Stopping ProtocolHandler ["http-nio-8080"]
+2023-10-24 11:57:53.528  INFO   Http11NioProtocol.log - Destroying ProtocolHandler ["http-nio-8080"]
+2023-10-24 11:57:53.539  INFO   HikariDataSource.close - HikariPool-1 - Shutdown initiated...
+2023-10-24 11:57:53.544  INFO   HikariDataSource.close - HikariPool-1 - Shutdown completed.
+2023-10-24 11:57:53.667  INFO   MtgApplication.logStarting - Starting MtgApplication using Java 17.0.8.1 on JuneUTF with PID 5152 (C:\JavaSpingBoot\K&K\MTG\target\classes started by juneu in C:\JavaSpingBoot\K&K\MTG)
+2023-10-24 11:57:53.668  INFO   MtgApplication.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+2023-10-24 11:57:54.187  INFO   TomcatWebServer.initialize - Tomcat initialized with port(s): 8080 (http)
+2023-10-24 11:57:54.187  INFO   Http11NioProtocol.log - Initializing ProtocolHandler ["http-nio-8080"]
+2023-10-24 11:57:54.189  INFO   StandardService.log - Starting service [Tomcat]
+2023-10-24 11:57:54.189  INFO   StandardEngine.log - Starting Servlet engine: [Apache Tomcat/9.0.80]
+2023-10-24 11:57:54.214  INFO   [/].log - Initializing Spring embedded WebApplicationContext
+2023-10-24 11:57:54.214  INFO   ServletWebServerApplicationContext.prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 542 ms
+2023-10-24 11:57:54.495  WARN   TemplateMode.parse - [THYMELEAF][restartedMain] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2023-10-24 11:57:54.568  INFO   DefaultSecurityFilterChain.<init> - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1ee08b9c, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2dc52840, org.springframework.security.web.context.SecurityContextPersistenceFilter@1ff54e58, org.springframework.security.web.header.HeaderWriterFilter@278e6ed1, org.springframework.security.web.authentication.logout.LogoutFilter@5dd0b373, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@402387df, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1cec5eff, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@48404355, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@3006086c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@71844f58, org.springframework.security.web.session.SessionManagementFilter@753aa70b, org.springframework.security.web.access.ExceptionTranslationFilter@275499c0, org.springframework.security.web.access.intercept.AuthorizationFilter@2b2306b6]
+2023-10-24 11:57:54.650  INFO   WelcomePageHandlerMapping.<init> - Adding welcome page template: index
+2023-10-24 11:57:54.747  INFO   OptionalLiveReloadServer.startServer - LiveReload server is running on port 35729
+2023-10-24 11:57:54.764  INFO   Http11NioProtocol.log - Starting ProtocolHandler ["http-nio-8080"]
+2023-10-24 11:57:54.769  INFO   TomcatWebServer.start - Tomcat started on port(s): 8080 (http) with context path ''
+2023-10-24 11:57:54.772  INFO   SimpleBrokerMessageHandler.info - Starting...
+2023-10-24 11:57:54.773  INFO   SimpleBrokerMessageHandler.info - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@188eda16]]
+2023-10-24 11:57:54.776  INFO   SimpleBrokerMessageHandler.info - Started.
+2023-10-24 11:57:54.792  INFO   MtgApplication.logStarted - Started MtgApplication in 1.174 seconds (JVM running for 683.746)
+2023-10-24 11:57:54.792  INFO   HikariDataSource.getConnection - HikariPool-2 - Starting...
+2023-10-24 11:57:54.801  INFO   ConditionEvaluationDeltaLoggingListener.onApplicationEvent - Condition evaluation unchanged
+2023-10-24 11:57:54.825  INFO   HikariDataSource.getConnection - HikariPool-2 - Start completed.
+2023-10-24 11:58:54.598  INFO   WebSocketMessageBrokerStats.lambda$initLoggingTask$0 - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 3, active threads = 1, queued tasks = 1, completed tasks = 1]
+2023-10-24 11:59:02.571  INFO   SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin.shutdown - Application shutdown requested.
+2023-10-24 11:59:02.573  INFO   SimpleBrokerMessageHandler.info - Stopping...
+2023-10-24 11:59:02.574  INFO   SimpleBrokerMessageHandler.info - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@188eda16]]
+2023-10-24 11:59:02.574  INFO   SimpleBrokerMessageHandler.info - Stopped.
+2023-10-24 11:59:02.593  INFO   Http11NioProtocol.log - Pausing ProtocolHandler ["http-nio-8080"]
+2023-10-24 11:59:02.595  INFO   StandardService.log - Stopping service [Tomcat]
+2023-10-24 11:59:02.599  INFO   Http11NioProtocol.log - Stopping ProtocolHandler ["http-nio-8080"]
+2023-10-24 11:59:02.601  INFO   Http11NioProtocol.log - Destroying ProtocolHandler ["http-nio-8080"]
+2023-10-24 11:59:02.606  INFO   HikariDataSource.close - HikariPool-2 - Shutdown initiated...
+2023-10-24 11:59:02.609  INFO   HikariDataSource.close - HikariPool-2 - Shutdown completed.
+2023-10-24 12:24:05.101  INFO   Version.<clinit> - HV000001: Hibernate Validator 6.2.5.Final
+2023-10-24 12:24:05.102  INFO   MtgApplication.logStarting - Starting MtgApplication using Java 17.0.8.1 on JuneUTF with PID 5544 (C:\JavaSpingBoot\K&K\MTG\target\classes started by juneu in C:\JavaSpingBoot\K&K\MTG)
+2023-10-24 12:24:05.106  INFO   MtgApplication.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+2023-10-24 12:24:05.195  INFO   DevToolsPropertyDefaultsPostProcessor.logTo - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-10-24 12:24:05.195  INFO   DevToolsPropertyDefaultsPostProcessor.logTo - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-10-24 12:24:07.284  INFO   TomcatWebServer.initialize - Tomcat initialized with port(s): 8080 (http)
+2023-10-24 12:24:07.297  INFO   Http11NioProtocol.log - Initializing ProtocolHandler ["http-nio-8080"]
+2023-10-24 12:24:07.300  INFO   StandardService.log - Starting service [Tomcat]
+2023-10-24 12:24:07.301  INFO   StandardEngine.log - Starting Servlet engine: [Apache Tomcat/9.0.80]
+2023-10-24 12:24:07.420  INFO   [/].log - Initializing Spring embedded WebApplicationContext
+2023-10-24 12:24:07.420  INFO   ServletWebServerApplicationContext.prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 2223 ms
+2023-10-24 12:24:08.243  WARN   TemplateMode.parse - [THYMELEAF][restartedMain] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2023-10-24 12:24:08.527  INFO   DefaultSecurityFilterChain.<init> - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@18b1fb81, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5c7b94fc, org.springframework.security.web.context.SecurityContextPersistenceFilter@663c0ada, org.springframework.security.web.header.HeaderWriterFilter@5d969233, org.springframework.security.web.authentication.logout.LogoutFilter@3d834423, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@51998041, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@25aa9e70, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5ae4c00b, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@61a664eb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5370854e, org.springframework.security.web.session.SessionManagementFilter@5e9935d1, org.springframework.security.web.access.ExceptionTranslationFilter@538e20ac, org.springframework.security.web.access.intercept.AuthorizationFilter@2bec5b67]
+2023-10-24 12:24:08.881  INFO   WelcomePageHandlerMapping.<init> - Adding welcome page template: index
+2023-10-24 12:24:09.209  INFO   OptionalLiveReloadServer.startServer - LiveReload server is running on port 35729
+2023-10-24 12:24:09.238  INFO   Http11NioProtocol.log - Starting ProtocolHandler ["http-nio-8080"]
+2023-10-24 12:24:09.269  INFO   TomcatWebServer.start - Tomcat started on port(s): 8080 (http) with context path ''
+2023-10-24 12:24:09.271  INFO   SimpleBrokerMessageHandler.info - Starting...
+2023-10-24 12:24:09.272  INFO   SimpleBrokerMessageHandler.info - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@1a85de85]]
+2023-10-24 12:24:09.272  INFO   SimpleBrokerMessageHandler.info - Started.
+2023-10-24 12:24:09.290  INFO   MtgApplication.logStarted - Started MtgApplication in 4.764 seconds (JVM running for 6.331)
+2023-10-24 12:24:09.312  INFO   HikariDataSource.getConnection - HikariPool-1 - Starting...
+2023-10-24 12:24:09.480  INFO   HikariDataSource.getConnection - HikariPool-1 - Start completed.
+2023-10-24 12:24:24.928  INFO   [/].log - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-10-24 12:24:24.928  INFO   DispatcherServlet.initServletBean - Initializing Servlet 'dispatcherServlet'
+2023-10-24 12:24:24.930  INFO   DispatcherServlet.initServletBean - Completed initialization in 2 ms
+2023-10-24 12:25:08.643  INFO   WebSocketMessageBrokerStats.lambda$initLoggingTask$0 - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 1 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(1)-CONNECTED(1)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 9, active threads = 0, queued tasks = 0, completed tasks = 9], outboundChannel[pool size = 2, active threads = 0, queued tasks = 0, completed tasks = 2], sockJsScheduler[pool size = 12, active threads = 1, queued tasks = 2, completed tasks = 10]
+2023-10-24 12:25:16.243  INFO   OperationController.postOperationReg - 新規登録情報：TableModel(id=0, tableName=user_infor, textEdit=null, username=june.utf, email=june.utf@gmail.com, password=$2a$10$skveg2YbiBcqltJ93lnOcuuo5FYoWxRH1YT.AJWNG0uvSuMfd.Vy., fullname=フィン, publicid=0, role=USER, status=null)
+2023-10-24 12:35:17.715  INFO   SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin.shutdown - Application shutdown requested.
+2023-10-24 12:35:17.717  INFO   SimpleBrokerMessageHandler.info - Stopping...
+2023-10-24 12:35:17.719  INFO   SimpleBrokerMessageHandler.info - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@1a85de85]]
+2023-10-24 12:35:17.721  INFO   SimpleBrokerMessageHandler.info - Stopped.
+2023-10-24 12:35:17.741  INFO   Http11NioProtocol.log - Pausing ProtocolHandler ["http-nio-8080"]
+2023-10-24 12:35:17.742  INFO   StandardService.log - Stopping service [Tomcat]
+2023-10-24 12:35:17.744  INFO   [/].log - Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-10-24 12:35:17.763  WARN   WebappClassLoaderBase.log - The web application [ROOT] appears to have started a thread named [MessageBroker-4] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.8.1/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.8.1/java.util.concurrent.locks.LockSupport.park(LockSupport.java:341)
+ java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block(AbstractQueuedSynchronizer.java:506)
+ java.base@17.0.8.1/java.util.concurrent.ForkJoinPool.unmanagedBlock(ForkJoinPool.java:3465)
+ java.base@17.0.8.1/java.util.concurrent.ForkJoinPool.managedBlock(ForkJoinPool.java:3436)
+ java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1623)
+ java.base@17.0.8.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1177)
+ java.base@17.0.8.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.8.1/java.lang.Thread.run(Thread.java:833)
+2023-10-24 12:35:17.764  WARN   WebappClassLoaderBase.log - The web application [ROOT] appears to have started a thread named [MessageBroker-6] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.8.1/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.8.1/java.util.concurrent.locks.LockSupport.park(LockSupport.java:341)
+ java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block(AbstractQueuedSynchronizer.java:506)
+ java.base@17.0.8.1/java.util.concurrent.ForkJoinPool.unmanagedBlock(ForkJoinPool.java:3465)
+ java.base@17.0.8.1/java.util.concurrent.ForkJoinPool.managedBlock(ForkJoinPool.java:3436)
+ java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1623)
+ java.base@17.0.8.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1177)
+ java.base@17.0.8.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.8.1/java.lang.Thread.run(Thread.java:833)
+2023-10-24 12:35:17.766  WARN   WebappClassLoaderBase.log - The web application [ROOT] appears to have started a thread named [MessageBroker-7] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.8.1/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.8.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.8.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.8.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.8.1/java.lang.Thread.run(Thread.java:833)
+2023-10-24 12:35:17.767  WARN   WebappClassLoaderBase.log - The web application [ROOT] appears to have started a thread named [MessageBroker-11] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.8.1/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.8.1/java.util.concurrent.locks.LockSupport.park(LockSupport.java:341)
+ java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block(AbstractQueuedSynchronizer.java:506)
+ java.base@17.0.8.1/java.util.concurrent.ForkJoinPool.unmanagedBlock(ForkJoinPool.java:3465)
+ java.base@17.0.8.1/java.util.concurrent.ForkJoinPool.managedBlock(ForkJoinPool.java:3436)
+ java.base@17.0.8.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1623)
+ java.base@17.0.8.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1177)
+ java.base@17.0.8.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.8.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.8.1/java.lang.Thread.run(Thread.java:833)
+2023-10-24 12:35:17.768  INFO   Http11NioProtocol.log - Stopping ProtocolHandler ["http-nio-8080"]
+2023-10-24 12:35:17.771  INFO   Http11NioProtocol.log - Destroying ProtocolHandler ["http-nio-8080"]
+2023-10-24 12:35:17.779  INFO   HikariDataSource.close - HikariPool-1 - Shutdown initiated...
+2023-10-24 12:35:17.784  INFO   HikariDataSource.close - HikariPool-1 - Shutdown completed.

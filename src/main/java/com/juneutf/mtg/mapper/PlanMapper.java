@@ -43,7 +43,7 @@ public interface PlanMapper {
      */
 	ArrayList<JobModel> selectPlanEdit(int id);
 	/**
-     * 公開担当者 JobModel オブジェクトを取得します。
+     * 共有担当者 JobModel オブジェクトを取得します。
      *
      * @param id 取得する JobModel の ID
      * @return ID に対応する JobModel オブジェクトのリスト

@@ -29,6 +29,13 @@ CREATE TABLE USER_INFOR (
     PUBLICID int NOT NULL,
     STATUS VARCHAR(10)
 );
+ 
+
+ログイン情報
+ユーザー名：　kanrisya
+パスワード： 12345678
+権限：　ADMIN  
+
 
 INSERT 
 INTO user_infor( 
@@ -40,10 +47,7 @@ INTO user_infor(
     , status
     ,publicid
 ) 
-ログイン情報
-ユーザー名：　kanrisya
-パスワード： 12345678
-権限：　ADMIN
+
 VALUES ( 
     'kanrisya'
     , '管理者'
