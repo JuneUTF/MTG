@@ -103,13 +103,13 @@ function registeruser(tableName) {
   	<div id="textEdit-error" class="text-danger  mt-1">　</div>
   	<label for="textEdit" class="form-label">名前：</label>
 	<input type="text" class="form-control mt-2" id="fullname" name="fullname"  placeholder="名前を入力ください。" required>
-	<label for="textEdit" class="form-label">公開：</label>
-	<select class="form-select mt-2" aria-label="Default select example" name="publicid">
-		<option value="1">公開</option>
-		<option value="0">非常</option>
+	<label for="textEdit" class="form-label">使用範囲：</label>
+	<select class="form-select" aria-label="Default select example" name="publicid">
+		<option value="1">共有</option>
+		<option value="0">個別</option>
 	</select>
-	<label for="textEdit" class="form-label">権限：</label>
-	<select class="form-select mt-2" aria-label="Default select example" name="role">
+	<label for="textEdit" class="form-label mt-2">権限：</label>
+	<select class="form-select" aria-label="Default select example" name="role">
 		<option value="USER">一般</option>
 		<option value="ADMIN">管理者</option>
 	</select>
@@ -190,11 +190,11 @@ function isValidEmail(email) {
 function editUser(id,fullname,publicid,role){  
   let publicIDHTML;
   if(publicid == 0){
-    publicIDHTML = `<option value="0">非常</option>
-		                <option value="1">公開</option>`
+    publicIDHTML = `<option value="0">個別</option>
+		                <option value="1">共有</option>`
   }else{
-    publicIDHTML = `<option value="1">公開</option>
-                    <option value="0">非常</option>`
+    publicIDHTML = `<option value="1">共有</option>
+                    <option value="0">個別</option>`
   }
   let roleHTML;
   if(role == "ADMIN"){
@@ -210,12 +210,12 @@ function editUser(id,fullname,publicid,role){
   <div class="modal-body">
   <label for="textEdit" class="form-label">名前：</label>
 	<input type="text" class="form-control" id="fullname" name="fullname" value="${fullname}" required>
-  <label for="textEdit" class="form-label">公開：</label>
-	<select class="form-select mt-2" aria-label="Default select example" name="publicid">
+  <label for="textEdit" class="form-label　mt-2">使用範囲：</label>
+	<select class="form-select" aria-label="Default select example" name="publicid">
 		`+publicIDHTML+`
 	</select>
-  <label for="textEdit" class="form-label">権限：</label>
-  <select class="form-select mt-2" aria-label="Default select example" name="role">
+  <label for="textEdit" class="form-label mt2">権限：</label>
+  <select class="form-select" aria-label="Default select example" name="role">
 		`+roleHTML+`
 	</select>
   </div>
