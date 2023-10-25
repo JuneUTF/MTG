@@ -85,7 +85,6 @@ function registerOperation(tableName) {
 	<div id="msgcheck"></div>
 	<form action="/ad/operation/reg?tableName=${tableName}" method="post">
   <div class="modal-body">
-	<label for="textEdit" class="form-label">担当者：</label>
 	<input type="text" class="form-control" id="textEdit" name="textEdit"  placeholder="内容を入力ください。" required>
   </div>
   <div class="modal-footer"><button type="button" class="btn btn-secondary" onclick="hiddenFormHTML()" data-dismiss="modal">Cancel</button>
