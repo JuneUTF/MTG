@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>【K＆Kソフト】会議室予約アカウント登録完了のお知らせ</title>
+</head>
+<body>
+  <h1>会議室予約アカウント登録完了</h1>
+    <p>こんにちは、<span th:text="${fullname}"></span>,</p>
+    <p>アカウントの登録が正常に完了しました。以下はあなたのアカウント情報です:</p>
+    <ul style="font-weight: bold">
+        <li style="color: red">ユーザー名: <span th:text="${username}"></span></li>
+        <li style="color: red">パスワード: <span th:text="${password}"></span></li>
+    </ul>
+    <p>ご注意：ユーザー名またはメールアドレスでログインすることができます。</p>
+    <p>会議室予約システムをご利用いただき、ありがとうございます。</p>
+    <p>ご質問やお困りの点がある場合は、お気軽にお問い合わせください。</p>
+    <p>どうぞよろしくお願いいたします。</p>
+    <hr>
+    <p style="color:#4F6367;">このメールは自動送信されています。お心当たりのない場合や、誤って受信された場合は、無視していただいても結構です。</p>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.juneutf.mtg.mapper.APIMapper">
+
+	<select id="selectAPICharge" resultType="com.juneutf.mtg.model.APIChargeModel">
+    SELECT id,fullname AS charge FROM user_infor WHERE status = '使用中' ORDER BY CASE WHEN id = #{id} THEN 0 ELSE 1 END, id ASC; ;
+	</select>
+	<select id="selectAPIPurpose" resultType="com.juneutf.mtg.model.APIPurposeModel">
+    SELECT id,purpose FROM purpose WHERE status = '使用中' ORDER BY CASE WHEN id = #{id} THEN 0 ELSE 1 END, id ASC;;
+	</select>
+
+</mapper>

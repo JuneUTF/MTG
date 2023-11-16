@@ -1,0 +1,77 @@
+html,
+body,
+.intro {
+  height: 100%;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+table td,
+table th {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size:20px;
+  border-right: 1px solid #fff;
+}
+
+thead th {
+  color: #FFF;
+}
+
+.card {
+  border-radius: .5rem;
+}
+
+.table-scroll {
+  position: relative;
+  height: 75vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  
+}
+
+.table-scroll table thead th {
+  font-size: 1.25rem;
+}
+thead {
+  top: 0;
+  position: sticky;
+}
+@-webkit-keyframes my {
+  0% { color: red; } 
+  50% { color: yellow;  } 
+  100% { color: red;  } 
+}
+@-moz-keyframes my { 
+  0% { color: red;  } 
+  50% { color: yellow;  }
+  100% { color: red;  } 
+}
+@-o-keyframes my { 
+  0% { color: red; } 
+  50% { color: yellow; } 
+  100% { color: red;  } 
+}
+@keyframes my { 
+  0% { color: red;  } 
+  50% { color: yellow;  }
+  100% { color: red;  } 
+}
+.yoyaku {
+	padding: 5px;
+	font-weight: bold;
+	border-radius: 5px;
+	background-color:#198754;
+  	-webkit-animation: my 700ms infinite;
+  	-moz-animation: my 700ms infinite; 
+  	-o-animation: my 700ms infinite; 
+  	animation: my 700ms infinite;
+}
+#msgcheck{
+	color:red;
+	width:100%;
+	text-align: center;
+}

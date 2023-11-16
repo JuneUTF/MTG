@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.juneutf.mtg.mapper.JobMapper">
+
+	<select id="selectJobById" resultType="com.juneutf.mtg.model.JobModel">
+	SELECT plan.ID, plan.date_day, plan.date_plan, plan.time_start, plan.time_end, plan.charge AS chargeId, plan.purpose AS purposeId, user_infor.fullname AS charge, purpose.purpose AS purpose, plan.status
+	FROM plan
+	JOIN user_infor ON plan.charge = user_infor.ID
+	JOIN purpose ON plan.purpose = purpose.ID
+	WHERE plan.ID = #{id};
+
+	</select>
+	<update id="updateJobById" parameterType="com.juneutf.mtg.model.JobModel" >
+	UPDATE plan SET
+    date_day = #{date_day}
+    , date_plan = TO_DATE(#{date_plan}, 'YYYY-MM-DD')
+    , time_start = #{time_start}
+    , time_end = #{time_end}
+    , purpose = #{purposeId}
+    , charge = #{chargeId}
+    , status = #{status}
+	WHERE
+    id = #{id}
+	
+	</update>
+	
+	<update id="deleteJobById" parameterType="com.juneutf.mtg.model.JobModel">
+	UPDATE plan SET status = 'キャンセル' WHERE id = #{id}
+	</update>
+	<update id="restoreJobById" parameterType="com.juneutf.mtg.model.JobModel">
+	UPDATE plan SET status = '予約中' WHERE id = #{id}
+	</update>
+	
+</mapper>
