@@ -1,3 +1,4 @@
+let ArrayJob = new Array();
 // 内容入力フィールドを取得
 const purpose = document.getElementById("purpose");
 // 内容情報を取得する非同期関数
@@ -84,9 +85,8 @@ function compareDates() {
 function checkDay() {
     if (compareDates()) {//正しい場合
         msg.textContent = '　';
-        EventTimeStart();
         setDay();
-        checkTimeTowDay();
+        checkInput();
         btn.disabled = false;//送信ボタンを有効化
     } else {
         msg.textContent = '過去の日付を選択しないでください。';
@@ -206,6 +206,7 @@ function callAPI() {
             ArrayJob = data;
         })
 }
+callAPI();
 /**
  * 営業時間の検証、営業時間以外場合はエラーメッセージを表示されます。
  * @param {string} str 時間（hh:mm）
