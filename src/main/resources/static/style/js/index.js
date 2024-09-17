@@ -122,6 +122,7 @@ function callAPI() {
       console.error("エラー: " + error.message);
     });
 }
+callAPI();
 //リフレッシュボタン処理
 const refresh = document.getElementById("refresh");
 refresh.addEventListener('click', () => { callAPI() });
@@ -129,5 +130,3 @@ refresh.addEventListener('click', () => { callAPI() });
 setInterval(function () {
   callAPI(); // ページをリロード
 }, 600000); // 10分 = 10 * 60 * 1000ミリ秒
-
-

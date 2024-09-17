@@ -1,3 +1,4 @@
+
 const showForm = document.getElementById("showForm");
 let booleanID = 0;
 let showID = false;
@@ -68,7 +69,7 @@ function showFormEdit(id, textEdit, text, tableName) {
 	<div id="msgcheck"></div>
 	<form action="/kk/operation/edit?id=${id}&tableName=${tableName}" method="post">
   <div class="modal-body">
-	<label for="password" class="form-label">番号: <strong>${id}</strong> - ${text}</label>
+	<label for="textEdit" class="form-label">番号: <strong>${id}</strong> - ${text}</label>
 	<input type="text" class="form-control" id="textEdit" name="textEdit" value="${textEdit}" placeholder="パスワードを入力ください。" required>
   </div>
   <div class="modal-footer"><button type="button" class="btn btn-secondary" onclick="hiddenFormHTML()" data-dismiss="modal">Cancel</button>
@@ -86,7 +87,7 @@ function registerOperation(tableName) {
 	<div id="msgcheck"></div>
 	<form action="/kk/operation/reg?tableName=${tableName}" method="post">
   <div class="modal-body">
-	<label for="password" class="form-label">${tableName == "purpose" ? "内容" : "担当者"}：</label>
+	<label for="textEdit" class="form-label">${tableName == "purpose" ? "内容" : "担当者"}：</label>
 	<input type="text" class="form-control" id="textEdit" name="textEdit"  placeholder="${tableName == "purpose" ? "内容" : "担当者"}を入力ください。" required>
   </div>
   <div class="modal-footer"><button type="button" class="btn btn-secondary" onclick="hiddenFormHTML()" data-dismiss="modal">Cancel</button>

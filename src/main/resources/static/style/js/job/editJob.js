@@ -69,7 +69,7 @@ function setDay() {
     date_day.value = dayOfWeek;
 }
 /**
- * 過去の選択日付と現在の日付を比較する関数 // kiểm tra xem ngày đang chọn quá ở quá khứ không.
+ * 過去の選択日付と現在の日付を比較する関数 
  * @returns {boolean} 過去の日付が現在の日付以下である場合はtrue、それ以外の場合はfalseを返します。
  */
 function compareDates() {

@@ -1,15 +1,20 @@
 package com.juneutf.mtg.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.juneutf.mtg.model.APIMessengerModel;
 import com.juneutf.mtg.model.JobModel;
 import com.juneutf.mtg.model.SearchModel;
 import com.juneutf.mtg.service.JobService;
@@ -119,9 +124,42 @@ public class JobController {
             // Websocket行動
             ArrayList<JobModel> job = planService.selectPlan();
             messagingTemplate.convertAndSend("/job/notification", job);
-            return "redirect:/kk/job?id=" + jobModel.getId();
+            return "redirect:/kk/getjob?id=" + jobModel.getId();
         } else {
             log.warn("編集予約内容機能はエラーが発生します。");
+            return "error";
+        }
+    }
+    /**
+     * 予約内容画面を取得するGETメソッド。
+     *
+     * @param model モデルオブジェクト
+     * @param jobModel 予約モデル
+     * @return 予約内容画面のテンプレート名
+     */
+    @GetMapping("/getjob")
+    public String getJobID(Model model, JobModel jobModel) {
+        try {
+                // IDがある場合、IDで予約内容を取得
+                ArrayList<JobModel> job = jobService.selectJobById(jobModel.getId());
+                // 取得した予約内容の比較
+                // 予約内容がある
+                if (job.size() == 1) {
+                	SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd");
+                    SimpleDateFormat outputFormat = new SimpleDateFormat("yyyy年MM月dd日");
+                    Date datecover = inputFormat.parse(job.get(0).getDate_plan());
+                    job.get(0).setDate_day(outputFormat.format(datecover) + " (" + job.get(0).getDate_day() + ")");
+                    // 内容を画面に渡す
+                    model.addAttribute("job", job);
+                    return "job/getjob";
+                } else {
+                    // 予約内容がない場合はエラー画面を表示
+                    log.warn("ID:" + jobModel.getId() + "として予約内容が取得できません。");
+                    return "error";
+                
+            }
+        } catch (Exception e) {
+            log.warn("エラーが発生しました。");
             return "error";
         }
     }
@@ -171,24 +209,22 @@ public class JobController {
             return "redirect:/kk/job?id=" + jobModel.getId();
         }
     }
-
     /**
-     * 予約内容の検索を実行するPOSTメソッド。
+     * 予約内容を検索するPOSTメソッド。
      *
-     * @param searchModel 検索モデル
-     * @param model モデルオブジェクト
-     * @return 検索結果画面のテンプレート名またはエラーページのテンプレート名
+     * @param SearchModel 検索モデル
+     * @param APIMessengerModel メッセージモデル
+     * @return 予約内容リストまたはエラーメッセージ
      */
-    @PostMapping("job/search")
-    public String postSearch(SearchModel searchModel, Model model) {
+    @PostMapping("job/searchAPI")
+    public ResponseEntity<?> postSearchAPI(@RequestBody SearchModel searchModel,APIMessengerModel apiMessengerModel) {
         try {
-            ArrayList<JobModel> job = searchService.selectSearch(searchModel);
-            model.addAttribute("job", job);
-            model.addAttribute("searchModel", searchModel);
-            return "job/search";
-        } catch (Exception e) {
-            log.warn("検索機能はエラーが発生します。");
-            return "error";
-        }
+			ArrayList<JobModel> job = searchService.selectSearch(searchModel);
+			return ResponseEntity.status(200).body(job);
+		} catch (Exception e) {
+			apiMessengerModel.setIsData("false");
+			log.warn("検索機能はエラーが発生します。");
+			return ResponseEntity.status(400).body(apiMessengerModel);
+		}
     }
 }
